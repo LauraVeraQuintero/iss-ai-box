@@ -1,21 +1,10 @@
-import {StyledButton} from "./styles";
-import {ButtonProps} from "../types";
+import {Button as MuiButton, ButtonProps} from "@mui/material";
+import React from "react";
 
-export const Button = ({
-  color,
-  fixedWidth,
-  children,
-  onClick,
-  noBorder,
-  fontColor,
-}: ButtonProps) => (
-  <StyledButton
-    color={color}
-    fixedWidth={fixedWidth}
-    onClick={onClick}
-    noBorder={noBorder}
-    fontColor={fontColor}
-  >
-    {children}
-  </StyledButton>
-);
+export const Button: React.FC<ButtonProps> = ({children, ...props}) => {
+  return (
+    <MuiButton {...props} sx={{borderRadius: "10px"}}>
+      {children}
+    </MuiButton>
+  );
+};

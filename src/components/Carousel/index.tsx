@@ -1,12 +1,8 @@
 import * as React from "react";
 import {
   DesktopImages,
-  LeftImage,
   MobileImages,
   MobileStepperAndImgWrapper,
-  RightImage,
-  RightImageDesktop,
-  LeftImageDesktop,
   DesktopWrapper,
   Wrapper,
 } from "./styles";

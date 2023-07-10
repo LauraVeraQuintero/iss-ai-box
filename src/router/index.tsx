@@ -1,11 +1,9 @@
-import {Suspense} from "react";
+import React, {Suspense} from "react";
 import {Routes, Route} from "react-router-dom";
 import routes from "./config";
 import {Styles} from "../styles/styles";
-import {ImageBackground} from "../components/ImageBackground";
-import {RightImage, LeftImage} from "./styles";
 
-const Router = () => {
+const Router: React.FC = () => {
   return (
     <Suspense fallback={null}>
       <Styles />

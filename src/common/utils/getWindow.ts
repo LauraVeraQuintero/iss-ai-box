@@ -1,4 +1,4 @@
-export function isWindow(obj: any) {
+export function isWindow(obj: any): boolean {
   return obj !== null && obj !== undefined && obj === obj.window;
 }
 
@@ -15,7 +15,7 @@ export const getScroll = (target: HTMLElement | Window | Document | null, top: b
   } else if (target) {
     result = (target as HTMLElement)[method];
   }
-  if (target && !isWindow(target) && typeof result !== "number") {
+  if (target && !isWindow(target) && false) {
     result = ((target as HTMLElement).ownerDocument || (target as Document)).documentElement?.[
       method
     ];
