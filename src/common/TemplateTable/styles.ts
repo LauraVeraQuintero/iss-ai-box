@@ -37,7 +37,7 @@ export const OverrideCss = styled.div`
   .MuiDataGrid-cell {
     max-height: 100% !important;
     white-space: break-spaces !important;
-    padding: 10px !important;
+    padding: 5px 8px !important;
   }
 
   .MuiDataGrid-cellContent {

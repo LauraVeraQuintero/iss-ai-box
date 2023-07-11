@@ -1,5 +1,5 @@
 import * as React from "react";
-import {DataGrid, GridColDef, GridRowSpacingParams} from "@mui/x-data-grid";
+import {DataGrid, GridColDef, GridRowSelectionModel, GridRowSpacingParams} from "@mui/x-data-grid";
 import {Wrapper, OverrideCss} from "./styles";
 
 type Props = {
@@ -7,6 +7,7 @@ type Props = {
   data: any;
   tableHeight?: number;
   checkboxSelection?: boolean;
+  onRowSelectionModelChange?: (value: GridRowSelectionModel) => void;
 };
 
 export const TemplateTable: React.FC<Props> = ({
@@ -14,6 +15,7 @@ export const TemplateTable: React.FC<Props> = ({
   data,
   tableHeight = 400,
   checkboxSelection,
+  onRowSelectionModelChange,
 }) => {
   return (
     <OverrideCss>
@@ -24,10 +26,11 @@ export const TemplateTable: React.FC<Props> = ({
           hideFooter
           disableRowSelectionOnClick
           disableColumnMenu
-          rowHeight={60}
+          rowHeight={40}
           showColumnVerticalBorder={false}
           showCellVerticalBorder={false}
           checkboxSelection={checkboxSelection}
+          onRowSelectionModelChange={onRowSelectionModelChange}
         />
       </Wrapper>
     </OverrideCss>
