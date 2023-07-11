@@ -2,30 +2,31 @@ import React from "react";
 
 import ScrollToTop from "common/ScrollToTop";
 import {StepperBox} from "components/StepperBox";
-import {FormExample} from "components/forms/ProjectInfoForm";
+import {ProjectInfoForm} from "components/forms/ProjectInfoForm";
+import {CamerasForm} from "components/forms/CamerasForm";
 const Home: React.FC = () => {
   return (
     <div>
       <StepperBox
         steps={[
           {
-            label: "Step 1",
-            content: <FormExample />,
+            label: "Project Information",
+            content: <ProjectInfoForm />,
           },
           {
-            label: "Step 2",
-            content: <p>Content for Step 2</p>,
+            label: "Camera Information",
+            content: <CamerasForm />,
           },
           {
-            label: "Step 3",
+            label: "Features",
             content: <p>Content for Step 3</p>,
           },
           {
-            label: "Step 4",
+            label: "Add ons",
             content: <p>Content for Step 4</p>,
           },
           {
-            label: "Step 5",
+            label: "Report",
             content: <p>Content for Step 5</p>,
           },
         ]}

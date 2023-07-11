@@ -1,14 +1,4 @@
-import * as React from "react";
-
-export type FormField<T> = {
-  label: string;
-  name: T;
-  required: boolean;
-  type: React.InputHTMLAttributes<unknown>["type"];
-  fullWidth?: boolean;
-};
-
-export type FormValues = {
+export type ProjectFormValues = {
   projectName: string;
   colleagueName: string;
   location: string;
@@ -26,4 +16,4 @@ export type FormValues = {
   dateNeeded: Date;
 };
 
-export type FormValuesKeys = keyof FormValues;
+export type FormValuesKeys = keyof ProjectFormValues;

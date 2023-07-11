@@ -2,21 +2,22 @@ import React from "react";
 import {useForm} from "react-hook-form";
 import {Typography, Button, Container, Divider, Grid} from "@mui/material";
 
-import {ProjectFormValues} from "./type";
-import {FIELDS_SECTIONS} from "./config";
 import {FormFieldItem} from "common/FormFieldItem";
 
-export const ProjectInfoForm = () => {
-  const {register, handleSubmit, setValue, formState} = useForm<ProjectFormValues>();
+import {CameraFormValues} from "./type";
+import {FIELDS_SECTIONS} from "./config";
 
-  const onSubmit = (data: ProjectFormValues) => {
+export const CamerasForm = () => {
+  const {register, handleSubmit, setValue, formState} = useForm<CameraFormValues>();
+
+  const onSubmit = (data: CameraFormValues) => {
     console.log(data);
   };
 
   return (
     <Container style={{marginTop: "60px", maxWidth: "700px"}}>
       <Typography variant="h5" sx={{mb: 5}} justifyContent="center">
-        Project Information
+        Camera Information
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         {FIELDS_SECTIONS.map(({sectionLabel, fields}) => (

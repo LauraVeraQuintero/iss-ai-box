@@ -1,4 +1,5 @@
-import {FormField, FormValuesKeys} from "./type";
+import {FormValuesKeys} from "./type";
+import {FormField} from "models/forms";
 
 const FORM_FIELDS_1: Array<FormField<FormValuesKeys>> = [
   {label: "Project Name", name: "projectName", required: true, type: "string"},
@@ -9,7 +10,7 @@ const FORM_FIELDS_1: Array<FormField<FormValuesKeys>> = [
     label: "Colleague Email",
     name: "colleagueEmail",
     required: true,
-    type: "string",
+    type: "email",
     fullWidth: true,
   },
 ];
@@ -19,7 +20,7 @@ const FORM_FIELDS_2: Array<FormField<FormValuesKeys>> = [
   {label: "End User State", name: "endUserState", required: true, type: "string"},
   {label: "End User Contact Name", name: "endUserContactName", required: true, type: "string"},
   {label: "End User Contact Phone", name: "endUserContactPhone", required: true, type: "string"},
-  {label: "End User Email", name: "endUserEmail", required: true, type: "string", fullWidth: true},
+  {label: "End User Email", name: "endUserEmail", required: true, type: "email", fullWidth: true},
 ];
 
 const FORM_FIELDS_3: Array<FormField<FormValuesKeys>> = [
