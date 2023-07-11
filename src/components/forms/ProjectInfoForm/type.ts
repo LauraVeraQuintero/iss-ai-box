@@ -5,6 +5,7 @@ export type FormField<T> = {
   name: T;
   required: boolean;
   type: React.InputHTMLAttributes<unknown>["type"];
+  fullWidth?: boolean;
 };
 
 export type FormValues = {

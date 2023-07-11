@@ -7,6 +7,10 @@ export const StepLabel = styled(MuiStepLabel)`
 
 export const Paper = styled(MuiPaper)`
   border-radius: 12px !important;
-  margin: 20px;
+  margin: 40px 60px;
   padding: 20px;
+
+  @media all and (max-width: 700px) {
+    margin: 30px;
+  }
 `;

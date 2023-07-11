@@ -1,3 +1,4 @@
+import * as moment from "moment";
 import React from "react";
 import {useForm} from "react-hook-form";
 import {
@@ -10,14 +11,16 @@ import {
   Divider,
   Grid,
 } from "@mui/material";
+import {DatePicker} from "@mui/x-date-pickers/DatePicker";
 import {FormField, FormValues, FormValuesKeys} from "./type";
 import {SwitchWrapper} from "./styles";
-import {FORM_FIELDS_1, FORM_FIELDS_2, FORM_FIELDS_3, FORM_FIELDS_4} from "./config";
+import {FIELDS_SECTIONS} from "./config";
 
 export const FormExample = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: {errors},
   } = useForm<FormValues>();
 
@@ -36,15 +39,14 @@ export const FormExample = () => {
 
     if (type === "date") {
       return (
-        <TextField
+        <DatePicker
           label={label}
-          type={type}
-          variant="filled"
-          required
-          fullWidth
-          focused
-          {...register(name, {required})}
-          error={!!errors[name]}
+          onChange={(value: moment.Moment | null) => {
+            setValue(name, value?.toDate() ?? Date());
+          }}
+          slotProps={{
+            textField: {fullWidth: true, variant: "filled", ...register(name, {required})},
+          }}
         />
       );
     }
@@ -54,7 +56,6 @@ export const FormExample = () => {
         label={label}
         type={type}
         variant="filled"
-        required
         fullWidth
         {...register(name, {required})}
         error={!!errors[name]}
@@ -63,54 +64,28 @@ export const FormExample = () => {
   };
 
   return (
-    <Container maxWidth="sm" style={{marginTop: "60px"}}>
-      <Typography variant="h5" sx={{mb: 5}}>
+    <Container style={{marginTop: "60px", maxWidth: "700px"}}>
+      <Typography variant="h5" sx={{mb: 5}} justifyContent="center">
         Project Information
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Typography>Section 1</Typography>
-        <Grid container spacing={5}>
-          {FORM_FIELDS_1.map((data, index) => (
-            <Grid key={index} item xs={12} md={6}>
-              {getFieldElement(data)}
+        {FIELDS_SECTIONS.map(({sectionLabel, fields}) => (
+          <div key={sectionLabel}>
+            <Typography variant="body1" marginBottom="10px">
+              {sectionLabel}
+            </Typography>
+            <Grid container spacing={5}>
+              {fields.map((data, index) => (
+                <Grid key={index} item xs={12} md={data.fullWidth ? 12 : 6}>
+                  {getFieldElement(data)}
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
-        <Divider variant="middle" sx={{margin: "20px 0"}} />
-        <div>
-          <Typography>Section 2</Typography>
-          <Grid container spacing={5}>
-            {FORM_FIELDS_2.map((data, index) => (
-              <Grid key={index} item xs={12} md={6}>
-                {getFieldElement(data)}
-              </Grid>
-            ))}
-          </Grid>
-        </div>
-        <Divider variant="middle" sx={{margin: "20px 0"}} />
-        <div>
-          <Typography>Section 3</Typography>
-          <Grid container spacing={5}>
-            {FORM_FIELDS_3.map((data, index) => (
-              <Grid key={index} item xs={12} md={6}>
-                {getFieldElement(data)}
-              </Grid>
-            ))}
-          </Grid>
-        </div>
-        <Divider variant="middle" sx={{margin: "20px 0"}} />
-        <div>
-          <Typography>Section 4</Typography>
-          <Grid container spacing={5}>
-            {FORM_FIELDS_4.map((data, index) => (
-              <Grid key={index} item xs={12} md={6}>
-                {getFieldElement(data)}
-              </Grid>
-            ))}
-          </Grid>
-        </div>
+            <Divider variant="middle" sx={{margin: "20px 0"}} />
+          </div>
+        ))}
         <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
-          Submit
+          Next
         </Button>
       </form>
     </Container>
