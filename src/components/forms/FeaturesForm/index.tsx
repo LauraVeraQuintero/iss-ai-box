@@ -2,7 +2,7 @@ import React from "react";
 import {TemplateTable} from "common/TemplateTable";
 import {ITEMS, TABLE_COLUMNS} from "./config";
 import {TableWrapper} from "./styles";
-import {Typography} from "@mui/material";
+import {Typography, Container} from "@mui/material";
 import {GridRowSelectionModel} from "@mui/x-data-grid";
 
 export const FeaturesForm: React.FC = () => {
@@ -20,7 +20,7 @@ export const FeaturesForm: React.FC = () => {
   };
 
   return (
-    <TableWrapper>
+    <Container style={{marginTop: "60px", maxWidth: "900px"}}>
       <Typography variant="h5" sx={{mb: 5}} justifyContent="center">
         Features Information
       </Typography>
@@ -34,6 +34,6 @@ export const FeaturesForm: React.FC = () => {
         onRowSelectionModelChange={onSelectionChange}
         checkboxSelection
       />
-    </TableWrapper>
+    </Container>
   );
 };
