@@ -4,6 +4,8 @@ import ScrollToTop from "common/ScrollToTop";
 import {StepperBox} from "components/StepperBox";
 import {ProjectInfoForm} from "components/forms/ProjectInfoForm";
 import {CamerasForm} from "components/forms/CamerasForm";
+import {AddOnsForm} from "components/forms/AddOnsForm";
+import {FeaturesForm} from "../../components/forms/FeaturesForm";
 const Home: React.FC = () => {
   return (
     <div>
@@ -19,11 +21,11 @@ const Home: React.FC = () => {
           },
           {
             label: "Features",
-            content: <p>Content for Step 3</p>,
+            content: <FeaturesForm />,
           },
           {
             label: "Add ons",
-            content: <p>Content for Step 4</p>,
+            content: <AddOnsForm />,
           },
           {
             label: "Report",

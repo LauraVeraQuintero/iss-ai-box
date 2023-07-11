@@ -1,6 +1,6 @@
 import React from "react";
 // import {UseFormReturn} from "react-hook-form";
-import {Checkbox, FormControlLabel, TextField, MenuItem} from "@mui/material";
+import {Checkbox, FormControlLabel, TextField, MenuItem, FormHelperText} from "@mui/material";
 import {DatePicker} from "@mui/x-date-pickers/DatePicker";
 import * as moment from "moment/moment";
 
@@ -12,7 +12,7 @@ type Props = {
   fieldProps: any;
 };
 export const FormFieldItem = ({
-  fieldProps: {type, name, required, label, options},
+  fieldProps: {type, name, required, label, options, description, defaultValue},
   formProps: {
     register,
     formState: {errors},
@@ -23,6 +23,7 @@ export const FormFieldItem = ({
     return (
       <SwitchWrapper>
         <FormControlLabel {...register(name, {required})} control={<Checkbox />} label={label} />
+        <FormHelperText>{description}</FormHelperText>
       </SwitchWrapper>
     );
   } else if (type === "date") {
@@ -42,6 +43,7 @@ export const FormFieldItem = ({
       <TextField
         label={label}
         variant="filled"
+        defaultValue={defaultValue}
         fullWidth
         select
         {...register(name, {required})}
