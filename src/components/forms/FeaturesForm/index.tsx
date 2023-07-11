@@ -1,7 +1,6 @@
 import React from "react";
 import {TemplateTable} from "common/TemplateTable";
 import {ITEMS, TABLE_COLUMNS} from "./config";
-import {TableWrapper} from "./styles";
 import {Typography, Container} from "@mui/material";
 import {GridRowSelectionModel} from "@mui/x-data-grid";
 

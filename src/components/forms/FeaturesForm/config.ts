@@ -1,15 +1,6 @@
 import {ProductItem} from "models/ProductItem";
 import {GridColDef} from "@mui/x-data-grid";
 
-export const getTableDate = (items: ProductItem[]) => {
-  items.map(({id, points, partId, price, name}) => ({
-    id: id,
-    name: name,
-    partId: partId,
-    price: price,
-  }));
-};
-
 export const TABLE_COLUMNS: GridColDef[] = [
   {field: "id", headerName: "ID", width: 80, sortable: false},
   {field: "name", headerName: "Name", width: 400, sortable: true},
