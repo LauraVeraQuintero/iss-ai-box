@@ -2,12 +2,12 @@ import Home from "pages/Home";
 
 const routes = [
   {
-    path: "/home",
+    path: "iss-aibox-ui/home",
     exact: true,
     component: <Home />,
   },
   {
-    path: "/",
+    path: "iss-aibox-ui/",
     exact: true,
     component: <Home />,
   },
