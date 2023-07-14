@@ -1,11 +1,17 @@
 import {ProductItem} from "models/ProductItem";
-import {GridColDef} from "@mui/x-data-grid";
+import {GridColDef, GridRenderCellParams} from "@mui/x-data-grid";
+import {formatNumberAsCurrency} from "./helpers";
+const priceFormat = (params: GridRenderCellParams) => {
+  const price: string = params.value;
+
+  return formatNumberAsCurrency(Number(price));
+};
 
 export const TABLE_COLUMNS: GridColDef[] = [
   {field: "id", headerName: "ID", width: 80, sortable: false},
   {field: "name", headerName: "Name", width: 400, sortable: true},
   {field: "partId", headerName: "Part #", width: 150, sortable: true},
-  {field: "price", headerName: "Price", width: 250, sortable: true},
+  {field: "price", headerName: "Price", width: 250, sortable: true, renderCell: priceFormat},
 ];
 export const ITEMS: ProductItem[] = [
   {

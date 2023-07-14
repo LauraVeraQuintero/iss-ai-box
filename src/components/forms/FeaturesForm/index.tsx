@@ -3,6 +3,8 @@ import {TemplateTable} from "common/TemplateTable";
 import {ITEMS, TABLE_COLUMNS} from "./config";
 import {Typography, Container} from "@mui/material";
 import {GridRowSelectionModel} from "@mui/x-data-grid";
+import {formatNumberAsCurrency} from "./helpers";
+import {FlexContainer, PriceWrapper} from "./styles";
 
 export const FeaturesForm: React.FC = () => {
   const [price, setPrice] = React.useState<number>(0);
@@ -23,9 +25,19 @@ export const FeaturesForm: React.FC = () => {
       <Typography variant="h5" sx={{mb: 5}} justifyContent="center">
         Features Information
       </Typography>
-      <Typography variant="body1" sx={{mb: 5}} justifyContent="center">
-        Price count $ {price}
-      </Typography>
+      <PriceWrapper>
+        <FlexContainer>
+          <Typography
+            variant="subtitle1"
+            sx={{mr: "10px", color: "black", fontWeight: 500}}
+            justifyContent="center">
+            Total:
+          </Typography>
+          <Typography variant="h6" sx={{color: "black", fontWeight: 600}} justifyContent="center">
+            {formatNumberAsCurrency(price)}
+          </Typography>
+        </FlexContainer>
+      </PriceWrapper>
       <TemplateTable
         data={ITEMS}
         columns={TABLE_COLUMNS}

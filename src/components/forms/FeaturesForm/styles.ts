@@ -6,3 +6,15 @@ export const TableWrapper = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const PriceWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+`;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;

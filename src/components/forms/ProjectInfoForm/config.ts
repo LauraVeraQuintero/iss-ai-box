@@ -26,7 +26,7 @@ const FORM_FIELDS_2: Array<FormField<FormValuesKeys>> = [
 const FORM_FIELDS_3: Array<FormField<FormValuesKeys>> = [
   {label: "Project Manager Name", name: "projectManagerName", required: true, type: "string"},
   {label: "Estimator Name", name: "estimatorName", required: true, type: "string"},
-  {label: "Vertical", name: "vertical", required: true, type: "boolean"},
+  {label: "Vertical", name: "vertical", required: true, type: "string"},
 ];
 
 const FORM_FIELDS_4: Array<FormField<FormValuesKeys>> = [
