@@ -3,15 +3,20 @@ import {useForm} from "react-hook-form";
 import {Typography, Button, Container, Grid} from "@mui/material";
 
 import {FormFieldItem} from "common/FormFieldItem";
+import {useFormContext} from "contexts/FormProvider";
 
 import {AddOnFormValues} from "./type";
 import {FORM_FIELDS} from "./config";
 
 export const AddOnsForm = () => {
-  const {register, handleSubmit, setValue, formState} = useForm<AddOnFormValues>();
+  const {addOnFormValues, setAddOnFormValues} = useFormContext();
+  const {register, handleSubmit, setValue, formState} = useForm<AddOnFormValues>({
+    defaultValues: {...addOnFormValues},
+  });
 
-  const onSubmit = (data: AddOnFormValues) => {
-    console.log(data);
+  const onSubmit = (values: AddOnFormValues) => {
+    setAddOnFormValues(values);
+    // TODO: Move to new step
   };
 
   return (

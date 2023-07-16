@@ -3,15 +3,20 @@ import {useForm} from "react-hook-form";
 import {Typography, Button, Container, Divider, Grid} from "@mui/material";
 
 import {FormFieldItem} from "common/FormFieldItem";
+import {useFormContext} from "contexts/FormProvider";
 
 import {CameraFormValues} from "./type";
 import {FIELDS_SECTIONS} from "./config";
 
 export const CamerasForm = () => {
-  const {register, handleSubmit, setValue, formState} = useForm<CameraFormValues>();
+  const {cameraFormValues, setCameraFormValues} = useFormContext();
+  const {register, handleSubmit, setValue, formState} = useForm<CameraFormValues>({
+    defaultValues: {...cameraFormValues},
+  });
 
-  const onSubmit = (data: CameraFormValues) => {
-    console.log(data);
+  const onSubmit = (values: CameraFormValues) => {
+    setCameraFormValues(values);
+    // TODO: Move to new step
   };
 
   return (

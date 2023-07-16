@@ -5,11 +5,12 @@ import {StepperBox} from "components/StepperBox";
 import {ProjectInfoForm} from "components/forms/ProjectInfoForm";
 import {CamerasForm} from "components/forms/CamerasForm";
 import {AddOnsForm} from "components/forms/AddOnsForm";
-import {FeaturesForm} from "../../components/forms/FeaturesForm";
+import {FeaturesForm} from "components/forms/FeaturesForm";
+import {FormProvider} from "contexts/FormProvider";
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <FormProvider>
       <StepperBox
         steps={[
           {
@@ -35,7 +36,7 @@ const Home: React.FC = () => {
         ]}
       />
       <ScrollToTop />
-    </div>
+    </FormProvider>
   );
 };
 

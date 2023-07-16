@@ -2,15 +2,21 @@ import React from "react";
 import {useForm} from "react-hook-form";
 import {Typography, Button, Container, Divider, Grid} from "@mui/material";
 
+import {FormFieldItem} from "common/FormFieldItem";
+import {useFormContext} from "contexts/FormProvider";
+
 import {ProjectFormValues} from "./type";
 import {FIELDS_SECTIONS} from "./config";
-import {FormFieldItem} from "common/FormFieldItem";
 
 export const ProjectInfoForm = () => {
-  const {register, handleSubmit, setValue, formState} = useForm<ProjectFormValues>();
+  const {projectFormValues, setProjectFormValues} = useFormContext();
+  const {register, handleSubmit, setValue, formState} = useForm<ProjectFormValues>({
+    defaultValues: {...projectFormValues},
+  });
 
-  const onSubmit = (data: ProjectFormValues) => {
-    console.log(data);
+  const onSubmit = (values: ProjectFormValues) => {
+    setProjectFormValues(values);
+    // TODO: Move to new step
   };
 
   return (
