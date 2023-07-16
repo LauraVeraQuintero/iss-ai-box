@@ -3,13 +3,13 @@ import {useForm} from "react-hook-form";
 import {Typography, Button, Container, Divider, Grid} from "@mui/material";
 
 import {FormFieldItem} from "common/FormFieldItem";
-import {useFormContext} from "contexts/FormProvider";
+import {useFormValuesContext} from "contexts/FormValues";
 
 import {ProjectFormValues} from "./type";
 import {FIELDS_SECTIONS} from "./config";
 
 export const ProjectInfoForm = () => {
-  const {projectFormValues, setProjectFormValues} = useFormContext();
+  const {projectFormValues, setProjectFormValues} = useFormValuesContext();
   const {register, handleSubmit, setValue, formState} = useForm<ProjectFormValues>({
     defaultValues: {...projectFormValues},
   });

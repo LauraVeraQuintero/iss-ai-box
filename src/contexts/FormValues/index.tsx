@@ -6,7 +6,7 @@ import {FeaturesFormValues} from "components/forms/FeaturesForm/types";
 import {ProjectFormValues} from "components/forms/ProjectInfoForm/type";
 import {defaultErrorAction} from "contexts/helpers";
 
-export type FormState = {
+export type FormValuesState = {
   projectFormValues?: ProjectFormValues;
   setProjectFormValues: React.Dispatch<React.SetStateAction<ProjectFormValues | undefined>>;
   cameraFormValues?: CameraFormValues;
@@ -17,7 +17,7 @@ export type FormState = {
   setAddOnFormValues: React.Dispatch<React.SetStateAction<AddOnFormValues | undefined>>;
 };
 
-export const FormContext = createContext<FormState>({
+export const FormValuesContext = createContext<FormValuesState>({
   projectFormValues: undefined,
   setProjectFormValues: defaultErrorAction,
   cameraFormValues: undefined,
@@ -28,21 +28,14 @@ export const FormContext = createContext<FormState>({
   setAddOnFormValues: defaultErrorAction,
 });
 
-export const FormProvider: React.FC<React.PropsWithChildren> = ({children}) => {
+export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({children}) => {
   const [projectFormValues, setProjectFormValues] = useState<ProjectFormValues>();
   const [cameraFormValues, setCameraFormValues] = useState<CameraFormValues>();
   const [featuresFormValues, setFeaturesFormValues] = useState<FeaturesFormValues>();
   const [addOnFormValues, setAddOnFormValues] = useState<AddOnFormValues>();
 
-  console.log("FormContext", {
-    projectFormValues,
-    cameraFormValues,
-    featuresFormValues,
-    addOnFormValues,
-  });
-
   return (
-    <FormContext.Provider
+    <FormValuesContext.Provider
       value={{
         projectFormValues,
         setProjectFormValues,
@@ -54,8 +47,8 @@ export const FormProvider: React.FC<React.PropsWithChildren> = ({children}) => {
         setAddOnFormValues,
       }}>
       {children}
-    </FormContext.Provider>
+    </FormValuesContext.Provider>
   );
 };
 
-export const useFormContext = () => useContext(FormContext);
+export const useFormValuesContext = () => useContext(FormValuesContext);

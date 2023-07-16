@@ -6,11 +6,12 @@ import {ProjectInfoForm} from "components/forms/ProjectInfoForm";
 import {CamerasForm} from "components/forms/CamerasForm";
 import {AddOnsForm} from "components/forms/AddOnsForm";
 import {FeaturesForm} from "components/forms/FeaturesForm";
-import {FormProvider} from "contexts/FormProvider";
+import {FormValuesProvider} from "contexts/FormValues";
+import {Report} from "components/Report";
 
 const Home: React.FC = () => {
   return (
-    <FormProvider>
+    <FormValuesProvider>
       <StepperBox
         steps={[
           {
@@ -31,12 +32,12 @@ const Home: React.FC = () => {
           },
           {
             label: "Report",
-            content: <p>Content for Step 5</p>,
+            content: <Report />,
           },
         ]}
       />
       <ScrollToTop />
-    </FormProvider>
+    </FormValuesProvider>
   );
 };
 

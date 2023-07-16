@@ -3,14 +3,14 @@ import {Container, Button, Typography} from "@mui/material";
 import {GridRowSelectionModel} from "@mui/x-data-grid";
 
 import {TemplateTable} from "common/TemplateTable";
-import {useFormContext} from "contexts/FormProvider";
+import {useFormValuesContext} from "contexts/FormValues";
 
 import {ITEMS, TABLE_COLUMNS} from "./config";
 import {formatNumberAsCurrency} from "./helpers";
 import {FlexContainer, PriceWrapper} from "./styles";
 
 export const FeaturesForm: React.FC = () => {
-  const {featuresFormValues, setFeaturesFormValues} = useFormContext();
+  const {featuresFormValues, setFeaturesFormValues} = useFormValuesContext();
   const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>(() => {
     if (!featuresFormValues?.selectedItemIds?.length) return [];
 
