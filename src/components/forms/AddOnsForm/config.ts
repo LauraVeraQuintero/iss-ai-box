@@ -2,7 +2,7 @@ import {FormField} from "models/forms";
 
 import {FormValuesKeys} from "./type";
 
-const FORM_FIELDS_1: Array<FormField<FormValuesKeys>> = [
+export const FORM_FIELDS: Array<FormField<FormValuesKeys>> = [
   {
     label: "SMA",
     name: "sma",
@@ -21,12 +21,5 @@ const FORM_FIELDS_1: Array<FormField<FormValuesKeys>> = [
     required: true,
     type: "boolean",
     description: "5 years except for NUC's (2 yrs)",
-  },
-];
-
-export const FIELDS_SECTIONS = [
-  {
-    sectionLabel: "",
-    fields: FORM_FIELDS_1,
   },
 ];

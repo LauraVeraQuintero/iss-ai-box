@@ -1,24 +1,28 @@
 import React from "react";
-import {TemplateTable} from "common/TemplateTable";
-import {ITEMS, TABLE_COLUMNS} from "./config";
 import {Typography, Container} from "@mui/material";
-import {GridRowSelectionModel} from "@mui/x-data-grid";
+import {GridRowId, GridRowSelectionModel} from "@mui/x-data-grid";
+
+import {TemplateTable} from "common/TemplateTable";
+
+import {ITEMS, TABLE_COLUMNS} from "./config";
 import {formatNumberAsCurrency} from "./helpers";
 import {FlexContainer, PriceWrapper} from "./styles";
 
 export const FeaturesForm: React.FC = () => {
-  const [price, setPrice] = React.useState<number>(0);
-  const onSelectionChange = (value: GridRowSelectionModel) => {
-    let sum = 0;
+  const [selectedItemIds, setSelectedItemIds] = React.useState<GridRowId[]>([]);
 
-    ITEMS.forEach(({id, price}) => {
-      if (value.find((v) => v === id)) {
-        sum += price;
-      }
-    });
-
-    setPrice(sum);
+  const onSelectionChange = (newSelectedItemIds: GridRowSelectionModel) => {
+    setSelectedItemIds(newSelectedItemIds);
   };
+
+  const price = React.useMemo(() => {
+    return ITEMS.reduce((accPrice, item) => {
+      const newPrice = selectedItemIds.find((selectedId) => selectedId === item.id)
+        ? item.price
+        : 0;
+      return (accPrice += newPrice);
+    }, 0);
+  }, [selectedItemIds]);
 
   return (
     <Container style={{marginTop: "60px", maxWidth: "900px"}}>

@@ -80,13 +80,4 @@ const FORM_FIELDS_2: Array<FormField<FormValuesKeys>> = [
   {label: "Bitrate (Mbps)", name: "bitrate", required: true, type: "number"},
 ];
 
-export const FIELDS_SECTIONS = [
-  {
-    sectionLabel: "Section 1",
-    fields: FORM_FIELDS_1,
-  },
-  {
-    sectionLabel: "Section 2",
-    fields: FORM_FIELDS_2,
-  },
-];
+export const FIELDS_SECTIONS = [FORM_FIELDS_1, FORM_FIELDS_2];

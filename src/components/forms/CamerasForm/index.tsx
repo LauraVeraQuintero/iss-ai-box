@@ -20,11 +20,8 @@ export const CamerasForm = () => {
         Camera Information
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
-        {FIELDS_SECTIONS.map(({sectionLabel, fields}) => (
-          <div key={sectionLabel}>
-            <Typography variant="body1" marginBottom="10px">
-              {sectionLabel}
-            </Typography>
+        {FIELDS_SECTIONS.map((fields, index) => (
+          <div key={index}>
             <Grid container spacing={5}>
               {fields.map((data, index) => (
                 <Grid key={index} item xs={12} md={data.fullWidth ? 12 : 6}>
@@ -32,7 +29,9 @@ export const CamerasForm = () => {
                 </Grid>
               ))}
             </Grid>
-            <Divider variant="middle" sx={{margin: "20px 0"}} />
+            {FIELDS_SECTIONS.length !== index + 1 && (
+              <Divider variant="middle" sx={{margin: "30px 0"}} />
+            )}
           </div>
         ))}
         <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>

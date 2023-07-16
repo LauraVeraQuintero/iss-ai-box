@@ -1,11 +1,11 @@
 import React from "react";
 import {useForm} from "react-hook-form";
-import {Typography, Button, Container, Divider, Grid} from "@mui/material";
+import {Typography, Button, Container, Grid} from "@mui/material";
 
 import {FormFieldItem} from "common/FormFieldItem";
 
 import {AddOnFormValues} from "./type";
-import {FIELDS_SECTIONS} from "./config";
+import {FORM_FIELDS} from "./config";
 
 export const AddOnsForm = () => {
   const {register, handleSubmit, setValue, formState} = useForm<AddOnFormValues>();
@@ -20,21 +20,13 @@ export const AddOnsForm = () => {
         SMA & Warranty
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
-        {FIELDS_SECTIONS.map(({sectionLabel, fields}) => (
-          <div key={sectionLabel}>
-            <Typography variant="body1" marginBottom="10px">
-              {sectionLabel}
-            </Typography>
-            <Grid container spacing={5}>
-              {fields.map((data, index) => (
-                <Grid key={index} item xs={12} md={data.fullWidth ? 12 : 6}>
-                  <FormFieldItem fieldProps={data} formProps={{setValue, register, formState}} />
-                </Grid>
-              ))}
+        <Grid container spacing={5}>
+          {FORM_FIELDS.map((fields, index) => (
+            <Grid key={index} item xs={12} md={fields.fullWidth ? 12 : 6}>
+              <FormFieldItem fieldProps={fields} formProps={{setValue, register, formState}} />
             </Grid>
-            <Divider variant="middle" sx={{margin: "20px 0"}} />
-          </div>
-        ))}
+          ))}
+        </Grid>
         <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
           Next
         </Button>

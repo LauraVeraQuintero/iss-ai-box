@@ -34,21 +34,4 @@ const FORM_FIELDS_4: Array<FormField<FormValuesKeys>> = [
   {label: "Date Needed By", name: "dateNeeded", required: true, type: "date"},
 ];
 
-export const FIELDS_SECTIONS = [
-  {
-    sectionLabel: "Section 1",
-    fields: FORM_FIELDS_1,
-  },
-  {
-    sectionLabel: "Section 2",
-    fields: FORM_FIELDS_2,
-  },
-  {
-    sectionLabel: "Section 3",
-    fields: FORM_FIELDS_3,
-  },
-  {
-    sectionLabel: "Section 4",
-    fields: FORM_FIELDS_4,
-  },
-];
+export const FIELDS_SECTIONS = [FORM_FIELDS_1, FORM_FIELDS_2, FORM_FIELDS_3, FORM_FIELDS_4];

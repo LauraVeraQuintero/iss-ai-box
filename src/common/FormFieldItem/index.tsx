@@ -1,24 +1,37 @@
 import React from "react";
-// import {UseFormReturn} from "react-hook-form";
+
 import {Checkbox, FormControlLabel, TextField, MenuItem, FormHelperText} from "@mui/material";
 import {DatePicker} from "@mui/x-date-pickers/DatePicker";
 import * as moment from "moment/moment";
+import {
+  FieldValues,
+  FormState,
+  Path,
+  PathValue,
+  UseFormRegister,
+  UseFormSetValue,
+} from "react-hook-form";
 
-// import {FormField, FormFieldValues} from "models/forms";
 import {SwitchWrapper} from "./styles";
+import {FormField} from "models/forms";
 
-type Props = {
-  formProps: any;
-  fieldProps: any;
+type Props<T extends FieldValues> = {
+  formProps: {
+    register: UseFormRegister<T>;
+    formState: FormState<T>;
+    setValue: UseFormSetValue<T>;
+  };
+  fieldProps: FormField<Path<T>>;
 };
-export const FormFieldItem = ({
+
+export const FormFieldItem = <T extends FieldValues>({
   fieldProps: {type, name, required, label, options, description, defaultValue},
   formProps: {
     register,
     formState: {errors},
     setValue,
   },
-}: Props) => {
+}: Props<T>) => {
   if (type === "boolean") {
     return (
       <SwitchWrapper>
@@ -31,7 +44,7 @@ export const FormFieldItem = ({
       <DatePicker
         label={label}
         onChange={(value: moment.Moment | null) => {
-          setValue(name, value?.toDate() ?? Date());
+          setValue(name, (value?.toDate() ?? Date()) as PathValue<T, Path<T>>);
         }}
         slotProps={{
           textField: {fullWidth: true, variant: "filled", ...register(name, {required})},
@@ -47,8 +60,8 @@ export const FormFieldItem = ({
         fullWidth
         select
         {...register(name, {required})}
-        error={!!errors[name]}>
-        {options.map((option: any) => (
+        error={Boolean(errors[name])}>
+        {options.map((option) => (
           <MenuItem key={option.value} value={option.value}>
             {option.label}
           </MenuItem>
@@ -64,7 +77,7 @@ export const FormFieldItem = ({
       variant="filled"
       fullWidth
       {...register(name, {required})}
-      error={!!errors[name]}
+      error={Boolean(errors[name])}
     />
   );
 };
