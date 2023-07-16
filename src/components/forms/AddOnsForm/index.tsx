@@ -11,6 +11,7 @@ import {FORM_FIELDS} from "./config";
 export const AddOnsForm = () => {
   const {addOnFormValues, setAddOnFormValues} = useFormValuesContext();
   const {register, handleSubmit, setValue, formState} = useForm<AddOnFormValues>({
+    // TODO: For some reason this is not being set
     defaultValues: {...addOnFormValues},
   });
 
