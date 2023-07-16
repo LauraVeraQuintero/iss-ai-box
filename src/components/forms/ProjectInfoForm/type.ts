@@ -11,7 +11,7 @@ export type ProjectFormValues = {
   endUserEmail: string;
   projectManagerName: string;
   estimatorName: string;
-  vertical: boolean;
+  vertical: string;
   budget: number;
   dateNeeded: Date;
 };
