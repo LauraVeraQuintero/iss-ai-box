@@ -1,16 +1,9 @@
 import Home from "pages/Home";
 
-const routes = [
+export const routes = [
   {
-    path: "iss-aibox-ui/home",
-    exact: true,
-    component: <Home />,
-  },
-  {
-    path: "iss-aibox-ui/",
+    path: "/",
     exact: true,
     component: <Home />,
   },
 ];
-
-export default routes;
