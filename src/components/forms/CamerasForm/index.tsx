@@ -5,13 +5,14 @@ import {Typography, Button, Container, Divider, Grid} from "@mui/material";
 import {FormFieldItem} from "common/FormFieldItem";
 import {useFormValuesContext} from "contexts/FormValues";
 
-import {CameraFormValues} from "./type";
 import {FIELDS_SECTIONS} from "./config";
+import {getDefaultCameraFormValues} from "./helpers";
+import {CameraFormValues} from "./type";
 
 export const CamerasForm = () => {
   const {cameraFormValues, setCameraFormValues} = useFormValuesContext();
-  const {register, handleSubmit, setValue, formState} = useForm<CameraFormValues>({
-    defaultValues: {...cameraFormValues},
+  const {control, handleSubmit} = useForm<CameraFormValues>({
+    defaultValues: getDefaultCameraFormValues(cameraFormValues),
   });
 
   const onSubmit = (values: CameraFormValues) => {
@@ -30,7 +31,7 @@ export const CamerasForm = () => {
             <Grid container spacing={5}>
               {fields.map((data, index) => (
                 <Grid key={index} item xs={12} md={data.fullWidth ? 12 : 6}>
-                  <FormFieldItem fieldProps={data} formProps={{setValue, register, formState}} />
+                  <FormFieldItem {...data} control={control} />
                 </Grid>
               ))}
             </Grid>

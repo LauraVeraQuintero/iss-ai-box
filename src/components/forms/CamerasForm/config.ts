@@ -12,8 +12,8 @@ const FORM_FIELDS_1: Array<FormField<FormValuesKeys>> = [
   },
   {label: "Quantity", name: "cameraQuantity", required: true, type: "number"},
   {label: "Days of Storage", name: "storageDays", required: true, type: "number"},
-  {label: "Motion Detection ", name: "motionDetection", required: true, type: "boolean"},
-  {label: "Continuous Recording", name: "continuousRecording", required: true, type: "boolean"},
+  {label: "Motion Detection ", name: "motionDetection", required: false, type: "boolean"},
+  {label: "Continuous Recording", name: "continuousRecording", required: false, type: "boolean"},
 ];
 
 const FORM_FIELDS_2: Array<FormField<FormValuesKeys>> = [

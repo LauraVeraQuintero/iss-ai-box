@@ -6,12 +6,13 @@ import {FormFieldItem} from "common/FormFieldItem";
 import {useFormValuesContext} from "contexts/FormValues";
 
 import {ProjectFormValues} from "./type";
+import {getDefaultProjectFormValues} from "./helpers";
 import {FIELDS_SECTIONS} from "./config";
 
 export const ProjectInfoForm = () => {
   const {projectFormValues, setProjectFormValues} = useFormValuesContext();
-  const {register, handleSubmit, setValue, formState} = useForm<ProjectFormValues>({
-    defaultValues: {...projectFormValues},
+  const {control, handleSubmit} = useForm<ProjectFormValues>({
+    defaultValues: getDefaultProjectFormValues(projectFormValues),
   });
 
   const onSubmit = (values: ProjectFormValues) => {
@@ -30,7 +31,7 @@ export const ProjectInfoForm = () => {
             <Grid container spacing={5}>
               {fields.map((data, index) => (
                 <Grid key={index} item xs={12} md={data.fullWidth ? 12 : 6}>
-                  <FormFieldItem fieldProps={data} formProps={{setValue, register, formState}} />
+                  <FormFieldItem {...data} control={control} />
                 </Grid>
               ))}
             </Grid>

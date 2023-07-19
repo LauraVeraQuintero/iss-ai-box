@@ -5,14 +5,14 @@ import {Typography, Button, Container, Grid} from "@mui/material";
 import {FormFieldItem} from "common/FormFieldItem";
 import {useFormValuesContext} from "contexts/FormValues";
 
-import {AddOnFormValues} from "./type";
 import {FORM_FIELDS} from "./config";
+import {getDefaultAddOnFormValues} from "./helpers";
+import {AddOnFormValues} from "./type";
 
 export const AddOnsForm = () => {
   const {addOnFormValues, setAddOnFormValues} = useFormValuesContext();
-  const {register, handleSubmit, setValue, formState} = useForm<AddOnFormValues>({
-    // TODO: For some reason this is not being set
-    defaultValues: {...addOnFormValues},
+  const {control, handleSubmit} = useForm<AddOnFormValues>({
+    defaultValues: getDefaultAddOnFormValues(addOnFormValues),
   });
 
   const onSubmit = (values: AddOnFormValues) => {
@@ -29,7 +29,7 @@ export const AddOnsForm = () => {
         <Grid container spacing={5}>
           {FORM_FIELDS.map((fields, index) => (
             <Grid key={index} item xs={12} md={fields.fullWidth ? 12 : 6}>
-              <FormFieldItem fieldProps={fields} formProps={{setValue, register, formState}} />
+              <FormFieldItem {...fields} control={control} />
             </Grid>
           ))}
         </Grid>
