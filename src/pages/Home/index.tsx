@@ -5,7 +5,9 @@ import {StepperBox} from "components/StepperBox";
 import {ProjectInfoForm} from "components/forms/ProjectInfoForm";
 import {CamerasForm} from "components/forms/CamerasForm";
 import {AddOnsForm} from "components/forms/AddOnsForm";
-import {FeaturesForm} from "../../components/forms/FeaturesForm";
+import {FeaturesForm} from "components/forms/FeaturesForm";
+import {Report} from "components/Report";
+
 const Home: React.FC = () => {
   return (
     <div>
@@ -29,7 +31,7 @@ const Home: React.FC = () => {
           },
           {
             label: "Report",
-            content: <p>Content for Step 5</p>,
+            content: <Report />,
           },
         ]}
       />
