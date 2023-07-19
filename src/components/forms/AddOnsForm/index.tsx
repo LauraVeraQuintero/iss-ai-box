@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form";
 import {Typography, Button, Container, Grid} from "@mui/material";
 
 import {FormFieldItem} from "common/FormFieldItem";
-import {useFormValuesContext} from "contexts/FormValues";
+import {useFormValuesContext, useStepsContext} from "contexts";
 
 import {FORM_FIELDS} from "./config";
 import {getDefaultAddOnFormValues} from "./helpers";
@@ -11,13 +11,14 @@ import {AddOnFormValues} from "./type";
 
 export const AddOnsForm = () => {
   const {addOnFormValues, setAddOnFormValues} = useFormValuesContext();
+  const {setActiveStep} = useStepsContext();
   const {control, handleSubmit} = useForm<AddOnFormValues>({
     defaultValues: getDefaultAddOnFormValues(addOnFormValues),
   });
 
   const onSubmit = (values: AddOnFormValues) => {
     setAddOnFormValues(values);
-    // TODO: Move to new step
+    setActiveStep(4);
   };
 
   return (

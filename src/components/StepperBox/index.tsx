@@ -1,5 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import {Stepper, Step} from "@mui/material";
+
+import {useStepsContext} from "contexts";
 
 import {StepLabel, Paper} from "./styles";
 
@@ -13,20 +15,26 @@ type StepperProps = {
 };
 
 export const StepperBox: React.FC<StepperProps> = ({steps}) => {
-  const [activeStep, setActiveStep] = useState<number>(0);
+  const {activeStep, setActiveStep, ready, completed} = useStepsContext();
 
   const getStepContent = () => {
     return steps[activeStep].content;
+  };
+
+  const handleStep = (index: number) => {
+    if (!ready(index)) return;
+
+    setActiveStep(index);
   };
 
   return (
     <Paper variant="outlined">
       <Stepper activeStep={activeStep} orientation="horizontal">
         {steps.map((step, index) => (
-          <Step key={index} completed={false}>
+          <Step key={index} completed={completed(index)} disabled={!ready(index)}>
             <StepLabel
               onClick={() => {
-                setActiveStep(index);
+                handleStep(index);
               }}>
               {step.label}
             </StepLabel>

@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form";
 import {Typography, Button, Container, Divider, Grid} from "@mui/material";
 
 import {FormFieldItem} from "common/FormFieldItem";
-import {useFormValuesContext} from "contexts/FormValues";
+import {useFormValuesContext, useStepsContext} from "contexts";
 
 import {FIELDS_SECTIONS} from "./config";
 import {getDefaultCameraFormValues} from "./helpers";
@@ -11,13 +11,14 @@ import {CameraFormValues} from "./type";
 
 export const CamerasForm = () => {
   const {cameraFormValues, setCameraFormValues} = useFormValuesContext();
+  const {setActiveStep} = useStepsContext();
   const {control, handleSubmit} = useForm<CameraFormValues>({
     defaultValues: getDefaultCameraFormValues(cameraFormValues),
   });
 
   const onSubmit = (values: CameraFormValues) => {
     setCameraFormValues(values);
-    // TODO: Move to new step
+    setActiveStep(2);
   };
 
   return (

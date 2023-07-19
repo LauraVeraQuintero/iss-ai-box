@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form";
 import {Typography, Button, Container, Divider, Grid} from "@mui/material";
 
 import {FormFieldItem} from "common/FormFieldItem";
-import {useFormValuesContext} from "contexts/FormValues";
+import {useFormValuesContext, useStepsContext} from "contexts";
 
 import {ProjectFormValues} from "./type";
 import {getDefaultProjectFormValues} from "./helpers";
@@ -11,13 +11,15 @@ import {FIELDS_SECTIONS} from "./config";
 
 export const ProjectInfoForm = () => {
   const {projectFormValues, setProjectFormValues} = useFormValuesContext();
+  const {setActiveStep} = useStepsContext();
+
   const {control, handleSubmit} = useForm<ProjectFormValues>({
     defaultValues: getDefaultProjectFormValues(projectFormValues),
   });
 
   const onSubmit = (values: ProjectFormValues) => {
     setProjectFormValues(values);
-    // TODO: Move to new step
+    setActiveStep(1);
   };
 
   return (

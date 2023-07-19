@@ -3,7 +3,7 @@ import {Container, Button, Typography} from "@mui/material";
 import {GridRowSelectionModel} from "@mui/x-data-grid";
 
 import {TemplateTable} from "common/TemplateTable";
-import {useFormValuesContext} from "contexts/FormValues";
+import {useFormValuesContext, useStepsContext} from "contexts";
 
 import {ITEMS, TABLE_COLUMNS} from "./config";
 import {formatNumberAsCurrency} from "./helpers";
@@ -11,6 +11,7 @@ import {FlexContainer, PriceWrapper} from "./styles";
 
 export const FeaturesForm: React.FC = () => {
   const {featuresFormValues, setFeaturesFormValues} = useFormValuesContext();
+  const {setActiveStep} = useStepsContext();
   const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>(() => {
     if (!featuresFormValues?.selectedItemIds?.length) return [];
 
@@ -21,7 +22,7 @@ export const FeaturesForm: React.FC = () => {
 
   const handleNext = () => {
     setFeaturesFormValues({selectedItemIds: rowSelectionModel});
-    // TODO: Move to new step
+    setActiveStep(3);
   };
 
   const price = React.useMemo(() => {
