@@ -1,25 +1,54 @@
 import {FormField} from "models/forms";
 
-import {FormValuesKeys} from "./type";
+import {CameraFormValuesKeys} from "./type";
 
-const FORM_FIELDS_1: Array<FormField<FormValuesKeys>> = [
+export const CAMERA_FORM_LABELS: Record<CameraFormValuesKeys, string> = {
+  manufacturer: "Manufacturer / Model #",
+  cameraQuantity: "Quantity",
+  motionDetection: "Motion Detection",
+  continuousRecording: "Continuous Recording",
+  storageDays: "Days of Storage",
+  resolution: "Resolution",
+  codec: "Codec",
+  fps: "FPS",
+  sceneActivity: "Scene Activity",
+  recordingStream: "Recording Stream",
+  bitrate: "Bitrate (Mbps)",
+};
+
+const FORM_FIELDS_1: Array<FormField<CameraFormValuesKeys>> = [
   {
-    label: "Manufacturer / Model #",
+    label: CAMERA_FORM_LABELS.manufacturer,
     name: "manufacturer",
     required: true,
     type: "string",
     fullWidth: true,
   },
-  {label: "Quantity", name: "cameraQuantity", required: true, type: "number"},
-  {label: "Days of Storage", name: "storageDays", required: true, type: "number"},
-  {label: "Motion Detection ", name: "motionDetection", required: true, type: "boolean"},
-  {label: "Continuous Recording", name: "continuousRecording", required: true, type: "boolean"},
+  {
+    label: CAMERA_FORM_LABELS.cameraQuantity,
+    name: "cameraQuantity",
+    required: true,
+    type: "number",
+  },
+  {label: CAMERA_FORM_LABELS.storageDays, name: "storageDays", required: true, type: "number"},
+  {
+    label: CAMERA_FORM_LABELS.motionDetection,
+    name: "motionDetection",
+    required: true,
+    type: "boolean",
+  },
+  {
+    label: CAMERA_FORM_LABELS.continuousRecording,
+    name: "continuousRecording",
+    required: true,
+    type: "boolean",
+  },
 ];
 
-const FORM_FIELDS_2: Array<FormField<FormValuesKeys>> = [
-  {label: "Resolution", name: "resolution", required: true, type: "string"},
+const FORM_FIELDS_2: Array<FormField<CameraFormValuesKeys>> = [
+  {label: CAMERA_FORM_LABELS.resolution, name: "resolution", required: true, type: "string"},
   {
-    label: "Codec",
+    label: CAMERA_FORM_LABELS.codec,
     name: "codec",
     required: true,
     type: "select",
@@ -29,7 +58,7 @@ const FORM_FIELDS_2: Array<FormField<FormValuesKeys>> = [
     ],
   },
   {
-    label: "FPS",
+    label: CAMERA_FORM_LABELS.fps,
     name: "fps",
     required: true,
     type: "select",
@@ -47,7 +76,7 @@ const FORM_FIELDS_2: Array<FormField<FormValuesKeys>> = [
     ],
   },
   {
-    label: "Scene Activity",
+    label: CAMERA_FORM_LABELS.sceneActivity,
     name: "sceneActivity",
     required: true,
     type: "select",
@@ -59,7 +88,7 @@ const FORM_FIELDS_2: Array<FormField<FormValuesKeys>> = [
     ],
   },
   {
-    label: "Recording Stream",
+    label: CAMERA_FORM_LABELS.recordingStream,
     name: "recordingStream",
     required: true,
     type: "select",
@@ -77,7 +106,7 @@ const FORM_FIELDS_2: Array<FormField<FormValuesKeys>> = [
       {label: "Unknown", value: "unknown"},
     ],
   },
-  {label: "Bitrate (Mbps)", name: "bitrate", required: true, type: "number"},
+  {label: CAMERA_FORM_LABELS.bitrate, name: "bitrate", required: true, type: "number"},
 ];
 
 export const FIELDS_SECTIONS = [

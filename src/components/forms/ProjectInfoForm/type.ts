@@ -16,4 +16,4 @@ export type ProjectFormValues = {
   dateNeeded: Date;
 };
 
-export type FormValuesKeys = keyof ProjectFormValues;
+export type ProjectFormValuesKeys = keyof ProjectFormValues;

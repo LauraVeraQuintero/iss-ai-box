@@ -3,4 +3,4 @@ export type AddOnFormValues = {
   warranty: boolean;
 };
 
-export type FormValuesKeys = keyof AddOnFormValues;
+export type AddOnsFormValuesKeys = keyof AddOnFormValues;

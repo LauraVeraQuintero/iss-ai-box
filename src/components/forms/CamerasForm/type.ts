@@ -12,4 +12,4 @@ export type CameraFormValues = {
   bitrate: number;
 };
 
-export type FormValuesKeys = keyof CameraFormValues;
+export type CameraFormValuesKeys = keyof CameraFormValues;

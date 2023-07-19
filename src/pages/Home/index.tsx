@@ -7,6 +7,7 @@ import {CamerasForm} from "components/forms/CamerasForm";
 import {AddOnsForm} from "components/forms/AddOnsForm";
 import {FeaturesForm} from "components/forms/FeaturesForm";
 import {Report} from "components/Report";
+import {CAMERA_INFO, PROJECT_INFO} from "../../components/Report/temp";
 
 const Home: React.FC = () => {
   return (
@@ -31,7 +32,7 @@ const Home: React.FC = () => {
           },
           {
             label: "Report",
-            content: <Report />,
+            content: <Report projectInfo={PROJECT_INFO} camerasInfo={[CAMERA_INFO, CAMERA_INFO]} />,
           },
         ]}
       />
