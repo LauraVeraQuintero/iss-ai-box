@@ -15,7 +15,7 @@ export const PROJECT_FORM_LABELS: Record<ProjectFormValuesKeys, string> = {
   projectManagerName: "Project Manager Name",
   estimatorName: "Estimator Name",
   vertical: "Vertical",
-  budget: "Budget (Drop Down)",
+  budget: "Budget",
   dateNeeded: "Date Needed By",
 };
 

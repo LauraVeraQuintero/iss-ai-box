@@ -3,5 +3,6 @@ export type ProductItem = {
   name: string;
   points: number;
   partId: string;
+  description?: string;
   price: number;
 };
