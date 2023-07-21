@@ -1,5 +1,5 @@
 import {ProjectFormValues} from "../forms/ProjectInfoForm/type";
-import {CameraFormValues} from "../forms/CamerasForm/type";
+import {CameraFormValues} from "../forms/CameraForm/type";
 import {ProductItem} from "../../models/ProductItem";
 import {AddOnFormValues} from "../forms/AddOnsForm/type";
 import moment from "moment";

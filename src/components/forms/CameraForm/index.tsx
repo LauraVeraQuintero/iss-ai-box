@@ -3,35 +3,38 @@ import {useForm} from "react-hook-form";
 import {Typography, Button, Container, Divider, Grid} from "@mui/material";
 
 import {FormFieldItem} from "common/FormFieldItem";
-import {useFormValuesContext, useStepsContext} from "contexts";
+import {useFormValuesContext} from "contexts";
 
-import {ProjectFormValues} from "./type";
-import {getDefaultProjectFormValues} from "./helpers";
 import {FIELDS_SECTIONS} from "./config";
+import {getDefaultCameraFormValues} from "./helpers";
+import {CameraFormValues} from "./type";
 
-export const ProjectInfoForm = () => {
-  const {projectFormValues, setProjectFormValues} = useFormValuesContext();
-  const {setActiveStep} = useStepsContext();
-
+type Props = {
+  index: number;
+  onNext?: () => void;
+};
+export const CameraForm: React.FC<Props> = ({index}) => {
+  const {cameraFormValues, setCameraFormValues} = useFormValuesContext();
   const {
     control,
     handleSubmit,
-    formState: {errors},
-  } = useForm<ProjectFormValues>({
-    defaultValues: getDefaultProjectFormValues(projectFormValues),
+    formState: {isDirty, dirtyFields, touchedFields},
+  } = useForm<CameraFormValues>({
+    defaultValues: getDefaultCameraFormValues(
+      cameraFormValues ? cameraFormValues[index] : undefined,
+    ),
   });
 
-  const onSubmit = (values: ProjectFormValues) => {
-    setProjectFormValues(values);
-    setActiveStep(1);
-  };
+  console.log({isDirty}, {dirtyFields}, {touchedFields});
 
-  console.log({errors});
+  const onSubmit = (values: CameraFormValues) => {
+    setCameraFormValues((value) => [...(value || []), values]);
+  };
 
   return (
     <Container style={{marginTop: "60px", maxWidth: "700px"}}>
       <Typography variant="h5" sx={{mb: 5}} justifyContent="center">
-        Project Information
+        Camera Information #{index + 1}
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         {FIELDS_SECTIONS.map((fields, index) => (
@@ -49,7 +52,7 @@ export const ProjectInfoForm = () => {
           </div>
         ))}
         <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
-          Next
+          Save
         </Button>
       </form>
     </Container>

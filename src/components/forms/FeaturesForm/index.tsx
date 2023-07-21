@@ -6,8 +6,8 @@ import {TemplateTable} from "common/TemplateTable";
 import {useFormValuesContext, useStepsContext} from "contexts";
 
 import {ITEMS, TABLE_COLUMNS} from "./config";
-import {formatNumberAsCurrency} from "./helpers";
-import {FlexContainer, PriceWrapper} from "./styles";
+import {boxRecommendation, formatNumberAsCurrency} from "./helpers";
+import {FlexContainer, ValuesWrapper} from "./styles";
 
 export const FeaturesForm: React.FC = () => {
   const {featuresFormValues, setFeaturesFormValues} = useFormValuesContext();
@@ -25,13 +25,16 @@ export const FeaturesForm: React.FC = () => {
     setActiveStep(3);
   };
 
-  const price = React.useMemo(() => {
-    return ITEMS.reduce((accPrice, item) => {
-      const newPrice = rowSelectionModel.find((selectedId) => selectedId === item.id)
-        ? item.price
-        : 0;
-      return (accPrice += newPrice);
-    }, 0);
+  const calculatedValues = React.useMemo(() => {
+    return ITEMS.reduce(
+      (acc, item) => {
+        const selected = rowSelectionModel.find((selectedId) => selectedId === item.id);
+        const newPrice = selected ? item.price : 0;
+        const newPoints = selected ? item.points : 0;
+        return {price: (acc.price += newPrice), points: (acc.points += newPoints)};
+      },
+      {price: 0, points: 0},
+    );
   }, [rowSelectionModel]);
 
   return (
@@ -39,7 +42,7 @@ export const FeaturesForm: React.FC = () => {
       <Typography variant="h5" sx={{mb: 5}} justifyContent="center">
         Features Information
       </Typography>
-      <PriceWrapper>
+      <ValuesWrapper>
         <FlexContainer>
           <Typography
             variant="subtitle1"
@@ -48,10 +51,21 @@ export const FeaturesForm: React.FC = () => {
             Total:
           </Typography>
           <Typography variant="h6" sx={{color: "black", fontWeight: 600}} justifyContent="center">
-            {formatNumberAsCurrency(price)}
+            {formatNumberAsCurrency(calculatedValues.price)}
           </Typography>
         </FlexContainer>
-      </PriceWrapper>
+        <FlexContainer>
+          <Typography
+            variant="subtitle1"
+            sx={{mr: "10px", color: "black", fontWeight: 500}}
+            justifyContent="center">
+            Box Recommendation:
+          </Typography>
+          <Typography variant="h6" sx={{color: "black", fontWeight: 600}} justifyContent="center">
+            {boxRecommendation(calculatedValues.points)}
+          </Typography>
+        </FlexContainer>
+      </ValuesWrapper>
       <TemplateTable
         data={ITEMS}
         columns={TABLE_COLUMNS}
