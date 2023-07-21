@@ -34,13 +34,13 @@ const FORM_FIELDS_1: Array<FormField<CameraFormValuesKeys>> = [
   {
     label: CAMERA_FORM_LABELS.motionDetection,
     name: "motionDetection",
-    required: true,
+    required: false,
     type: "boolean",
   },
   {
     label: CAMERA_FORM_LABELS.continuousRecording,
     name: "continuousRecording",
-    required: true,
+    required: false,
     type: "boolean",
   },
 ];
@@ -121,13 +121,4 @@ const FORM_FIELDS_2: Array<FormField<CameraFormValuesKeys>> = [
   {label: CAMERA_FORM_LABELS.bitrate, name: "bitrate", required: true, type: "number"},
 ];
 
-export const FIELDS_SECTIONS = [
-  {
-    sectionLabel: "Section 1",
-    fields: FORM_FIELDS_1,
-  },
-  {
-    sectionLabel: "Section 2",
-    fields: FORM_FIELDS_2,
-  },
-];
+export const FIELDS_SECTIONS = [FORM_FIELDS_1, FORM_FIELDS_2];

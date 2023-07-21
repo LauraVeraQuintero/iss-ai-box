@@ -1,6 +1,7 @@
 import {ProductItem} from "models/ProductItem";
 import {GridColDef, GridRenderCellParams} from "@mui/x-data-grid";
 import {formatNumberAsCurrency} from "./helpers";
+
 const priceFormat = (params: GridRenderCellParams) => {
   const price: string = params.value;
 
@@ -13,6 +14,7 @@ export const TABLE_COLUMNS: GridColDef[] = [
   {field: "partId", headerName: "Part #", width: 150, sortable: true},
   {field: "price", headerName: "Price", width: 250, sortable: true, renderCell: priceFormat},
 ];
+
 export const ITEMS: ProductItem[] = [
   {
     id: 1,

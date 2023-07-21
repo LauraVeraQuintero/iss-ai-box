@@ -2,6 +2,8 @@ import * as React from "react";
 import {Container, Typography} from "@mui/material";
 import moment from "moment";
 
+import {useFormValuesContext} from "contexts/FormValues";
+
 import {Grid, Item} from "./styles";
 import {ProjectFormValues, ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
 import {CameraFormValues, CameraFormValuesKeys} from "../forms/CamerasForm/type";
@@ -19,6 +21,9 @@ type Props = {
   addOns?: AddOnFormValues;
 };
 export const Report: React.FC<Props> = ({projectInfo, camerasInfo, addOns, features}) => {
+  const {projectFormValues, cameraFormValues, featuresFormValues, addOnFormValues} =
+    useFormValuesContext();
+
   const formatItemValue = (value: any, key: string) => {
     if (typeof value === "boolean") {
       return value ? "YES" : "NO";

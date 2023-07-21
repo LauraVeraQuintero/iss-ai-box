@@ -8,6 +8,7 @@ type Props = {
   tableHeight?: number;
   checkboxSelection?: boolean;
   onRowSelectionModelChange?: (value: GridRowSelectionModel) => void;
+  rowSelectionModel?: GridRowSelectionModel;
 };
 
 export const TemplateTable: React.FC<Props> = ({
@@ -16,6 +17,7 @@ export const TemplateTable: React.FC<Props> = ({
   tableHeight = 400,
   checkboxSelection,
   onRowSelectionModelChange,
+  rowSelectionModel,
 }) => {
   return (
     <OverrideCss>
@@ -31,6 +33,7 @@ export const TemplateTable: React.FC<Props> = ({
           showCellVerticalBorder={false}
           checkboxSelection={checkboxSelection}
           onRowSelectionModelChange={onRowSelectionModelChange}
+          rowSelectionModel={rowSelectionModel}
         />
       </Wrapper>
     </OverrideCss>

@@ -1,19 +1,28 @@
+import React from "react";
 import {BrowserRouter} from "react-router-dom";
-import ReactDOM from "react-dom";
+import {createRoot} from "react-dom/client";
 import {LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterMoment} from "@mui/x-date-pickers/AdapterMoment";
 
 import Router from "./router";
 import {Header} from "./components/Header";
-import React from "react";
 
-const App: React.FC = () => (
-  <LocalizationProvider dateAdapter={AdapterMoment}>
-    <BrowserRouter>
-      <Header />
-      <Router />
-    </BrowserRouter>
-  </LocalizationProvider>
-);
+const rootElement = document.getElementById("root");
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const render = () => {
+  const app = (
+    <LocalizationProvider dateAdapter={AdapterMoment}>
+      <BrowserRouter>
+        <Header />
+        <Router />
+      </BrowserRouter>
+    </LocalizationProvider>
+  );
+
+  if (rootElement) {
+    const root = createRoot(rootElement);
+    root.render(app);
+  }
+};
+
+render();

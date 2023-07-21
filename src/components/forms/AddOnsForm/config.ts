@@ -7,13 +7,12 @@ export const ADD_ONS_FORM_LABELS: Record<AddOnsFormValuesKeys, string> = {
   warranty: "Warranty",
 };
 
-const FORM_FIELDS_1: Array<FormField<AddOnsFormValuesKeys>> = [
+const FORM_FIELDS: Array<FormField<AddOnsFormValuesKeys>> = [
   {
     label: ADD_ONS_FORM_LABELS.sma,
     name: "sma",
     required: true,
     type: "select",
-    defaultValue: "1 year",
     options: [
       {label: "Auto populate 1 year (mandatory)", value: "1 year"},
       {label: "3 years", value: "3 years"},
@@ -23,15 +22,8 @@ const FORM_FIELDS_1: Array<FormField<AddOnsFormValuesKeys>> = [
   {
     label: ADD_ONS_FORM_LABELS.warranty,
     name: "warranty",
-    required: true,
+    required: false,
     type: "boolean",
     description: "5 years except for NUC's (2 yrs)",
-  },
-];
-
-export const FIELDS_SECTIONS = [
-  {
-    sectionLabel: "",
-    fields: FORM_FIELDS_1,
   },
 ];

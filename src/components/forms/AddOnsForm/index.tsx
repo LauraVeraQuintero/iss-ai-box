@@ -1,17 +1,24 @@
 import React from "react";
 import {useForm} from "react-hook-form";
-import {Typography, Button, Container, Divider, Grid} from "@mui/material";
+import {Typography, Button, Container, Grid} from "@mui/material";
 
 import {FormFieldItem} from "common/FormFieldItem";
+import {useFormValuesContext, useStepsContext} from "contexts";
 
+import {FORM_FIELDS} from "./config";
+import {getDefaultAddOnFormValues} from "./helpers";
 import {AddOnFormValues} from "./type";
-import {FIELDS_SECTIONS} from "./config";
 
 export const AddOnsForm = () => {
-  const {register, handleSubmit, setValue, formState} = useForm<AddOnFormValues>();
+  const {addOnFormValues, setAddOnFormValues} = useFormValuesContext();
+  const {setActiveStep} = useStepsContext();
+  const {control, handleSubmit} = useForm<AddOnFormValues>({
+    defaultValues: getDefaultAddOnFormValues(addOnFormValues),
+  });
 
-  const onSubmit = (data: AddOnFormValues) => {
-    console.log(data);
+  const onSubmit = (values: AddOnFormValues) => {
+    setAddOnFormValues(values);
+    setActiveStep(4);
   };
 
   return (
@@ -20,21 +27,13 @@ export const AddOnsForm = () => {
         SMA & Warranty
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
-        {FIELDS_SECTIONS.map(({sectionLabel, fields}) => (
-          <div key={sectionLabel}>
-            <Typography variant="body1" marginBottom="10px">
-              {sectionLabel}
-            </Typography>
-            <Grid container spacing={5}>
-              {fields.map((data, index) => (
-                <Grid key={index} item xs={12} md={data.fullWidth ? 12 : 6}>
-                  <FormFieldItem fieldProps={data} formProps={{setValue, register, formState}} />
-                </Grid>
-              ))}
+        <Grid container spacing={5}>
+          {FORM_FIELDS.map((fields, index) => (
+            <Grid key={index} item xs={12} md={fields.fullWidth ? 12 : 6}>
+              <FormFieldItem {...fields} control={control} />
             </Grid>
-            <Divider variant="middle" sx={{margin: "20px 0"}} />
-          </div>
-        ))}
+          ))}
+        </Grid>
         <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
           Next
         </Button>
