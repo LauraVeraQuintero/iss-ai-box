@@ -8,6 +8,7 @@ import {useFormValuesContext, useStepsContext} from "contexts";
 import {ProjectFormValues} from "./type";
 import {getDefaultProjectFormValues} from "./helpers";
 import {FIELDS_SECTIONS} from "./config";
+import {NextButton} from "../CamerasForm/styles";
 
 export const ProjectInfoForm = () => {
   const {projectFormValues, setProjectFormValues} = useFormValuesContext();
@@ -48,9 +49,11 @@ export const ProjectInfoForm = () => {
             )}
           </div>
         ))}
-        <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
-          Next
-        </Button>
+        <NextButton>
+          <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
+            Next
+          </Button>
+        </NextButton>
       </form>
     </Container>
   );

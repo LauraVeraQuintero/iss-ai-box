@@ -92,7 +92,13 @@ export const FormFieldItem = <T extends FieldValues>({
         render={({field}) => (
           <TooltipWrapper column>
             {getTooltip()}
-            <TextField {...field} variant="filled" label={label} fullWidth select error={Boolean(errors[name])}>
+            <TextField
+              {...field}
+              variant="filled"
+              label={label}
+              fullWidth
+              select
+              error={Boolean(errors[name])}>
               {options.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
@@ -113,7 +119,14 @@ export const FormFieldItem = <T extends FieldValues>({
       render={({field}) => (
         <TooltipWrapper column>
           {getTooltip()}
-          <TextField {...field} label={label} type={type} variant="filled" fullWidth error={Boolean(errors[name])}/>
+          <TextField
+            {...field}
+            label={label}
+            type={type}
+            variant="filled"
+            fullWidth
+            error={Boolean(errors[name])}
+          />
         </TooltipWrapper>
       )}
     />

@@ -8,6 +8,7 @@ import {useFormValuesContext, useStepsContext} from "contexts";
 import {FORM_FIELDS} from "./config";
 import {getDefaultAddOnFormValues} from "./helpers";
 import {AddOnFormValues} from "./type";
+import {NextButton} from "../CamerasForm/styles";
 
 export const AddOnsForm = () => {
   const {addOnFormValues, setAddOnFormValues} = useFormValuesContext();
@@ -38,9 +39,11 @@ export const AddOnsForm = () => {
             </Grid>
           ))}
         </Grid>
-        <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
-          Next
-        </Button>
+        <NextButton>
+          <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
+            Next
+          </Button>
+        </NextButton>
       </form>
     </Container>
   );
