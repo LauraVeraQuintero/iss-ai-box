@@ -30,7 +30,7 @@ export const ProjectInfoForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         {FIELDS_SECTIONS.map((fields, index) => (
           <div key={index}>
-            <Grid container spacing={5}>
+            <Grid container spacing={5} alignItems="flex-end">
               {fields.map((data, index) => (
                 <Grid key={index} item xs={12} md={data.fullWidth ? 12 : 6}>
                   <FormFieldItem {...data} control={control} />

@@ -27,7 +27,7 @@ export const AddOnsForm = () => {
         SMA & Warranty
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Grid container spacing={5}>
+        <Grid container spacing={5} alignItems="flex-end">
           {FORM_FIELDS.map((fields, index) => (
             <Grid key={index} item xs={12} md={fields.fullWidth ? 12 : 6}>
               <FormFieldItem {...fields} control={control} />

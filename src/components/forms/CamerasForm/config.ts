@@ -36,6 +36,7 @@ const FORM_FIELDS_1: Array<FormField<CameraFormValuesKeys>> = [
     name: "motionDetection",
     required: false,
     type: "boolean",
+    info: "Select if VMS Motion Detection is being used, and if so, will it be used on the Recording stream, or do you want to create and 2nd dedicated stream for Motion Detection. Creating a secondary stream with a lower resolution (e.g. 320x240) for Motion Detection, will save considerable CPU resources on your recording server, while minimally increasing total bandwidth usage",
   },
   {
     label: CAMERA_FORM_LABELS.continuousRecording,
@@ -104,6 +105,7 @@ const FORM_FIELDS_2: Array<FormField<CameraFormValuesKeys>> = [
     name: "recordingStream",
     required: true,
     type: "select",
+    info: "By default, it will be assumed this stream will be used for Live Viewing as well.",
     options: [
       {label: "8.3 MP (3840x2160)", value: "8.3 MP (3840x2160)"},
       {label: "5 MP (2560x1920)", value: "5 MP (2560x1920)"},

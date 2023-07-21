@@ -2,6 +2,7 @@ import {ProjectFormValues} from "../forms/ProjectInfoForm/type";
 import {CameraFormValues} from "../forms/CamerasForm/type";
 import {ProductItem} from "../../models/ProductItem";
 import {AddOnFormValues} from "../forms/AddOnsForm/type";
+import moment from "moment";
 
 export const PROJECT_INFO: ProjectFormValues = {
   projectName: "Sample Project X",
@@ -18,7 +19,7 @@ export const PROJECT_INFO: ProjectFormValues = {
   estimatorName: "Michael Brown",
   vertical: "Vertical example",
   budget: 500000, // Sample budget value
-  dateNeeded: new Date("2023-08-31"), // Sample date value
+  dateNeeded: moment(), // Sample date value
 };
 
 export const CAMERA_INFO: CameraFormValues = {

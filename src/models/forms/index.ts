@@ -11,6 +11,7 @@ export type FormField<T> = {
   type: React.InputHTMLAttributes<unknown>["type"];
   fullWidth?: boolean;
   options?: Option[];
+  info?: string;
 };
 
 export type FormFieldValues = ProjectFormValues | CameraFormValues;

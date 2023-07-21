@@ -7,7 +7,7 @@ export const ADD_ONS_FORM_LABELS: Record<AddOnsFormValuesKeys, string> = {
   warranty: "Warranty",
 };
 
-const FORM_FIELDS: Array<FormField<AddOnsFormValuesKeys>> = [
+export const FORM_FIELDS: Array<FormField<AddOnsFormValuesKeys>> = [
   {
     label: ADD_ONS_FORM_LABELS.sma,
     name: "sma",
