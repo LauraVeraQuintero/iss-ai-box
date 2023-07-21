@@ -3,13 +3,14 @@ import React from "react";
 import {Checkbox, FormControlLabel, TextField, MenuItem, FormHelperText} from "@mui/material";
 import {DatePicker} from "@mui/x-date-pickers/DatePicker";
 import * as moment from "moment/moment";
-import {Control, Controller, FieldValues, Path, PathValue} from "react-hook-form";
+import {Control, Controller, FieldErrors, FieldValues, Path, PathValue} from "react-hook-form";
 
 import {SwitchWrapper} from "./styles";
 import {FormField} from "models/forms";
 
 type Props<T extends FieldValues> = FormField<Path<T>> & {
-  control: Control<T, any>;
+  control: Control<T>;
+  errors: FieldErrors<T>;
 };
 
 export const FormFieldItem = <T extends FieldValues>({
@@ -20,6 +21,7 @@ export const FormFieldItem = <T extends FieldValues>({
   options,
   description,
   control,
+  errors,
 }: Props<T>) => {
   if (type === "boolean") {
     return (
@@ -36,6 +38,7 @@ export const FormFieldItem = <T extends FieldValues>({
               }}
               control={<Checkbox />}
               label={label}
+              // TODO: add error
             />
             <FormHelperText>{description}</FormHelperText>
           </SwitchWrapper>
@@ -58,6 +61,7 @@ export const FormFieldItem = <T extends FieldValues>({
             slotProps={{
               textField: {fullWidth: true, variant: "filled"},
             }}
+            // TODO: add error
           />
         )}
       />
@@ -69,7 +73,13 @@ export const FormFieldItem = <T extends FieldValues>({
         name={name}
         rules={{required}}
         render={({field}) => (
-          <TextField {...field} variant="filled" label={label} fullWidth select>
+          <TextField
+            {...field}
+            variant="filled"
+            label={label}
+            error={Boolean(errors[name])}
+            fullWidth
+            select>
             {options.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
@@ -87,7 +97,14 @@ export const FormFieldItem = <T extends FieldValues>({
       name={name}
       rules={{required}}
       render={({field}) => (
-        <TextField {...field} label={label} type={type} variant="filled" fullWidth />
+        <TextField
+          {...field}
+          label={label}
+          type={type}
+          variant="filled"
+          fullWidth
+          error={Boolean(errors[name])}
+        />
       )}
     />
   );

@@ -13,7 +13,11 @@ export const ProjectInfoForm = () => {
   const {projectFormValues, setProjectFormValues} = useFormValuesContext();
   const {setActiveStep} = useStepsContext();
 
-  const {control, handleSubmit} = useForm<ProjectFormValues>({
+  const {
+    control,
+    handleSubmit,
+    formState: {errors},
+  } = useForm<ProjectFormValues>({
     defaultValues: getDefaultProjectFormValues(projectFormValues),
   });
 
@@ -33,7 +37,7 @@ export const ProjectInfoForm = () => {
             <Grid container spacing={5}>
               {fields.map((data, index) => (
                 <Grid key={index} item xs={12} md={data.fullWidth ? 12 : 6}>
-                  <FormFieldItem {...data} control={control} />
+                  <FormFieldItem {...data} control={control} errors={errors} />
                 </Grid>
               ))}
             </Grid>
