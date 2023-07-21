@@ -12,7 +12,11 @@ import {AddOnFormValues} from "./type";
 export const AddOnsForm = () => {
   const {addOnFormValues, setAddOnFormValues} = useFormValuesContext();
   const {setActiveStep} = useStepsContext();
-  const {control, handleSubmit} = useForm<AddOnFormValues>({
+  const {
+    control,
+    handleSubmit,
+    formState: {errors},
+  } = useForm<AddOnFormValues>({
     defaultValues: getDefaultAddOnFormValues(addOnFormValues),
   });
 
@@ -30,7 +34,7 @@ export const AddOnsForm = () => {
         <Grid container spacing={5} alignItems="flex-end">
           {FORM_FIELDS.map((fields, index) => (
             <Grid key={index} item xs={12} md={fields.fullWidth ? 12 : 6}>
-              <FormFieldItem {...fields} control={control} />
+              <FormFieldItem {...fields} control={control} errors={errors} />
             </Grid>
           ))}
         </Grid>

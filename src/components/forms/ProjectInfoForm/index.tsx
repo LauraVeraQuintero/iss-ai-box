@@ -39,7 +39,7 @@ export const ProjectInfoForm = () => {
             <Grid container spacing={5} alignItems="flex-end">
               {fields.map((data, index) => (
                 <Grid key={index} item xs={12} md={data.fullWidth ? 12 : 6}>
-                  <FormFieldItem {...data} control={control} />
+                  <FormFieldItem {...data} control={control} errors={errors} />
                 </Grid>
               ))}
             </Grid>

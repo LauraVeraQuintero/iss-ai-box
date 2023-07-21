@@ -4,14 +4,15 @@ import InfoIcon from "@mui/icons-material/Info";
 import {Checkbox, FormControlLabel, TextField, MenuItem, FormHelperText} from "@mui/material";
 import {DatePicker} from "@mui/x-date-pickers/DatePicker";
 import * as moment from "moment/moment";
-import {Control, Controller, FieldValues, Path, PathValue} from "react-hook-form";
+import {Control, Controller, FieldErrors, FieldValues, Path, PathValue} from "react-hook-form";
 
 import {SwitchWrapper, TooltipWrapper} from "./styles";
 import {FormField} from "models/forms";
 import {Tooltip} from "common/Tooltip";
 
 type Props<T extends FieldValues> = FormField<Path<T>> & {
-  control: Control<T, any>;
+  control: Control<T>;
+  errors: FieldErrors<T>;
 };
 
 export const FormFieldItem = <T extends FieldValues>({
@@ -23,6 +24,7 @@ export const FormFieldItem = <T extends FieldValues>({
   description,
   control,
   info,
+  errors,
 }: Props<T>) => {
   const getTooltip = () => {
     if (!info) return;
@@ -90,7 +92,7 @@ export const FormFieldItem = <T extends FieldValues>({
         render={({field}) => (
           <TooltipWrapper column>
             {getTooltip()}
-            <TextField {...field} variant="filled" label={label} fullWidth select>
+            <TextField {...field} variant="filled" label={label} fullWidth select error={Boolean(errors[name])}>
               {options.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
@@ -111,7 +113,7 @@ export const FormFieldItem = <T extends FieldValues>({
       render={({field}) => (
         <TooltipWrapper column>
           {getTooltip()}
-          <TextField {...field} label={label} type={type} variant="filled" fullWidth />
+          <TextField {...field} label={label} type={type} variant="filled" fullWidth error={Boolean(errors[name])}/>
         </TooltipWrapper>
       )}
     />
