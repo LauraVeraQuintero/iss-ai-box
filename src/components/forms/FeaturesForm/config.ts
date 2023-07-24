@@ -2,7 +2,7 @@ import {ProductItem} from "models/ProductItem";
 import {GridColDef, GridRenderCellParams} from "@mui/x-data-grid";
 import {formatNumberAsCurrency} from "./helpers";
 
-const priceFormat = (params: GridRenderCellParams) => {
+export const priceFormat = (params: GridRenderCellParams) => {
   const price: string = params.value;
 
   return formatNumberAsCurrency(Number(price));
