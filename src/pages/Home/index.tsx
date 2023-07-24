@@ -3,15 +3,17 @@ import React from "react";
 import {StepperBox} from "components/StepperBox";
 import {FormValuesProvider, StepsProvider} from "contexts";
 
-import {STEPS} from "./config";
+import {HOME_PAGE_ID, STEPS} from "./config";
 
 const Home: React.FC = () => {
   return (
-    <FormValuesProvider>
-      <StepsProvider>
-        <StepperBox steps={STEPS} />
-      </StepsProvider>
-    </FormValuesProvider>
+    <div id={HOME_PAGE_ID}>
+      <FormValuesProvider>
+        <StepsProvider>
+          <StepperBox steps={STEPS} />
+        </StepsProvider>
+      </FormValuesProvider>
+    </div>
   );
 };
 

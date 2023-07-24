@@ -6,6 +6,8 @@ import {FeaturesForm} from "components/forms/FeaturesForm";
 import {Report} from "components/Report";
 import {Cameras} from "components/sections/Cameras";
 
+export const HOME_PAGE_ID = "home-page";
+
 export const STEPS = [
   {
     label: "Project",
