@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
-export const NextButton = styled.div`
-  text-align: right;
+export const HeaderWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
 `;

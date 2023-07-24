@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ProjectFormValues} from "components/forms/ProjectInfoForm/type";
-import {CameraFormValues} from "components/forms/CameraForm/type";
+import {CameraFormValues} from "components/forms/CamerasForm/type";
 
 export type FormField<T> = {
   label: string;

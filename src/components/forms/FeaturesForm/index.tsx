@@ -8,7 +8,6 @@ import {useFormValuesContext, useStepsContext} from "contexts";
 import {ITEMS, TABLE_COLUMNS} from "./config";
 import {boxRecommendation, formatNumberAsCurrency} from "./helpers";
 import {FlexContainer, ValuesWrapper} from "./styles";
-import {NextButton} from "../CamerasForm/styles";
 
 export const FeaturesForm: React.FC = () => {
   const {featuresFormValues, setFeaturesFormValues} = useFormValuesContext();
@@ -75,11 +74,9 @@ export const FeaturesForm: React.FC = () => {
         rowSelectionModel={rowSelectionModel}
         checkboxSelection
       />
-      <NextButton>
-        <Button variant="contained" color="primary" sx={{mt: 5}} onClick={handleNext}>
-          Next
-        </Button>
-      </NextButton>
+      <Button variant="contained" color="primary" sx={{mt: 5}} onClick={handleNext}>
+        Next
+      </Button>
     </Container>
   );
 };

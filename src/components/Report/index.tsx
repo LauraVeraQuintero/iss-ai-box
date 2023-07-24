@@ -6,9 +6,9 @@ import {useFormValuesContext} from "contexts/FormValues";
 
 import {Grid, Item} from "./styles";
 import {ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
-import {CameraFormValues, CameraFormValuesKeys} from "../forms/CameraForm/type";
+import {CameraFormValues, CameraFormValuesKeys} from "../forms/CamerasForm/type";
 import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
-import {CAMERA_FORM_LABELS} from "../forms/CameraForm/config";
+import {CAMERA_FORM_LABELS} from "../forms/CamerasForm/config";
 import {CURRENCY_FIELD_KEYS} from "./config";
 import {formatNumberAsCurrency} from "../forms/FeaturesForm/helpers";
 
@@ -58,7 +58,7 @@ export const Report: React.FC = () => {
         <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
           Cameras Information
         </Typography>
-        {cameraFormValues.map((cameraInfo: CameraFormValues, index) => (
+        {[cameraFormValues].map((cameraInfo: CameraFormValues, index) => (
           <span key={index}>
             {(Object.keys(cameraInfo) as CameraFormValuesKeys[]).map(
               (key: CameraFormValuesKeys, index) => (
