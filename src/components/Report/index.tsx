@@ -11,6 +11,8 @@ import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
 import {CAMERA_FORM_LABELS} from "../forms/CamerasForm/config";
 import {CURRENCY_FIELD_KEYS} from "./config";
 import {formatNumberAsCurrency} from "../forms/FeaturesForm/helpers";
+import {AddOnsFormValuesKeys} from "../forms/AddOnsForm/type";
+import {ADD_ONS_FORM_LABELS} from "../forms/AddOnsForm/config";
 
 export const Report: React.FC = () => {
   const {projectFormValues, cameraFormValues, featuresFormValues, addOnFormValues} =
@@ -21,7 +23,7 @@ export const Report: React.FC = () => {
       return value ? "YES" : "NO";
     } else if (typeof value === "number" && CURRENCY_FIELD_KEYS.includes(key)) {
       return formatNumberAsCurrency(value);
-    } else if (value instanceof Date) {
+    } else if (moment.isMoment(value)) {
       return moment(value).format("lll");
     }
 
@@ -51,6 +53,22 @@ export const Report: React.FC = () => {
               </Typography>
               <Typography variant="body1" gutterBottom>
                 {formatItemValue(projectFormValues[key], key)}
+              </Typography>
+            </Item>
+          ),
+        )}
+        {(Object.keys(addOnFormValues) as AddOnsFormValuesKeys[]).map(
+          (key: AddOnsFormValuesKeys, index) => (
+            <Item key={"addOns-" + index.toString()}>
+              <Typography
+                variant="overline"
+                display="block"
+                sx={{color: "gray", fontSize: "12px"}}
+                gutterBottom>
+                {ADD_ONS_FORM_LABELS[key]}
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                {formatItemValue(addOnFormValues[key], key)}
               </Typography>
             </Item>
           ),
