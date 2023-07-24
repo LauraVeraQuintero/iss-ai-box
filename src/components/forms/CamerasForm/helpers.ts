@@ -15,10 +15,3 @@ export const getDefaultCameraFormValues = (formValues?: CameraFormValues) => {
     bitrate: formValues?.bitrate,
   };
 };
-
-const getBitrateValue = (
-  bitrateWeights: any,
-  fps: string,
-  sceneActivity: string,
-  recordingStream: string,
-) => {};

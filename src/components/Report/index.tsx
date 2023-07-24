@@ -47,8 +47,8 @@ export const Report: React.FC = () => {
     ).map((r) => ({id: r.id, name: r.name, price: r.price}));
   }, [featuresFormValues]);
 
-  const calculateTableHeight = (rows: number) => {
-    return ROW_HEIGHT_IN_PX + rows * ROW_HEIGHT_IN_PX;
+  const calculateTableHeight = (rows: number, height: number = ROW_HEIGHT_IN_PX) => {
+    return height + rows * height;
   };
 
   const getDivider = (label: string) => {
@@ -118,7 +118,7 @@ export const Report: React.FC = () => {
       <TemplateTable
         columns={FEATURE_TABLE_COLUMNS}
         data={featureTableData}
-        tableHeight={calculateTableHeight(featureTableData.length)}
+        tableHeight={calculateTableHeight(featureTableData.length, 45)}
       />
       {featureTableData.length > 0 && (
         <ValuesWrapper>
