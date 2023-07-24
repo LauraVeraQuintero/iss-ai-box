@@ -31,7 +31,12 @@ const FORM_FIELDS_1: Array<FormField<CameraFormValuesKeys>> = [
     required: true,
     type: "number",
   },
-  {label: CAMERA_FORM_LABELS.storageDays, name: "storageDays", required: true, type: "number"},
+  {
+    label: CAMERA_FORM_LABELS.storageDays,
+    name: "storageDays",
+    required: true,
+    type: "number",
+  },
   {
     label: CAMERA_FORM_LABELS.motionDetection,
     name: "motionDetection",

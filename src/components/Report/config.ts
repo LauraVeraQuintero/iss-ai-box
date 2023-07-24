@@ -11,14 +11,13 @@ export const booleanFormat = (params: GridRenderCellParams) => {
 };
 
 export const FEATURE_TABLE_COLUMNS: GridColDef[] = [
-  {field: "name", headerName: "Name", width: 400, sortable: true},
+  {field: "name", headerName: "Name", width: 600, sortable: true},
   {
     field: "price",
     headerName: "Price",
     width: 250,
     sortable: true,
     renderCell: priceFormat,
-    align: "right",
   },
 ];
 
@@ -27,6 +26,7 @@ export const CAMERA_TABLE_COLUMNS: () => GridColDef[] = () => {
     return {
       field: column.name,
       headerName: column.label,
+      minWidth: 120,
       sortable: true,
       renderCell: column.type === "boolean" ? booleanFormat : undefined,
     };

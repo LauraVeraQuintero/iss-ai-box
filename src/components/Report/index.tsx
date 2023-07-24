@@ -15,7 +15,7 @@ import {TemplateTable} from "common/TemplateTable";
 import {ITEMS} from "../forms/FeaturesForm/config";
 import {FlexContainer, ValuesWrapper} from "../forms/FeaturesForm/styles";
 
-const ROW_HEIGHT = 50;
+const ROW_HEIGHT_IN_PX = 55;
 
 export const Report: React.FC = () => {
   const {projectFormValues, cameras, featuresFormValues, featuresCalculation, addOnFormValues} =
@@ -42,7 +42,7 @@ export const Report: React.FC = () => {
   }, [featuresFormValues]);
 
   const calculateTableHeight = (rows: number) => {
-    return ROW_HEIGHT + rows * ROW_HEIGHT;
+    return ROW_HEIGHT_IN_PX + rows * ROW_HEIGHT_IN_PX;
   };
 
   const getDivider = (label: string) => {
@@ -56,12 +56,12 @@ export const Report: React.FC = () => {
   if (!projectFormValues || !featuresFormValues || !addOnFormValues || !cameras.length) return;
 
   return (
-    <Container style={{marginTop: "60px", maxWidth: "1000px"}}>
+    <Container style={{marginTop: "60px", maxWidth: "1400px"}}>
       <Typography variant="h5" sx={{mb: 3, mt: 5}} justifyContent="center" color="black">
         Report Summary
       </Typography>
       {getDivider("Project")}
-      <Grid height={400}>
+      <Grid heightInPx={400}>
         {(Object.keys(projectFormValues) as ProjectFormValuesKeys[]).map(
           (key: ProjectFormValuesKeys, index) => (
             <Item key={"project-" + index.toString()}>
@@ -80,7 +80,7 @@ export const Report: React.FC = () => {
         )}
       </Grid>
       {getDivider("Add Ons")}
-      <Grid height={100}>
+      <Grid heightInPx={100}>
         {(Object.keys(addOnFormValues) as AddOnsFormValuesKeys[]).map(
           (key: AddOnsFormValuesKeys, index) => (
             <Item key={"addOns-" + index.toString()}>
