@@ -26,10 +26,8 @@ export const ProjectInfoForm = () => {
     setActiveStep(1);
   };
 
-  console.log({errors});
-
   return (
-    <Container style={{marginTop: "60px", maxWidth: "700px"}}>
+    <Container style={{marginTop: "60px", maxWidth: "900px"}}>
       <Typography variant="h5" sx={{mb: 5}} justifyContent="center">
         Project Information
       </Typography>
@@ -48,9 +46,11 @@ export const ProjectInfoForm = () => {
             )}
           </div>
         ))}
-        <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
-          Next
-        </Button>
+        <Container style={{maxWidth: "100%", display: "flex", justifyContent: "flex-end"}}>
+          <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
+            Next
+          </Button>
+        </Container>
       </form>
     </Container>
   );

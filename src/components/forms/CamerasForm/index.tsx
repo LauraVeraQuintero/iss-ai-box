@@ -1,40 +1,46 @@
 import React from "react";
 import {useForm} from "react-hook-form";
-import {Typography, Container, Divider, Grid} from "@mui/material";
+import {Button, Container, Divider, Grid} from "@mui/material";
 
 import {FormFieldItem} from "common/FormFieldItem";
-import {useFormValuesContext, useStepsContext} from "contexts";
+import {useFormValuesContext} from "contexts";
 
 import {FIELDS_SECTIONS} from "./config";
-import {getDefaultCameraFormValues} from "./helpers";
 import {CameraFormValues} from "./type";
-import {HeaderWrapper} from "./styles";
-import {Button} from "common/Button";
+import {getDefaultCameraFormValues} from "./helpers";
 
-export const CamerasForm: React.FC = () => {
-  const {cameraFormValues, setCameraFormValues} = useFormValuesContext();
-  const {setActiveStep} = useStepsContext();
+type Props = {
+  afterSubmit?: () => void;
+  onCancel?: () => void;
+  cameraIndex?: number;
+};
+
+export const CamerasForm: React.FC<Props> = ({afterSubmit, cameraIndex, onCancel}) => {
+  const {cameras, setCameras} = useFormValuesContext();
   const {
     control,
     handleSubmit,
     formState: {errors},
   } = useForm<CameraFormValues>({
-    defaultValues: getDefaultCameraFormValues(cameraFormValues),
+    defaultValues: getDefaultCameraFormValues(
+      cameraIndex !== undefined ? cameras[cameraIndex] : undefined,
+    ),
   });
 
   const onSubmit = (values: CameraFormValues) => {
-    setCameraFormValues(values);
-    setActiveStep(2);
+    if (cameraIndex !== undefined) {
+      setCameras((cameras) =>
+        cameras.map((camera, index) => (index === cameraIndex ? values : camera)),
+      );
+    } else {
+      setCameras((cameras) => cameras.concat(values));
+    }
+    afterSubmit?.();
   };
 
   return (
-    <Container style={{marginTop: "30px", maxWidth: "750px"}}>
+    <Container style={{maxWidth: "800px"}}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <HeaderWrapper>
-          <Typography variant="h5" justifyContent="center">
-            Camera Information
-          </Typography>
-        </HeaderWrapper>
         {FIELDS_SECTIONS.map((fields, index) => (
           <div key={index} style={{marginBottom: "15px"}}>
             <Grid container spacing={5} alignItems="flex-end">
@@ -49,9 +55,16 @@ export const CamerasForm: React.FC = () => {
             )}
           </div>
         ))}
-        <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
-          Next
-        </Button>
+        <Container style={{maxWidth: "100%", display: "flex", justifyContent: "flex-end", gap: 15}}>
+          {onCancel && (
+            <Button variant="outlined" color="primary" sx={{mt: 5}} onClick={onCancel}>
+              Cancel
+            </Button>
+          )}
+          <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
+            Save
+          </Button>
+        </Container>
       </form>
     </Container>
   );

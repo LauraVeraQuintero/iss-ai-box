@@ -6,7 +6,7 @@ import {useFormValuesContext} from "contexts/FormValues";
 
 import {Grid, Item} from "./styles";
 import {ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
-import {CameraFormValues, CameraFormValuesKeys} from "../forms/CamerasForm/type";
+import {CameraFormValuesKeys} from "../forms/CamerasForm/type";
 import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
 import {CAMERA_FORM_LABELS} from "../forms/CamerasForm/config";
 import {CURRENCY_FIELD_KEYS, FEATURE_TABLE_COLUMNS} from "./config";
@@ -17,8 +17,7 @@ import {TemplateTable} from "common/TemplateTable";
 import {ITEMS} from "../forms/FeaturesForm/config";
 
 export const Report: React.FC = () => {
-  const {projectFormValues, cameraFormValues, featuresFormValues, addOnFormValues} =
-    useFormValuesContext();
+  const {projectFormValues, cameras, featuresFormValues, addOnFormValues} = useFormValuesContext();
 
   const formatItemValue = (value: any, key: string) => {
     if (typeof value === "boolean") {
@@ -42,7 +41,7 @@ export const Report: React.FC = () => {
 
   console.log({projectFormValues}, {cameraFormValues}, {featuresFormValues}, {addOnFormValues});
 
-  if (!projectFormValues || !cameraFormValues || featuresFormValues || !addOnFormValues) return;
+  if (!projectFormValues || !featuresFormValues || !addOnFormValues || !cameras.length) return;
 
   return (
     <Container style={{marginTop: "60px", maxWidth: "900px"}}>
@@ -88,9 +87,9 @@ export const Report: React.FC = () => {
         <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
           Cameras Information
         </Typography>
-        {[cameraFormValues].map((cameraInfo: CameraFormValues, index) => (
+        {cameras.map((camera, index) => (
           <span key={index}>
-            {(Object.keys(cameraInfo) as CameraFormValuesKeys[]).map(
+            {(Object.keys(camera) as CameraFormValuesKeys[]).map(
               (key: CameraFormValuesKeys, index) => (
                 <Item key={"camera-" + index.toString()}>
                   <Typography
@@ -101,7 +100,7 @@ export const Report: React.FC = () => {
                     {CAMERA_FORM_LABELS[key]}
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    {formatItemValue(cameraInfo[key], key)}
+                    {formatItemValue(camera[key], key)}
                   </Typography>
                 </Item>
               ),

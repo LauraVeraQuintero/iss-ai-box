@@ -18,8 +18,7 @@ export const StepsContext = createContext<StepsState>({
 });
 
 export const StepsProvider: FC<React.PropsWithChildren> = ({children}) => {
-  const {projectFormValues, cameraFormValues, featuresFormValues, addOnFormValues} =
-    useFormValuesContext();
+  const {projectFormValues, cameras, featuresFormValues, addOnFormValues} = useFormValuesContext();
   const [activeStep, setActiveStep] = useState<number>(0);
 
   const ready = (step: number) => {
@@ -29,7 +28,7 @@ export const StepsProvider: FC<React.PropsWithChildren> = ({children}) => {
       case 1:
         return projectFormValues !== undefined;
       case 2:
-        return cameraFormValues !== undefined;
+        return Boolean(cameras.length);
       case 3:
         return featuresFormValues !== undefined;
       case 4:
@@ -43,7 +42,7 @@ export const StepsProvider: FC<React.PropsWithChildren> = ({children}) => {
       case 0:
         return projectFormValues !== undefined;
       case 1:
-        return cameraFormValues !== undefined;
+        return Boolean(cameras.length);
       case 2:
         return featuresFormValues !== undefined;
       case 3:
