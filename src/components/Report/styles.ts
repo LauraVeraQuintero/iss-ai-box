@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 export const Grid = styled.div<{height: number}>`
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
   flex-wrap: wrap;
+  flex-flow: column wrap;
+  gap: 10px;
   max-height: ${({height}) => height}px;
 `;
 
