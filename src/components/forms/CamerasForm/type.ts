@@ -7,7 +7,7 @@ export type CameraFormValues = {
   storageDays?: number;
   resolution?: string;
   codec?: string;
-  fps?: number;
+  fps?: string;
   sceneActivity?: string;
   recordingStream?: string;
   bitrate?: number;

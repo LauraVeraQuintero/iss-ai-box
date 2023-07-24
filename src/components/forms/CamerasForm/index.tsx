@@ -58,7 +58,12 @@ export const CamerasForm: React.FC<Props> = ({afterSubmit, cameraIndex, onCancel
     const valueByRecordingStream = valueBySceneActivity[recordingStream];
 
     const valueByFps = valueByRecordingStream[fps];
-    if (valueByFps) setValue("bitrate", Number(valueByFps));
+    if (valueByFps) {
+      setValue("bitrate", Number(valueByFps), {
+        shouldTouch: true,
+        shouldDirty: true,
+      });
+    }
   }, [sceneActivity, recordingStream, fps]);
 
   return (

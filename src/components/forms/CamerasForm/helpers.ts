@@ -7,11 +7,11 @@ export const getDefaultCameraFormValues = (formValues?: CameraFormValues) => {
     motionDetection: Boolean(formValues?.motionDetection),
     continuousRecording: Boolean(formValues?.continuousRecording),
     storageDays: formValues?.storageDays,
-    resolution: formValues?.resolution,
+    resolution: formValues?.resolution ?? "",
     codec: formValues?.codec ?? "",
-    fps: formValues?.fps ?? 0,
+    fps: formValues?.fps ?? "",
     sceneActivity: formValues?.sceneActivity ?? "",
     recordingStream: formValues?.recordingStream ?? "",
-    bitrate: formValues?.bitrate,
+    bitrate: formValues?.bitrate ?? 0,
   };
 };
