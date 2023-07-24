@@ -1,8 +1,8 @@
 import React from "react";
-import {Button} from "@mui/material";
 
 import {STEPPER_ID} from "components/StepperBox";
 import {REPORT_ACTIONS_ID, REPORT_SECTION_ID} from "components/Report";
+import {Button} from "../Button";
 
 export const PrintButton = () => {
   const handlePrint = () => {

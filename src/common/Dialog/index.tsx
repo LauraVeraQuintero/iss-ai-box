@@ -33,7 +33,9 @@ export const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
         <BootstrapDialogTitle id="customized-dialog-title" onClose={onClose}>
           {title}
         </BootstrapDialogTitle>
-        <DialogContent dividers>{children}</DialogContent>
+        <DialogContent dividers style={{padding: "25px"}}>
+          {children}
+        </DialogContent>
       </BootstrapDialog>
     </div>
   );

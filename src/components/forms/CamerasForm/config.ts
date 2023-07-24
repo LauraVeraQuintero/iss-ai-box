@@ -100,9 +100,10 @@ const FORM_FIELDS_2: Array<FormField<CameraFormValuesKeys>> = [
     required: true,
     type: "select",
     options: [
-      {label: "Low (lobby)", value: "low"},
-      {label: "Med (retail store)", value: "med"},
-      {label: "High (Subway)", value: "high"},
+      {label: "Lobby (Low movement)", value: "low"},
+      {label: "Stairway (Medium movement)", value: "sMed"},
+      {label: "Park (Medium movement)", value: "pMed"},
+      {label: "Metro (High movement)", value: "high"},
       {label: "Unknown", value: "unknown"},
     ],
   },

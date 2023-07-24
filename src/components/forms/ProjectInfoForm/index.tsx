@@ -47,7 +47,13 @@ export const ProjectInfoForm = () => {
             )}
           </div>
         ))}
-        <Container style={{maxWidth: "100%", display: "flex", justifyContent: "flex-end"}}>
+        <Container
+          style={{
+            maxWidth: "100%",
+            display: "flex",
+            justifyContent: "flex-end",
+            marginTop: "35px",
+          }}>
           <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
             Next
           </Button>

@@ -6,10 +6,12 @@ import {FormFieldItem} from "common/FormFieldItem";
 import {generateRandomId} from "common/utils/generateRandomId";
 import {useFormValuesContext} from "contexts";
 import {Button} from "common/Button";
+import {BitrateRules} from "models/rules";
 
 import {FIELDS_SECTIONS} from "./config";
 import {CameraFormValues} from "./type";
 import {getDefaultCameraFormValues} from "./helpers";
+import {getBitrateRules} from "../../../services/getBitratesRules";
 
 type Props = {
   afterSubmit?: () => void;
@@ -19,6 +21,7 @@ type Props = {
 
 export const CamerasForm: React.FC<Props> = ({afterSubmit, cameraIndex, onCancel}) => {
   const {cameras, setCameras} = useFormValuesContext();
+  const [bitrateRules, setBitrateRules] = React.useState<BitrateRules>();
   const {
     control,
     handleSubmit,
@@ -42,6 +45,16 @@ export const CamerasForm: React.FC<Props> = ({afterSubmit, cameraIndex, onCancel
     afterSubmit?.();
   };
 
+  React.useEffect(() => {
+    const getRules = async () => {
+      const rules = await getBitrateRules();
+      console.log(rules);
+      if (rules) setBitrateRules(rules);
+    };
+
+    getRules();
+  }, []);
+
   return (
     <Container style={{maxWidth: "800px"}}>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -59,7 +72,14 @@ export const CamerasForm: React.FC<Props> = ({afterSubmit, cameraIndex, onCancel
             )}
           </div>
         ))}
-        <Container style={{maxWidth: "100%", display: "flex", justifyContent: "flex-end", gap: 15}}>
+        <Container
+          style={{
+            maxWidth: "100%",
+            display: "flex",
+            justifyContent: "flex-end",
+            gap: 15,
+            marginTop: "35px",
+          }}>
           {onCancel && (
             <Button variant="outlined" color="primary" sx={{mt: 5}} onClick={onCancel}>
               Cancel

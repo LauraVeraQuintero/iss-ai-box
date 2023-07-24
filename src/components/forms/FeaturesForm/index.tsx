@@ -81,7 +81,14 @@ export const FeaturesForm: React.FC = () => {
         rowSelectionModel={rowSelectionModel}
         checkboxSelection
       />
-      <Container style={{maxWidth: "100%", display: "flex", justifyContent: "flex-end", gap: 15}}>
+      <Container
+        style={{
+          maxWidth: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+          gap: 15,
+          marginTop: "35px",
+        }}>
         <Button variant="outlined" color="primary" sx={{mt: 5}} onClick={handleBack}>
           Back
         </Button>

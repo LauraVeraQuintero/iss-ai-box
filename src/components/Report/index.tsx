@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Container, Divider, Typography, Chip, Button} from "@mui/material";
+import {Container, Divider, Typography, Chip} from "@mui/material";
 import moment from "moment";
 
 import {useFormValuesContext} from "contexts/FormValues";
@@ -16,6 +16,7 @@ import {ADD_ONS_FORM_LABELS} from "../forms/AddOnsForm/config";
 import {ITEMS} from "../forms/FeaturesForm/config";
 import {FlexContainer, ValuesWrapper} from "../forms/FeaturesForm/styles";
 import {PrintButton} from "common/PrintButton";
+import {Button} from "common/Button";
 
 const ROW_HEIGHT_IN_PX = 55;
 export const REPORT_SECTION_ID = "report_section_element";
@@ -152,11 +153,18 @@ export const Report: React.FC = () => {
         </ValuesWrapper>
       )}
       <Container
-        style={{maxWidth: "100%", display: "flex", justifyContent: "flex-end", gap: 15}}
+        style={{
+          maxWidth: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+          gap: 15,
+          marginTop: "35px",
+        }}
         id={REPORT_ACTIONS_ID}>
         <Button variant="outlined" color="primary" onClick={handleBack}>
           Back
         </Button>
+
         <PrintButton />
       </Container>
     </Container>
