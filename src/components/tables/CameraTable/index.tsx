@@ -12,6 +12,7 @@ import {Button, Container} from "@mui/material";
 import {useFormValuesContext} from "contexts";
 import {Dialog} from "common/Dialog";
 import {CamerasForm} from "components/forms/CamerasForm";
+import {CAMERA_FORM_LABELS} from "components/forms/CamerasForm/config";
 
 import {StyledTableCell, StyledTableRow} from "./styles";
 
@@ -60,17 +61,19 @@ export const CameraTable: React.FC<Props> = ({hideActions}) => {
         <Table sx={{minWidth: 700}} aria-label="customized table">
           <TableHead>
             <StyledTableRow>
-              <StyledTableCell>Manufacturer / Model #</StyledTableCell>
-              <StyledTableCell align="right">Quantity</StyledTableCell>
-              <StyledTableCell align="right">Days of Storage</StyledTableCell>
-              <StyledTableCell align="right">Motion Detection</StyledTableCell>
-              <StyledTableCell align="right">Continuous Recording</StyledTableCell>
-              <StyledTableCell align="right">Resolution</StyledTableCell>
-              <StyledTableCell align="right">Codec</StyledTableCell>
-              <StyledTableCell align="right">FPS</StyledTableCell>
-              <StyledTableCell align="right">Scene Activity</StyledTableCell>
-              <StyledTableCell align="right">Recording Stream</StyledTableCell>
-              <StyledTableCell align="right">Bitrate (Mbps)</StyledTableCell>
+              <StyledTableCell>{CAMERA_FORM_LABELS.manufacturer}</StyledTableCell>
+              <StyledTableCell align="right">{CAMERA_FORM_LABELS.cameraQuantity}</StyledTableCell>
+              <StyledTableCell align="right">{CAMERA_FORM_LABELS.storageDays}</StyledTableCell>
+              <StyledTableCell align="right">{CAMERA_FORM_LABELS.motionDetection}</StyledTableCell>
+              <StyledTableCell align="right">
+                {CAMERA_FORM_LABELS.continuousRecording}
+              </StyledTableCell>
+              <StyledTableCell align="right">{CAMERA_FORM_LABELS.resolution}</StyledTableCell>
+              <StyledTableCell align="right">{CAMERA_FORM_LABELS.codec}</StyledTableCell>
+              <StyledTableCell align="right">{CAMERA_FORM_LABELS.fps}</StyledTableCell>
+              <StyledTableCell align="right">{CAMERA_FORM_LABELS.sceneActivity}</StyledTableCell>
+              <StyledTableCell align="right">{CAMERA_FORM_LABELS.recordingStream}</StyledTableCell>
+              <StyledTableCell align="right">{CAMERA_FORM_LABELS.bitrate}</StyledTableCell>
             </StyledTableRow>
           </TableHead>
           <TableBody>

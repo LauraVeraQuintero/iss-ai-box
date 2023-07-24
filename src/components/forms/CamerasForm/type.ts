@@ -1,4 +1,5 @@
 export type CameraFormValues = {
+  id?: string;
   manufacturer?: string;
   cameraQuantity?: number;
   motionDetection?: boolean;

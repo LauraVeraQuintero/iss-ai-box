@@ -3,6 +3,7 @@ import {useForm} from "react-hook-form";
 import {Button, Container, Divider, Grid} from "@mui/material";
 
 import {FormFieldItem} from "common/FormFieldItem";
+import {generateRandomId} from "common/utils/generateRandomId";
 import {useFormValuesContext} from "contexts";
 
 import {FIELDS_SECTIONS} from "./config";
@@ -30,10 +31,12 @@ export const CamerasForm: React.FC<Props> = ({afterSubmit, cameraIndex, onCancel
   const onSubmit = (values: CameraFormValues) => {
     if (cameraIndex !== undefined) {
       setCameras((cameras) =>
-        cameras.map((camera, index) => (index === cameraIndex ? values : camera)),
+        cameras.map((camera, index) =>
+          index === cameraIndex ? {id: camera.id, ...values} : camera,
+        ),
       );
     } else {
-      setCameras((cameras) => cameras.concat(values));
+      setCameras((cameras) => cameras.concat({id: generateRandomId(), ...values}));
     }
     afterSubmit?.();
   };

@@ -1,5 +1,6 @@
 import {GridColDef} from "@mui/x-data-grid";
 import {priceFormat} from "../forms/FeaturesForm/config";
+import {FIELDS_SECTIONS} from "../forms/CamerasForm/config";
 
 export const CURRENCY_FIELD_KEYS = ["budget"];
 
@@ -14,3 +15,13 @@ export const FEATURE_TABLE_COLUMNS: GridColDef[] = [
     align: "right",
   },
 ];
+
+export const CAMERA_TABLE_COLUMNS: () => GridColDef[] = () => {
+  return FIELDS_SECTIONS.flat().map((column) => {
+    return {
+      field: column.name,
+      headerName: column.label,
+      sortable: true,
+    };
+  });
+};

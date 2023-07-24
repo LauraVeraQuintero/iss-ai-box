@@ -7,13 +7,14 @@ import {useFormValuesContext} from "contexts/FormValues";
 import {Grid, Item} from "./styles";
 import {ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
 import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
-import {CURRENCY_FIELD_KEYS, FEATURE_TABLE_COLUMNS} from "./config";
+import {CAMERA_TABLE_COLUMNS, CURRENCY_FIELD_KEYS, FEATURE_TABLE_COLUMNS} from "./config";
 import {formatNumberAsCurrency} from "../forms/FeaturesForm/helpers";
 import {AddOnsFormValuesKeys} from "../forms/AddOnsForm/type";
 import {ADD_ONS_FORM_LABELS} from "../forms/AddOnsForm/config";
 import {TemplateTable} from "common/TemplateTable";
 import {ITEMS} from "../forms/FeaturesForm/config";
-import {CameraTable} from "../tables/CameraTable";
+
+const ROW_HEIGHT = 50;
 
 export const Report: React.FC = () => {
   const {projectFormValues, cameras, featuresFormValues, addOnFormValues} = useFormValuesContext();
@@ -30,20 +31,22 @@ export const Report: React.FC = () => {
     return value?.toString();
   };
 
-  const getFeatureTableData = () => {
-    if (!featuresFormValues) return;
+  const featureTableData = React.useMemo(() => {
+    if (!featuresFormValues) return [];
 
     return ITEMS.filter((item) =>
       featuresFormValues.selectedItemIds.find((selectedId) => selectedId === item.id),
     ).map((r) => ({id: r.id, name: r.name, price: r.price}));
-  };
+  }, [featuresFormValues]);
 
-  console.log({projectFormValues}, {cameras}, {featuresFormValues}, {addOnFormValues});
+  const calculateTableHeight = (rows: number) => {
+    return ROW_HEIGHT + rows * ROW_HEIGHT;
+  };
 
   if (!projectFormValues || !featuresFormValues || !addOnFormValues || !cameras.length) return;
 
   return (
-    <Container style={{marginTop: "60px", maxWidth: "900px"}}>
+    <Container style={{marginTop: "60px", maxWidth: "1000px"}}>
       <Typography variant="h5" sx={{mb: 3, mt: 5}} justifyContent="center" color="black">
         Report Summary
       </Typography>
@@ -92,11 +95,19 @@ export const Report: React.FC = () => {
       <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
         Cameras
       </Typography>
-      <CameraTable hideActions />
+      <TemplateTable
+        columns={CAMERA_TABLE_COLUMNS()}
+        data={cameras}
+        tableHeight={calculateTableHeight(cameras.length)}
+      />
       <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
         Features
       </Typography>
-      <TemplateTable columns={FEATURE_TABLE_COLUMNS} data={getFeatureTableData()} />
+      <TemplateTable
+        columns={FEATURE_TABLE_COLUMNS}
+        data={featureTableData}
+        tableHeight={featureTableData.length}
+      />
     </Container>
   );
 };

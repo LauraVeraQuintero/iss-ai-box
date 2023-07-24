@@ -3,6 +3,7 @@ import {FormField} from "models/forms";
 import {CameraFormValuesKeys} from "./type";
 
 export const CAMERA_FORM_LABELS: Record<CameraFormValuesKeys, string> = {
+  id: "Id",
   manufacturer: "Manufacturer / Model #",
   cameraQuantity: "Quantity",
   motionDetection: "Motion Detection",
