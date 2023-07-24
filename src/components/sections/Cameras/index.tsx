@@ -26,6 +26,10 @@ export const Cameras: React.FC = () => {
     setActiveStep(2);
   };
 
+  const handleBack = () => {
+    setActiveStep(0);
+  };
+
   return (
     <Container style={{marginTop: "60px", maxWidth: "100%"}}>
       <Typography variant="h5" sx={{mb: 5}} justifyContent="center" color="black">
@@ -40,7 +44,10 @@ export const Cameras: React.FC = () => {
         <CamerasForm afterSubmit={handleClose} onCancel={handleClose} />
       </Dialog>
       <CameraTable />
-      <Container style={{maxWidth: "100%", display: "flex", justifyContent: "flex-end"}}>
+      <Container style={{maxWidth: "100%", display: "flex", justifyContent: "flex-end", gap: 15}}>
+        <Button variant="outlined" color="primary" sx={{mt: 5}} onClick={handleBack}>
+          Back
+        </Button>
         <Button variant="contained" color="primary" sx={{mt: 5}} onClick={handleNext}>
           Next
         </Button>
