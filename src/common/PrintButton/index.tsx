@@ -23,14 +23,12 @@ export const PrintButton = () => {
       stepper.style.opacity = "0";
       reportActions.style.opacity = "0";
 
-      setTimeout(() => {
-        window.print();
-        reportSection.style.maxWidth = originalSectionMaxWidth;
-        reportSection.style.margin = originalSectionMargin;
-        reportSectionParent.style.boxShadow = originalSectionParentBoxShadow;
-        stepper.style.opacity = originalStepperOpacity;
-        reportActions.style.opacity = originalReportActionsOpacity;
-      }, 1_000);
+      window.print();
+      reportSection.style.maxWidth = originalSectionMaxWidth;
+      reportSection.style.margin = originalSectionMargin;
+      reportSectionParent.style.boxShadow = originalSectionParentBoxShadow;
+      stepper.style.opacity = originalStepperOpacity;
+      reportActions.style.opacity = originalReportActionsOpacity;
     }
   };
 
