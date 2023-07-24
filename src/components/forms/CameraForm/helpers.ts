@@ -9,7 +9,7 @@ export const getDefaultCameraFormValues = (formValues?: CameraFormValues) => {
     storageDays: formValues?.storageDays,
     resolution: formValues?.resolution,
     codec: formValues?.codec ?? "",
-    fps: formValues?.fps ?? "",
+    fps: formValues?.fps ?? 0,
     sceneActivity: formValues?.sceneActivity ?? "",
     recordingStream: formValues?.recordingStream ?? "",
     bitrate: formValues?.bitrate,

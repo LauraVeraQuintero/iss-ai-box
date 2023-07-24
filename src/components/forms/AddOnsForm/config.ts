@@ -1,10 +1,15 @@
 import {FormField} from "models/forms";
 
-import {FormValuesKeys} from "./type";
+import {AddOnsFormValuesKeys} from "./type";
 
-export const FORM_FIELDS: Array<FormField<FormValuesKeys>> = [
+export const ADD_ONS_FORM_LABELS: Record<AddOnsFormValuesKeys, string> = {
+  sma: "SMA",
+  warranty: "Warranty",
+};
+
+export const FORM_FIELDS: Array<FormField<AddOnsFormValuesKeys>> = [
   {
-    label: "SMA",
+    label: ADD_ONS_FORM_LABELS.sma,
     name: "sma",
     required: true,
     type: "select",
@@ -15,7 +20,7 @@ export const FORM_FIELDS: Array<FormField<FormValuesKeys>> = [
     ],
   },
   {
-    label: "Warranty",
+    label: ADD_ONS_FORM_LABELS.warranty,
     name: "warranty",
     required: false,
     type: "boolean",

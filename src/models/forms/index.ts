@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ProjectFormValues} from "components/forms/ProjectInfoForm/type";
-import {CameraFormValues} from "components/forms/CamerasForm/type";
+import {CameraFormValues} from "components/forms/CameraForm/type";
 
 export type FormField<T> = {
   label: string;
@@ -11,6 +11,7 @@ export type FormField<T> = {
   type: React.InputHTMLAttributes<unknown>["type"];
   fullWidth?: boolean;
   options?: Option[];
+  info?: string;
 };
 
 export type FormFieldValues = ProjectFormValues | CameraFormValues;

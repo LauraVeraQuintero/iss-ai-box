@@ -8,6 +8,21 @@ const priceFormat = (params: GridRenderCellParams) => {
   return formatNumberAsCurrency(Number(price));
 };
 
+export const SERVER = {
+  server1: {
+    name: "505 Series Server - Small",
+    cores: 12,
+  },
+  server2: {
+    name: "535 Series Server - Medium",
+    cores: 20,
+  },
+  server3: {
+    name: "575 Series Server - Large",
+    cores: 40,
+  },
+};
+
 export const TABLE_COLUMNS: GridColDef[] = [
   {field: "id", headerName: "ID", width: 80, sortable: false},
   {field: "name", headerName: "Name", width: 400, sortable: true},

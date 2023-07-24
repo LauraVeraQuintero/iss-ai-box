@@ -18,4 +18,4 @@ export type ProjectFormValues = {
   dateNeeded?: moment.Moment;
 };
 
-export type FormValuesKeys = keyof ProjectFormValues;
+export type ProjectFormValuesKeys = keyof ProjectFormValues;

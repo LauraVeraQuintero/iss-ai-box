@@ -8,6 +8,7 @@ import {useFormValuesContext, useStepsContext} from "contexts";
 import {FORM_FIELDS} from "./config";
 import {getDefaultAddOnFormValues} from "./helpers";
 import {AddOnFormValues} from "./type";
+import {NextButton} from "../CamerasForm/styles";
 
 export const AddOnsForm = () => {
   const {addOnFormValues, setAddOnFormValues} = useFormValuesContext();
@@ -31,16 +32,18 @@ export const AddOnsForm = () => {
         SMA & Warranty
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Grid container spacing={5}>
+        <Grid container spacing={5} alignItems="flex-end">
           {FORM_FIELDS.map((fields, index) => (
             <Grid key={index} item xs={12} md={fields.fullWidth ? 12 : 6}>
               <FormFieldItem {...fields} control={control} errors={errors} />
             </Grid>
           ))}
         </Grid>
-        <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
-          Next
-        </Button>
+        <NextButton>
+          <Button type="submit" variant="contained" color="primary" sx={{mt: 5}}>
+            Next
+          </Button>
+        </NextButton>
       </form>
     </Container>
   );

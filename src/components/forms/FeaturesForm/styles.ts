@@ -7,11 +7,14 @@ export const TableWrapper = styled.div`
   justify-content: center;
 `;
 
-export const PriceWrapper = styled.div`
+export const ValuesWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
   margin-bottom: 20px;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 export const FlexContainer = styled.div`
