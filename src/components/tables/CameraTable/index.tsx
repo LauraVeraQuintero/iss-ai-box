@@ -16,7 +16,11 @@ import {CamerasForm} from "components/forms/CamerasForm";
 
 import {StyledTableCell, StyledTableRow} from "./styles";
 
-export const CameraTable: React.FC = () => {
+type Props = {
+  hideActions?: boolean;
+};
+
+export const CameraTable: React.FC<Props> = ({hideActions}) => {
   const [deleteOpen, setDeleteOpen] = React.useState(false);
   const [editOpen, setEditOpen] = React.useState(false);
   const [index, setIndex] = React.useState<number>();
@@ -90,20 +94,22 @@ export const CameraTable: React.FC = () => {
                 <StyledTableCell align="right">{row.sceneActivity}</StyledTableCell>
                 <StyledTableCell align="right">{row.recordingStream}</StyledTableCell>
                 <StyledTableCell align="right">{row.bitrate}</StyledTableCell>
-                <StyledTableCell align="center">
-                  <Container style={{display: "flex", padding: 0, gap: 10}}>
-                    <Delete
-                      onClick={() => {
-                        handleDeleteOpen(index);
-                      }}
-                    />
-                    <Edit
-                      onClick={() => {
-                        handleEditOpen(index);
-                      }}
-                    />
-                  </Container>
-                </StyledTableCell>
+                {!hideActions && (
+                  <StyledTableCell align="center">
+                    <Container style={{display: "flex", padding: 0, gap: 10}}>
+                      <Delete
+                        onClick={() => {
+                          handleDeleteOpen(index);
+                        }}
+                      />
+                      <Edit
+                        onClick={() => {
+                          handleEditOpen(index);
+                        }}
+                      />
+                    </Container>
+                  </StyledTableCell>
+                )}
               </StyledTableRow>
             ))}
           </TableBody>
