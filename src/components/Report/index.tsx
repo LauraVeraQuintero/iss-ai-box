@@ -48,7 +48,7 @@ export const Report: React.FC = () => {
         Report Summary
       </Typography>
       <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
-        Project Information
+        Project
       </Typography>
       <Grid height={400}>
         {(Object.keys(projectFormValues) as ProjectFormValuesKeys[]).map(
@@ -69,9 +69,9 @@ export const Report: React.FC = () => {
         )}
       </Grid>
       <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
-        Add Ons Information
+        Add Ons
       </Typography>
-      <Grid height={200}>
+      <Grid height={100}>
         {(Object.keys(addOnFormValues) as AddOnsFormValuesKeys[]).map(
           (key: AddOnsFormValuesKeys, index) => (
             <Item key={"addOns-" + index.toString()}>
@@ -90,11 +90,11 @@ export const Report: React.FC = () => {
         )}
       </Grid>
       <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
-        Cameras Information
+        Cameras
       </Typography>
       <CameraTable hideActions />
       <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
-        Features Information
+        Features
       </Typography>
       <TemplateTable columns={FEATURE_TABLE_COLUMNS} data={getFeatureTableData()} />
     </Container>
