@@ -19,7 +19,7 @@ import {ITEMS} from "../forms/FeaturesForm/config";
 export const Report: React.FC = () => {
   const {projectFormValues, cameras, featuresFormValues, addOnFormValues} = useFormValuesContext();
 
-  const formatItemValue = (value: any, key: string) => {
+  const formatItemValue = (key: string, value?: any) => {
     if (typeof value === "boolean") {
       return value ? "YES" : "NO";
     } else if (typeof value === "number" && CURRENCY_FIELD_KEYS.includes(key)) {
@@ -28,7 +28,7 @@ export const Report: React.FC = () => {
       return moment(value).format("lll");
     }
 
-    return value.toString();
+    return value?.toString();
   };
 
   const getFeatureTableData = () => {
@@ -36,10 +36,10 @@ export const Report: React.FC = () => {
 
     return ITEMS.filter((item) =>
       featuresFormValues.selectedItemIds.find((selectedId) => selectedId === item.id),
-    ).map((r) => ({name: r.name, price: r.price}));
+    ).map((r) => ({id: r.id, name: r.name, price: r.price}));
   };
 
-  console.log({projectFormValues}, {cameraFormValues}, {featuresFormValues}, {addOnFormValues});
+  console.log({projectFormValues}, {cameras}, {featuresFormValues}, {addOnFormValues});
 
   if (!projectFormValues || !featuresFormValues || !addOnFormValues || !cameras.length) return;
 
@@ -48,10 +48,10 @@ export const Report: React.FC = () => {
       <Typography variant="h5" sx={{mb: 3, mt: 5}} justifyContent="center">
         Report Summary
       </Typography>
-      <Grid>
-        <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
-          Project Information
-        </Typography>
+      <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
+        Project Information
+      </Typography>
+      <Grid height={400}>
         {(Object.keys(projectFormValues) as ProjectFormValuesKeys[]).map(
           (key: ProjectFormValuesKeys, index) => (
             <Item key={"project-" + index.toString()}>
@@ -63,11 +63,16 @@ export const Report: React.FC = () => {
                 {PROJECT_FORM_LABELS[key]}
               </Typography>
               <Typography variant="body1" gutterBottom>
-                {formatItemValue(projectFormValues[key], key)}
+                {formatItemValue(key, projectFormValues[key])}
               </Typography>
             </Item>
           ),
         )}
+      </Grid>
+      <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
+        Add Ons Information
+      </Typography>
+      <Grid height={200}>
         {(Object.keys(addOnFormValues) as AddOnsFormValuesKeys[]).map(
           (key: AddOnsFormValuesKeys, index) => (
             <Item key={"addOns-" + index.toString()}>
@@ -79,37 +84,37 @@ export const Report: React.FC = () => {
                 {ADD_ONS_FORM_LABELS[key]}
               </Typography>
               <Typography variant="body1" gutterBottom>
-                {formatItemValue(addOnFormValues[key], key)}
+                {formatItemValue(key, addOnFormValues[key])}
               </Typography>
             </Item>
           ),
         )}
-        <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
-          Cameras Information
-        </Typography>
-        {cameras.map((camera, index) => (
-          <span key={index}>
-            {(Object.keys(camera) as CameraFormValuesKeys[]).map(
-              (key: CameraFormValuesKeys, index) => (
-                <Item key={"camera-" + index.toString()}>
-                  <Typography
-                    variant="overline"
-                    display="block"
-                    sx={{color: "gray", fontSize: "12px"}}
-                    gutterBottom>
-                    {CAMERA_FORM_LABELS[key]}
-                  </Typography>
-                  <Typography variant="body1" gutterBottom>
-                    {formatItemValue(camera[key], key)}
-                  </Typography>
-                </Item>
-              ),
-            )}
-          </span>
-        ))}
       </Grid>
       <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
         Cameras Information
+      </Typography>
+      {cameras.map((camera, index) => (
+        <span key={index}>
+          {(Object.keys(camera) as CameraFormValuesKeys[]).map(
+            (key: CameraFormValuesKeys, index) => (
+              <Item key={"camera-" + index.toString()}>
+                <Typography
+                  variant="overline"
+                  display="block"
+                  sx={{color: "gray", fontSize: "12px"}}
+                  gutterBottom>
+                  {CAMERA_FORM_LABELS[key]}
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  {formatItemValue(key, camera[key])}
+                </Typography>
+              </Item>
+            ),
+          )}
+        </span>
+      ))}
+      <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
+        Features Information
       </Typography>
       <TemplateTable columns={FEATURE_TABLE_COLUMNS} data={getFeatureTableData()} />
     </Container>
