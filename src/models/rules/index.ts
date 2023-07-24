@@ -4,13 +4,9 @@ type CameraResolution = {
   };
 };
 
-type VideoQuality = {
+export type BitrateRules = {
   low: CameraResolution;
   high: CameraResolution;
   sMed: CameraResolution;
   pMed: CameraResolution;
-};
-
-export type BitrateRules = {
-  rules: VideoQuality;
 };

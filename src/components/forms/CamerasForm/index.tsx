@@ -7,11 +7,11 @@ import {generateRandomId} from "common/utils/generateRandomId";
 import {useFormValuesContext} from "contexts";
 import {Button} from "common/Button";
 import {BitrateRules} from "models/rules";
+import rulesJson from "assets/jsonbitrates.json";
 
 import {FIELDS_SECTIONS} from "./config";
 import {CameraFormValues} from "./type";
 import {getDefaultCameraFormValues} from "./helpers";
-import {getBitrateRules} from "../../../services/getBitratesRules";
 
 type Props = {
   afterSubmit?: () => void;
@@ -21,16 +21,20 @@ type Props = {
 
 export const CamerasForm: React.FC<Props> = ({afterSubmit, cameraIndex, onCancel}) => {
   const {cameras, setCameras} = useFormValuesContext();
-  const [bitrateRules, setBitrateRules] = React.useState<BitrateRules>();
   const {
     control,
     handleSubmit,
+    watch,
+    setValue,
     formState: {errors},
   } = useForm<CameraFormValues>({
     defaultValues: getDefaultCameraFormValues(
       cameraIndex !== undefined ? cameras[cameraIndex] : undefined,
     ),
   });
+  const sceneActivity = watch("sceneActivity");
+  const recordingStream = watch("recordingStream");
+  const fps = watch("fps");
 
   const onSubmit = (values: CameraFormValues) => {
     if (cameraIndex !== undefined) {
@@ -46,14 +50,16 @@ export const CamerasForm: React.FC<Props> = ({afterSubmit, cameraIndex, onCancel
   };
 
   React.useEffect(() => {
-    const getRules = async () => {
-      const rules = await getBitrateRules();
-      console.log(rules);
-      if (rules) setBitrateRules(rules);
-    };
+    if (!rulesJson || !sceneActivity || !recordingStream || !fps) return;
 
-    getRules();
-  }, []);
+    const valueBySceneActivity = (rulesJson as BitrateRules)[sceneActivity as keyof BitrateRules];
+    if (!valueBySceneActivity) return;
+
+    const valueByRecordingStream = valueBySceneActivity[recordingStream];
+
+    const valueByFps = valueByRecordingStream[fps];
+    if (valueByFps) setValue("bitrate", Number(valueByFps));
+  }, [sceneActivity, recordingStream, fps]);
 
   return (
     <Container style={{maxWidth: "800px"}}>
