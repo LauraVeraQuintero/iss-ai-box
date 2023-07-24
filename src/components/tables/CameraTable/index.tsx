@@ -7,10 +7,11 @@ import TableHead from "@mui/material/TableHead";
 import Delete from "@mui/icons-material/Delete";
 import Edit from "@mui/icons-material/Edit";
 import {GridCheckIcon, GridClearIcon} from "@mui/x-data-grid";
-import {Button, Container} from "@mui/material";
+import {Container} from "@mui/material";
 
 import {useFormValuesContext} from "contexts";
 import {Dialog} from "common/Dialog";
+import {Button} from "common/Button";
 import {CamerasForm} from "components/forms/CamerasForm";
 import {CAMERA_FORM_LABELS} from "components/forms/CamerasForm/config";
 

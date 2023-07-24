@@ -1,10 +1,11 @@
 import React from "react";
 import {useForm} from "react-hook-form";
-import {Button, Container, Divider, Grid} from "@mui/material";
+import {Container, Divider, Grid} from "@mui/material";
 
 import {FormFieldItem} from "common/FormFieldItem";
 import {generateRandomId} from "common/utils/generateRandomId";
 import {useFormValuesContext} from "contexts";
+import {Button} from "common/Button";
 
 import {FIELDS_SECTIONS} from "./config";
 import {CameraFormValues} from "./type";

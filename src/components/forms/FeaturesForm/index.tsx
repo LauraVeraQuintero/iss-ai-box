@@ -1,8 +1,9 @@
 import React from "react";
-import {Container, Button, Typography} from "@mui/material";
+import {Container, Typography} from "@mui/material";
 import {GridRowSelectionModel} from "@mui/x-data-grid";
 
 import {TemplateTable} from "common/TemplateTable";
+import {Button} from "common/Button";
 import {useFormValuesContext, useStepsContext} from "contexts";
 
 import {ITEMS, TABLE_COLUMNS} from "./config";

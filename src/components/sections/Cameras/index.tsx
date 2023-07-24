@@ -1,9 +1,10 @@
 import * as React from "react";
 
-import {Button, Container, Typography} from "@mui/material";
+import {Container, Typography} from "@mui/material";
 
 import {CameraTable} from "components/tables/CameraTable";
 import {Dialog} from "common/Dialog";
+import {Button} from "common/Button";
 import {CamerasForm} from "components/forms/CamerasForm";
 import {useStepsContext} from "contexts";
 

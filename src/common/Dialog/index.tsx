@@ -1,6 +1,7 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
 import DialogContent from "@mui/material/DialogContent";
+
+import {Button} from "common/Button";
 
 import {BootstrapDialogTitle} from "./BootstrapDialogTitle";
 import {BootstrapDialog} from "./styles";
