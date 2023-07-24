@@ -121,7 +121,13 @@ const FORM_FIELDS_2: Array<FormField<CameraFormValuesKeys>> = [
       {label: "Unknown", value: "unknown"},
     ],
   },
-  {label: CAMERA_FORM_LABELS.bitrate, name: "bitrate", required: true, type: "number"},
+  {
+    label: CAMERA_FORM_LABELS.bitrate,
+    name: "bitrate",
+    required: true,
+    type: "number",
+    info: "This field is automatically calculated based on the selected values for Scene Activity, Recording Stream and FPS",
+  },
 ];
 
 export const FIELDS_SECTIONS = [FORM_FIELDS_1, FORM_FIELDS_2];
