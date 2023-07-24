@@ -9,10 +9,12 @@ import {ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
 import {CameraFormValues, CameraFormValuesKeys} from "../forms/CamerasForm/type";
 import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
 import {CAMERA_FORM_LABELS} from "../forms/CamerasForm/config";
-import {CURRENCY_FIELD_KEYS} from "./config";
+import {CURRENCY_FIELD_KEYS, FEATURE_TABLE_COLUMNS} from "./config";
 import {formatNumberAsCurrency} from "../forms/FeaturesForm/helpers";
 import {AddOnsFormValuesKeys} from "../forms/AddOnsForm/type";
 import {ADD_ONS_FORM_LABELS} from "../forms/AddOnsForm/config";
+import {TemplateTable} from "common/TemplateTable";
+import {ITEMS} from "../forms/FeaturesForm/config";
 
 export const Report: React.FC = () => {
   const {projectFormValues, cameraFormValues, featuresFormValues, addOnFormValues} =
@@ -29,6 +31,16 @@ export const Report: React.FC = () => {
 
     return value.toString();
   };
+
+  const getFeatureTableData = () => {
+    if (!featuresFormValues) return;
+
+    return ITEMS.filter((item) =>
+      featuresFormValues.selectedItemIds.find((selectedId) => selectedId === item.id),
+    ).map((r) => ({name: r.name, price: r.price}));
+  };
+
+  console.log({projectFormValues}, {cameraFormValues}, {featuresFormValues}, {addOnFormValues});
 
   if (!projectFormValues || !cameraFormValues || featuresFormValues || !addOnFormValues) return;
 
@@ -97,6 +109,10 @@ export const Report: React.FC = () => {
           </span>
         ))}
       </Grid>
+      <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
+        Cameras Information
+      </Typography>
+      <TemplateTable columns={FEATURE_TABLE_COLUMNS} data={getFeatureTableData()} />
     </Container>
   );
 };
