@@ -39,7 +39,7 @@ export const FeaturesForm: React.FC = () => {
 
   return (
     <Container style={{marginTop: "60px", maxWidth: "900px"}}>
-      <Typography variant="h5" sx={{mb: 5}} justifyContent="center">
+      <Typography variant="h5" sx={{mb: 5}} justifyContent="center" color="black">
         Features Information
       </Typography>
       <ValuesWrapper>

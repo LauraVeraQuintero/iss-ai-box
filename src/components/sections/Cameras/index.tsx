@@ -27,7 +27,7 @@ export const Cameras: React.FC = () => {
 
   return (
     <Container style={{marginTop: "60px", maxWidth: "100%"}}>
-      <Typography variant="h5" sx={{mb: 5}} justifyContent="center">
+      <Typography variant="h5" sx={{mb: 5}} justifyContent="center" color="black">
         Camera Information
       </Typography>
       <Dialog

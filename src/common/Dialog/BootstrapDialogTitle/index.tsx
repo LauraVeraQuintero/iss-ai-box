@@ -16,7 +16,7 @@ export const BootstrapDialogTitle: React.FC<React.PropsWithChildren<DialogTitleP
   const {children, onClose, ...other} = props;
 
   return (
-    <DialogTitle sx={{m: 0, p: 2, fontSize: "1rem"}} {...other}>
+    <DialogTitle sx={{m: 0, p: 2, fontSize: "1rem", color: "black"}} {...other}>
       {children}
       {onClose && (
         <IconButton
