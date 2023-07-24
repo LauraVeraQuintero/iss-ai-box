@@ -27,6 +27,10 @@ export const FeaturesForm: React.FC = () => {
     setActiveStep(3);
   };
 
+  const handleBack = () => {
+    setActiveStep(1);
+  };
+
   const calculatedValues = React.useMemo(() => {
     return ITEMS.reduce(
       (acc, item) => {
@@ -76,7 +80,10 @@ export const FeaturesForm: React.FC = () => {
         rowSelectionModel={rowSelectionModel}
         checkboxSelection
       />
-      <Container style={{maxWidth: "100%", display: "flex", justifyContent: "flex-end"}}>
+      <Container style={{maxWidth: "100%", display: "flex", justifyContent: "flex-end", gap: 15}}>
+        <Button variant="outlined" color="primary" sx={{mt: 5}} onClick={handleBack}>
+          Back
+        </Button>
         <Button variant="contained" color="primary" sx={{mt: 5}} onClick={handleNext}>
           Next
         </Button>

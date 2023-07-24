@@ -14,6 +14,8 @@ type StepperProps = {
   steps: StepContent[];
 };
 
+export const STEPPER_ID = "stepper_element";
+
 export const StepperBox: React.FC<StepperProps> = ({steps}) => {
   const {activeStep, setActiveStep, ready, completed} = useStepsContext();
 
@@ -29,7 +31,7 @@ export const StepperBox: React.FC<StepperProps> = ({steps}) => {
 
   return (
     <Paper variant="elevation">
-      <Stepper activeStep={activeStep} orientation="horizontal">
+      <Stepper activeStep={activeStep} orientation="horizontal" id={STEPPER_ID}>
         {steps.map((step, index) => (
           <Step key={index} completed={completed(index)} disabled={!ready(index)}>
             <StepLabel

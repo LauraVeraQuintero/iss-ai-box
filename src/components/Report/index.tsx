@@ -1,25 +1,30 @@
 import * as React from "react";
-import {Container, Divider, Typography, Chip} from "@mui/material";
+import {Container, Divider, Typography, Chip, Button} from "@mui/material";
 import moment from "moment";
 
 import {useFormValuesContext} from "contexts/FormValues";
+import {TemplateTable} from "common/TemplateTable";
+import {useStepsContext} from "contexts";
 
 import {Grid, Item} from "./styles";
+import {CAMERA_TABLE_COLUMNS, CURRENCY_FIELD_KEYS, FEATURE_TABLE_COLUMNS} from "./config";
 import {ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
 import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
-import {CAMERA_TABLE_COLUMNS, CURRENCY_FIELD_KEYS, FEATURE_TABLE_COLUMNS} from "./config";
 import {boxRecommendation, formatNumberAsCurrency} from "../forms/FeaturesForm/helpers";
 import {AddOnsFormValuesKeys} from "../forms/AddOnsForm/type";
 import {ADD_ONS_FORM_LABELS} from "../forms/AddOnsForm/config";
-import {TemplateTable} from "common/TemplateTable";
 import {ITEMS} from "../forms/FeaturesForm/config";
 import {FlexContainer, ValuesWrapper} from "../forms/FeaturesForm/styles";
+import {PrintButton} from "common/PrintButton";
 
 const ROW_HEIGHT_IN_PX = 55;
+export const REPORT_SECTION_ID = "report_section_element";
+export const REPORT_ACTIONS_ID = "report_actions_element";
 
 export const Report: React.FC = () => {
   const {projectFormValues, cameras, featuresFormValues, featuresCalculation, addOnFormValues} =
     useFormValuesContext();
+  const {setActiveStep} = useStepsContext();
 
   const formatItemValue = (key: string, value?: any) => {
     if (typeof value === "boolean") {
@@ -47,16 +52,20 @@ export const Report: React.FC = () => {
 
   const getDivider = (label: string) => {
     return (
-      <Divider sx={{margin: "50px 0", borderWidth: "2px"}}>
+      <Divider sx={{margin: "35px 0", borderWidth: "2px"}}>
         <Chip label={label} color="info" variant="outlined" sx={{fontSize: "16px"}} />
       </Divider>
     );
   };
 
+  const handleBack = () => {
+    setActiveStep(3);
+  };
+
   if (!projectFormValues || !featuresFormValues || !addOnFormValues || !cameras.length) return;
 
   return (
-    <Container style={{marginTop: "60px", maxWidth: "1400px"}}>
+    <Container style={{marginTop: "60px", maxWidth: "1400px"}} id={REPORT_SECTION_ID}>
       <Typography variant="h5" sx={{mb: 3, mt: 5}} justifyContent="center" color="black">
         Report Summary
       </Typography>
@@ -142,6 +151,14 @@ export const Report: React.FC = () => {
           </FlexContainer>
         </ValuesWrapper>
       )}
+      <Container
+        style={{maxWidth: "100%", display: "flex", justifyContent: "flex-end", gap: 15}}
+        id={REPORT_ACTIONS_ID}>
+        <Button variant="outlined" color="primary" onClick={handleBack}>
+          Back
+        </Button>
+        <PrintButton />
+      </Container>
     </Container>
   );
 };
