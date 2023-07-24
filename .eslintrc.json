@@ -24,7 +24,7 @@
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "no-constant-condition": "off",
-    "@typescript-eslint/no-floating-promises": "off",,
+    "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/consistent-type-definitions": [
       "error",
       "type"
