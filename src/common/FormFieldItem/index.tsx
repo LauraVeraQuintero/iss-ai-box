@@ -41,7 +41,7 @@ export const FormFieldItem = <T extends FieldValues>({
       <Controller
         control={control}
         name={name}
-        rules={{required: false}}
+        rules={{required}}
         render={({field}) => (
           <TooltipWrapper>
             <SwitchWrapper>
@@ -65,7 +65,7 @@ export const FormFieldItem = <T extends FieldValues>({
       <Controller
         control={control}
         name={name}
-        rules={{required: false}}
+        rules={{required}}
         render={({field}) => (
           <TooltipWrapper column>
             {getTooltip()}
@@ -88,7 +88,7 @@ export const FormFieldItem = <T extends FieldValues>({
       <Controller
         control={control}
         name={name}
-        rules={{required: false}}
+        rules={{required}}
         render={({field}) => (
           <TooltipWrapper column>
             {getTooltip()}
@@ -115,7 +115,7 @@ export const FormFieldItem = <T extends FieldValues>({
     <Controller
       control={control}
       name={name}
-      rules={{required: false}}
+      rules={{required}}
       render={({field}) => (
         <TooltipWrapper column>
           {getTooltip()}
