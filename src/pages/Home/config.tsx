@@ -1,10 +1,11 @@
 import React from "react";
 
 import {ProjectInfoForm} from "components/forms/ProjectInfoForm";
-import {CamerasForm} from "components/forms/CamerasForm";
+// import {CamerasForm} from "components/forms/CamerasForm";
 import {AddOnsForm} from "components/forms/AddOnsForm";
 import {FeaturesForm} from "components/forms/FeaturesForm";
 import {Report} from "components/Report";
+import {Cameras} from "components/sections/Cameras";
 
 export const STEPS = [
   {
@@ -13,7 +14,8 @@ export const STEPS = [
   },
   {
     label: "Camera Information",
-    content: <CamerasForm />,
+    // content: <CamerasForm />,
+    content: <Cameras />,
   },
   {
     label: "Features",

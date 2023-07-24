@@ -74,9 +74,11 @@ export const FeaturesForm: React.FC = () => {
         rowSelectionModel={rowSelectionModel}
         checkboxSelection
       />
-      <Button variant="contained" color="primary" sx={{mt: 5}} onClick={handleNext}>
-        Next
-      </Button>
+      <Container style={{maxWidth: "100%", display: "flex", justifyContent: "flex-end"}}>
+        <Button variant="contained" color="primary" sx={{mt: 5}} onClick={handleNext}>
+          Next
+        </Button>
+      </Container>
     </Container>
   );
 };

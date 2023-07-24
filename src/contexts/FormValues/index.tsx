@@ -9,8 +9,8 @@ import {defaultErrorAction} from "contexts/helpers";
 export type FormValuesState = {
   projectFormValues?: ProjectFormValues;
   setProjectFormValues: React.Dispatch<React.SetStateAction<ProjectFormValues | undefined>>;
-  cameraFormValues?: CameraFormValues;
-  setCameraFormValues: React.Dispatch<React.SetStateAction<CameraFormValues | undefined>>;
+  cameras: CameraFormValues[];
+  setCameras: React.Dispatch<React.SetStateAction<CameraFormValues[]>>;
   featuresFormValues?: FeaturesFormValues;
   setFeaturesFormValues: React.Dispatch<React.SetStateAction<FeaturesFormValues | undefined>>;
   addOnFormValues?: AddOnFormValues;
@@ -20,8 +20,8 @@ export type FormValuesState = {
 export const FormValuesContext = createContext<FormValuesState>({
   projectFormValues: undefined,
   setProjectFormValues: defaultErrorAction,
-  cameraFormValues: undefined,
-  setCameraFormValues: defaultErrorAction,
+  cameras: [],
+  setCameras: defaultErrorAction,
   featuresFormValues: undefined,
   setFeaturesFormValues: defaultErrorAction,
   addOnFormValues: undefined,
@@ -30,7 +30,7 @@ export const FormValuesContext = createContext<FormValuesState>({
 
 export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({children}) => {
   const [projectFormValues, setProjectFormValues] = useState<ProjectFormValues>();
-  const [cameraFormValues, setCameraFormValues] = useState<CameraFormValues>();
+  const [cameras, setCameras] = useState<CameraFormValues[]>([]);
   const [featuresFormValues, setFeaturesFormValues] = useState<FeaturesFormValues>();
   const [addOnFormValues, setAddOnFormValues] = useState<AddOnFormValues>();
 
@@ -39,8 +39,8 @@ export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({children}
       value={{
         projectFormValues,
         setProjectFormValues,
-        cameraFormValues,
-        setCameraFormValues,
+        cameras,
+        setCameras,
         featuresFormValues,
         setFeaturesFormValues,
         addOnFormValues,
