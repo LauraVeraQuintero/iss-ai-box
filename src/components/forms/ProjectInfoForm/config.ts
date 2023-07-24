@@ -22,7 +22,7 @@ export const PROJECT_FORM_LABELS: Record<ProjectFormValuesKeys, string> = {
 const FORM_FIELDS_1: Array<FormField<ProjectFormValuesKeys>> = [
   {label: PROJECT_FORM_LABELS.projectName, name: "projectName", required: true, type: "string"},
   {
-    label: PROJECT_FORM_LABELS.colleagueEmail,
+    label: PROJECT_FORM_LABELS.colleagueName,
     name: "colleagueName",
     required: true,
     type: "string",
