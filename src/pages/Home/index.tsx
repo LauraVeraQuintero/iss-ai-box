@@ -1,6 +1,5 @@
 import React from "react";
 
-import ScrollToTop from "common/ScrollToTop";
 import {StepperBox} from "components/StepperBox";
 import {FormValuesProvider, StepsProvider} from "contexts";
 
@@ -11,7 +10,6 @@ const Home: React.FC = () => {
     <FormValuesProvider>
       <StepsProvider>
         <StepperBox steps={STEPS} />
-        <ScrollToTop />
       </StepsProvider>
     </FormValuesProvider>
   );

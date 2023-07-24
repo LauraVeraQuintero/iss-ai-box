@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Container, Typography} from "@mui/material";
+import {Container, Divider, Typography, Chip} from "@mui/material";
 import moment from "moment";
 
 import {useFormValuesContext} from "contexts/FormValues";
@@ -8,16 +8,18 @@ import {Grid, Item} from "./styles";
 import {ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
 import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
 import {CAMERA_TABLE_COLUMNS, CURRENCY_FIELD_KEYS, FEATURE_TABLE_COLUMNS} from "./config";
-import {formatNumberAsCurrency} from "../forms/FeaturesForm/helpers";
+import {boxRecommendation, formatNumberAsCurrency} from "../forms/FeaturesForm/helpers";
 import {AddOnsFormValuesKeys} from "../forms/AddOnsForm/type";
 import {ADD_ONS_FORM_LABELS} from "../forms/AddOnsForm/config";
 import {TemplateTable} from "common/TemplateTable";
 import {ITEMS} from "../forms/FeaturesForm/config";
+import {FlexContainer, ValuesWrapper} from "../forms/FeaturesForm/styles";
 
 const ROW_HEIGHT = 50;
 
 export const Report: React.FC = () => {
-  const {projectFormValues, cameras, featuresFormValues, addOnFormValues} = useFormValuesContext();
+  const {projectFormValues, cameras, featuresFormValues, featuresCalculation, addOnFormValues} =
+    useFormValuesContext();
 
   const formatItemValue = (key: string, value?: any) => {
     if (typeof value === "boolean") {
@@ -43,6 +45,14 @@ export const Report: React.FC = () => {
     return ROW_HEIGHT + rows * ROW_HEIGHT;
   };
 
+  const getDivider = (label: string) => {
+    return (
+      <Divider sx={{margin: "50px 0", borderWidth: "2px"}}>
+        <Chip label={label} color="info" variant="outlined" sx={{fontSize: "16px"}} />
+      </Divider>
+    );
+  };
+
   if (!projectFormValues || !featuresFormValues || !addOnFormValues || !cameras.length) return;
 
   return (
@@ -50,9 +60,7 @@ export const Report: React.FC = () => {
       <Typography variant="h5" sx={{mb: 3, mt: 5}} justifyContent="center" color="black">
         Report Summary
       </Typography>
-      <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
-        Project
-      </Typography>
+      {getDivider("Project")}
       <Grid height={400}>
         {(Object.keys(projectFormValues) as ProjectFormValuesKeys[]).map(
           (key: ProjectFormValuesKeys, index) => (
@@ -71,9 +79,7 @@ export const Report: React.FC = () => {
           ),
         )}
       </Grid>
-      <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
-        Add Ons
-      </Typography>
+      {getDivider("Add Ons")}
       <Grid height={100}>
         {(Object.keys(addOnFormValues) as AddOnsFormValuesKeys[]).map(
           (key: AddOnsFormValuesKeys, index) => (
@@ -92,22 +98,50 @@ export const Report: React.FC = () => {
           ),
         )}
       </Grid>
-      <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
-        Cameras
-      </Typography>
+      {getDivider("Cameras")}
       <TemplateTable
         columns={CAMERA_TABLE_COLUMNS()}
         data={cameras}
         tableHeight={calculateTableHeight(cameras.length)}
       />
-      <Typography variant="h6" sx={{mb: 3, mt: 5}} justifyContent="center">
-        Features
-      </Typography>
+      {getDivider("Features")}
       <TemplateTable
         columns={FEATURE_TABLE_COLUMNS}
         data={featureTableData}
-        tableHeight={featureTableData.length}
+        tableHeight={calculateTableHeight(featureTableData.length)}
       />
+      {featureTableData.length > 0 && (
+        <ValuesWrapper>
+          <FlexContainer>
+            <Typography
+              variant="subtitle2"
+              sx={{mr: "10px", color: "black", fontWeight: 500}}
+              justifyContent="center">
+              Total:
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{color: "black", fontWeight: 600}}
+              justifyContent="center">
+              {formatNumberAsCurrency(featuresCalculation?.totalPrice ?? 0)}
+            </Typography>
+          </FlexContainer>
+          <FlexContainer>
+            <Typography
+              variant="subtitle2"
+              sx={{mr: "10px", color: "black", fontWeight: 500}}
+              justifyContent="center">
+              Box Recommendation:
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{color: "black", fontWeight: 600}}
+              justifyContent="center">
+              {boxRecommendation(featuresCalculation?.points ?? 0)}
+            </Typography>
+          </FlexContainer>
+        </ValuesWrapper>
+      )}
     </Container>
   );
 };

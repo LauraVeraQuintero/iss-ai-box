@@ -10,7 +10,8 @@ import {boxRecommendation, formatNumberAsCurrency} from "./helpers";
 import {FlexContainer, ValuesWrapper} from "./styles";
 
 export const FeaturesForm: React.FC = () => {
-  const {featuresFormValues, setFeaturesFormValues} = useFormValuesContext();
+  const {featuresFormValues, setFeaturesFormValues, setFeaturesCalculation} =
+    useFormValuesContext();
   const {setActiveStep} = useStepsContext();
   const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>(() => {
     if (!featuresFormValues?.selectedItemIds?.length) return [];
@@ -22,6 +23,7 @@ export const FeaturesForm: React.FC = () => {
 
   const handleNext = () => {
     setFeaturesFormValues({selectedItemIds: rowSelectionModel});
+    setFeaturesCalculation({totalPrice: calculatedValues.price, points: calculatedValues.points});
     setActiveStep(3);
   };
 

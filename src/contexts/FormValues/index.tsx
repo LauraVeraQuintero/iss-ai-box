@@ -6,6 +6,11 @@ import {FeaturesFormValues} from "components/forms/FeaturesForm/types";
 import {ProjectFormValues} from "components/forms/ProjectInfoForm/type";
 import {defaultErrorAction} from "contexts/helpers";
 
+export type FeaturesCalculation = {
+  totalPrice: number;
+  points: number;
+};
+
 export type FormValuesState = {
   projectFormValues?: ProjectFormValues;
   setProjectFormValues: React.Dispatch<React.SetStateAction<ProjectFormValues | undefined>>;
@@ -15,6 +20,8 @@ export type FormValuesState = {
   setFeaturesFormValues: React.Dispatch<React.SetStateAction<FeaturesFormValues | undefined>>;
   addOnFormValues?: AddOnFormValues;
   setAddOnFormValues: React.Dispatch<React.SetStateAction<AddOnFormValues | undefined>>;
+  featuresCalculation?: FeaturesCalculation;
+  setFeaturesCalculation: React.Dispatch<React.SetStateAction<FeaturesCalculation | undefined>>;
 };
 
 export const FormValuesContext = createContext<FormValuesState>({
@@ -26,6 +33,8 @@ export const FormValuesContext = createContext<FormValuesState>({
   setFeaturesFormValues: defaultErrorAction,
   addOnFormValues: undefined,
   setAddOnFormValues: defaultErrorAction,
+  featuresCalculation: undefined,
+  setFeaturesCalculation: defaultErrorAction,
 });
 
 export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({children}) => {
@@ -33,6 +42,7 @@ export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({children}
   const [cameras, setCameras] = useState<CameraFormValues[]>([]);
   const [featuresFormValues, setFeaturesFormValues] = useState<FeaturesFormValues>();
   const [addOnFormValues, setAddOnFormValues] = useState<AddOnFormValues>();
+  const [featuresCalculation, setFeaturesCalculation] = useState<FeaturesCalculation>();
 
   return (
     <FormValuesContext.Provider
@@ -45,6 +55,8 @@ export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({children}
         setFeaturesFormValues,
         addOnFormValues,
         setAddOnFormValues,
+        featuresCalculation,
+        setFeaturesCalculation,
       }}>
       {children}
     </FormValuesContext.Provider>

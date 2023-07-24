@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div<{height: number}>`
   height: ${({height}) => height}px;
-  padding: 20px;
+  padding: 8px;
 `;
 
 export const OverrideCss = styled.div`
