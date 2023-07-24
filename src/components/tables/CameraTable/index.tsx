@@ -4,7 +4,6 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
-import Paper from "@mui/material/Paper";
 import Delete from "@mui/icons-material/Delete";
 import Edit from "@mui/icons-material/Edit";
 import {GridCheckIcon, GridClearIcon} from "@mui/x-data-grid";
@@ -57,7 +56,7 @@ export const CameraTable: React.FC<Props> = ({hideActions}) => {
 
   return (
     <>
-      <TableContainer component={Paper} sx={{mt: 5}}>
+      <TableContainer sx={{mt: 5}}>
         <Table sx={{minWidth: 700}} aria-label="customized table">
           <TableHead>
             <StyledTableRow>
