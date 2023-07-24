@@ -28,7 +28,7 @@ export const StepperBox: React.FC<StepperProps> = ({steps}) => {
   };
 
   return (
-    <Paper variant="outlined">
+    <Paper variant="elevation">
       <Stepper activeStep={activeStep} orientation="horizontal">
         {steps.map((step, index) => (
           <Step key={index} completed={completed(index)} disabled={!ready(index)}>
