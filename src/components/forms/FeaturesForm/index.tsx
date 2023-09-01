@@ -6,20 +6,25 @@ import {TemplateTable} from "common/TemplateTable";
 import {Button} from "common/Button";
 import {useFormValuesContext, useStepsContext} from "contexts";
 
-import {ITEMS, TABLE_COLUMNS} from "./config";
+import {TABLE_COLUMNS} from "./config";
 import {boxRecommendation, formatNumberAsCurrency} from "./helpers";
 import {FlexContainer, ValuesWrapper} from "./styles";
+import products from "assets/products.json";
+import {ProductItem} from "models/ProductItem";
 
 export const FeaturesForm: React.FC = () => {
+  const productItems = (products as ProductItem[]) || [];
   const {featuresFormValues, setFeaturesFormValues, setFeaturesCalculation} =
     useFormValuesContext();
   const {setActiveStep} = useStepsContext();
   const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>(() => {
-    if (!featuresFormValues?.selectedItemIds?.length) return [];
+    if (!featuresFormValues?.selectedItemIds?.length || !products) return [];
 
-    return ITEMS.filter((item) =>
-      featuresFormValues.selectedItemIds.find((selectedId) => selectedId === item.id),
-    ).map((r) => r.id);
+    return productItems
+      .filter((item) =>
+        featuresFormValues.selectedItemIds.find((selectedId) => selectedId === item.id),
+      )
+      .map((r) => r.id);
   });
 
   const handleNext = () => {
@@ -33,7 +38,7 @@ export const FeaturesForm: React.FC = () => {
   };
 
   const calculatedValues = React.useMemo(() => {
-    return ITEMS.reduce(
+    return productItems.reduce(
       (acc, item) => {
         const selected = rowSelectionModel.find((selectedId) => selectedId === item.id);
         const newPrice = selected ? item.price : 0;
@@ -45,7 +50,7 @@ export const FeaturesForm: React.FC = () => {
   }, [rowSelectionModel]);
 
   return (
-    <Container style={{marginTop: "60px", maxWidth: "900px"}}>
+    <Container style={{marginTop: "60px", maxWidth: "1000px"}}>
       <Typography variant="h5" sx={{mb: 5}} justifyContent="center" color="black">
         Features
       </Typography>
@@ -74,7 +79,7 @@ export const FeaturesForm: React.FC = () => {
         </FlexContainer>
       </ValuesWrapper>
       <TemplateTable
-        data={ITEMS}
+        data={productItems}
         columns={TABLE_COLUMNS}
         tableHeight={700}
         onRowSelectionModelChange={setRowSelectionModel}

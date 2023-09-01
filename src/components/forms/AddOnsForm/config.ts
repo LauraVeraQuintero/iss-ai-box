@@ -14,9 +14,10 @@ export const FORM_FIELDS: Array<FormField<AddOnsFormValuesKeys>> = [
     required: true,
     type: "select",
     options: [
-      {label: "Auto populate 1 year (mandatory)", value: "1 year"},
-      {label: "3 years", value: "3 years"},
-      {label: "5 years", value: "5 years"},
+      {label: "1 Year of SecurOS Guarantee Prime)", value: "1 year"},
+      {label: "2 Years of SecurOS Guarantee Prime)", value: "2 years"},
+      {label: "3 Years of SecurOS Guarantee Prime)", value: "3 years"},
+      {label: "5 Years of SecurOS Guarantee Prime)", value: "5 years"},
     ],
   },
   {

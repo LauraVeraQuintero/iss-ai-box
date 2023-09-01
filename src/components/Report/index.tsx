@@ -13,10 +13,11 @@ import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
 import {boxRecommendation, formatNumberAsCurrency} from "../forms/FeaturesForm/helpers";
 import {AddOnsFormValuesKeys} from "../forms/AddOnsForm/type";
 import {ADD_ONS_FORM_LABELS} from "../forms/AddOnsForm/config";
-import {ITEMS} from "../forms/FeaturesForm/config";
 import {FlexContainer, ValuesWrapper} from "../forms/FeaturesForm/styles";
 import {PrintButton} from "common/PrintButton";
 import {Button} from "common/Button";
+import products from "assets/products.json";
+import {ProductItem} from "models/ProductItem";
 
 const ROW_HEIGHT_IN_PX = 55;
 export const REPORT_SECTION_ID = "report_section_element";
@@ -40,11 +41,13 @@ export const Report: React.FC = () => {
   };
 
   const featureTableData = React.useMemo(() => {
-    if (!featuresFormValues) return [];
+    if (!featuresFormValues || !products) return [];
 
-    return ITEMS.filter((item) =>
-      featuresFormValues.selectedItemIds.find((selectedId) => selectedId === item.id),
-    ).map((r) => ({id: r.id, name: r.name, price: r.price}));
+    return (products as ProductItem[])
+      .filter((item) =>
+        featuresFormValues.selectedItemIds.find((selectedId) => selectedId === item.id),
+      )
+      .map((r) => ({id: r.id, name: r.name, price: r.price}));
   }, [featuresFormValues]);
 
   const calculateTableHeight = (rows: number, height: number = ROW_HEIGHT_IN_PX) => {

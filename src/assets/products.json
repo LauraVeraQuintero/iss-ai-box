@@ -1,902 +1,234 @@
 [
-    {
-        "Type of product": "VMS",
-        "Part Number ": "SOE-CAM",
-        "Description": "SecurOS Enterprise - Camera license (per channel)",
-        "Price": " 186.00 "
-    },  
-    {
-        "Type of product": "LPR (Low Speed)",
-        "Part Number ": "IF-LPR-SG",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Stop & Go (per camera) - For applications where vehicles come to a full stop.",
-        "Price": " 492.00 "
-    },  
-    {
-        "Type of product": "LPR (Low Speed)\"",
-        "Part Number ": "IF-LPR-L2",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Low Speed (per camera) Up to 25 mph (40 km/h).",
-        "Price": " 900.00 "
-    },
-    {
-        "Type of product": "LPR (High Speed) - NA",
-        "Part Number ": "IF-LPR-H2",
-        "Description": "\"SecurOS Auto - Vehicle License Plate Number Recognition - High Speed (per camera) - Up to 155 mph (250 km/h).",
-        "Price": " 1,500.00 "
-    },
-    {
-        "Type of product": "LPR (Low Speed) - NA -  Make/  Model / Color",
-        "Part Number ": "IF-LPR-CMM",
-        "Description": "\"SecurOS Auto - Vehicle License Plate Number Recognition - Class / Color / Make / Model Add-on (per camera) - ** Cannot be purchased without a IF-LPR-SG , IF-LPR-L, or IF-LPR-H license.",
-        "Price": " 270.00 "
-    },
-    {
-        "Type of product": "Cargo - Container Number Recognition",
-        "Part Number ": "IF-CNRT1",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 1 camera)",
-        "Price": " 2,700.00 "
-    },
-    {
-        "Type of product": "Cargo - Container Number Recognition",
-        "Part Number ": "IF-CNRT2",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 2 cameras - for result consolidation)",
-        "Price": " 3,930.00 "
-    },
-    {
-        "Type of product": "Cargo - Container Number Recognition",
-        "Part Number ": "IF-CNRT3",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 3 cameras - for result consolidation)",
-        "Price": " 2,700.00 "
-    },
-    {
-        "Type of product": "Tracking Kit",
-        "Part Number ": "IF-TK-SD",
-        "Description": "SecurOS Tracking Kit - Smoke Detection (per detector)",
-        "Price": " 450.00 "
-    },
-    {
-        "Type of product": "Tracking Kit",
-        "Part Number ": "IF-TK-OPEN",
-        "Description": "SecurOS Tracking Kit - Open License. One Detector from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running ",
-        "Price": " 330.00 "
-    },
-    {
-        "Type of product": "Detector BUNDLE3 (Choose 3)",
-        "Part Number ": "IF-TK-BUNDLE3",
-        "Description": "SecurOS Tracking Kit - Bundle of any 3 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running ",
-        "Price": " 900.00 "
-    },
-    {
-        "Type of product": "Detector BUNDLE3 (Choose 5)",
-        "Part Number ": "IF-TK-BUNDLE5",
-        "Description": "SecurOS Tracking Kit - Bundle of any 5 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running ",
-        "Price": " 1,320.00 "
-    },
-    {
-        "Type of product": "Tracking Kit",
-        "Part Number ": "IF-TK-FAILOVER",
-        "Description": "SecurOS Tracking Kit - Failover License (per camera) - Needed when running SecurOS Tracking Kit in a SecurOS Cluster.",
-        "Price": " Call "
-    },
-    {
-        "Type of product": "Tracking Kit",
-        "Part Number ": "IF-TK-HEL",
-        "Description": "SecurOS Helmet Detection (per detector)",
-        "Price": " 2,100.00 "
-    },
-    {
-        "Type of product": "Tracking Kit",
-        "Part Number ": "IF-NN-LOIT",
-        "Description": "SecurOS NN Loitering Detection Module (per camera) - ISS Neural Network based video analytic for Loitering Detection.",
-        "Price": " 1,320.00 "
-    },
-    {
-        "Type of product": "Tracking Kit",
-        "Part Number ": "IF-NN-OCP",
-        "Description": "SecurOS NN Occupancy Counter Module (per camera) - ISS Neural Network based video analytic for Occupancy Counting.",
-        "Price": " 1,500.00 "
-    },
-    {
-        "Type of product": "Tracking Kit",
-        "Part Number ": "IF-FARE-EV",
-        "Description": "SecurOS Fare Evasion - Turnstile (per camera) - ISS Neural Network based video analytic for Fare Evasion - for camera looking at turnstiles.",
-        "Price": " Call"
-    },
-    {
-        "Type of product": "FaceX (Controlled)",
-        "Part Number ": "IF-FR1",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 1-24 cameras per order per 1 system)",
-        "Price": " 1,470.00 "
-    },
-    {
-        "Type of product": "FaceX (Crowd)",
-        "Part Number ": "IF-FR2",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 25-99 cameras per order per 1 system)",
-        "Price": " 1,170.00 "
-    },
-    {
-        "Type of product": "FaceX (Crowd)",
-        "Part Number ": "IF-FR3",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 100-249 cameras per order per 1 system)",
-        "Price": " 990.00 "
-    },
-    {
-        "Type of product": "FaceX (Crowd)",
-        "Part Number ": "IF-FR4",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 250+ cameras per order per 1 system)",
-        "Price": " 810.00 "
-    },
-    {
-        "Type of product": "Face Mask",
-        "Part Number ": "IF-MSK1",
-        "Description": "SecurOS Face Mask Detection (per camera) - Module for detecting presence/absence of Protective Face Masks.",
-        "Price": " 597.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "SOE-CAM-SMA-1",
-        "Description": "SecurOS Enterprise - Camera license (per channel) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 27.90 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "SOE-CAM-SMA-2",
-        "Description": "SecurOS Enterprise - Camera license (per channel) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 46.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "SOE-CAM-SMA-3",
-        "Description": "SecurOS Enterprise - Camera license (per channel) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 65.10 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "SOE-CAM-SMA-5",
-        "Description": "SecurOS Enterprise - Camera license (per channel) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 93.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-SG-SMA-1",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Stop & Go (per camera) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 73.80 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-SG-SMA-2",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Stop & Go (per camera) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 123.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-SG-SMA-3",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Stop & Go (per camera) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 172.20 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-SG-SMA-5",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Stop & Go (per camera) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 246.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-L2-SMA-1",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Low Speed (per camera) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 135.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-L2-SMA-2",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Low Speed (per camera) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 225.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-L2-SMA-3",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Low Speed (per camera) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 315.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-L2-SMA-5",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Low Speed (per camera) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 450.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-H2-SMA-1",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - High Speed (per camera) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 225.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-H2-SMA-2",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - High Speed (per camera) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 375.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-H2-SMA-3",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - High Speed (per camera) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 525.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-H2-SMA-5",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - High Speed (per camera) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 750.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-CMM-SMA-1",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Class / Color / Make / Model Add-on (per camera) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 40.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-CMM-SMA-2",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Class / Color / Make / Model Add-on (per camera) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 67.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-CMM-SMA-3",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Class / Color / Make / Model Add-on (per camera) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 94.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-LPR-CMM-SMA-5",
-        "Description": "SecurOS Auto - Vehicle License Plate Number Recognition - Class / Color / Make / Model Add-on (per camera) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 135.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-CNRT1-SMA-1",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 1 camera) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 405.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-CNRT1-SMA-2",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 1 camera) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 675.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-CNRT1-SMA-3",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 1 camera) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 945.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-CNRT1-SMA-5",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 1 camera) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 1,350.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-CNRT2-SMA-1",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 2 cameras - for result consolidation) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 589.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-CNRT2-SMA-2",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 2 cameras - for result consolidation) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 982.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-CNRT2-SMA-3",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 2 cameras - for result consolidation) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 1,375.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-CNRT2-SMA-5",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 2 cameras - for result consolidation) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 1,965.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-CNRT3-SMA-1",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 3 cameras - for result consolidation) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 787.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-CNRT3-SMA-2",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 3 cameras - for result consolidation) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 1,312.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-CNRT3-SMA-3",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 3 cameras - for result consolidation) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 1,837.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-CNRT3-SMA-5",
-        "Description": "SecurOS Cargo - Container Number Recognition (per Control Point Lane with 3 cameras - for result consolidation) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 2,625.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-SD-SMA-1",
-        "Description": "SecurOS Tracking Kit - Smoke Detection (per detector) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 67.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-SD-SMA-2",
-        "Description": "SecurOS Tracking Kit - Smoke Detection (per detector) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 112.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-SD-SMA-3",
-        "Description": "SecurOS Tracking Kit - Smoke Detection (per detector) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 157.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-SD-SMA-5",
-        "Description": "SecurOS Tracking Kit - Smoke Detection (per detector) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 225.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-OPEN-SMA-1",
-        "Description": "SecurOS Tracking Kit - Open License. One Detector from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running  - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 49.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-OPEN-SMA-2",
-        "Description": "SecurOS Tracking Kit - Open License. One Detector from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running  - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 82.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-OPEN-SMA-3",
-        "Description": "SecurOS Tracking Kit - Open License. One Detector from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running  - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 115.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-OPEN-SMA-5",
-        "Description": "SecurOS Tracking Kit - Open License. One Detector from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running  - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 165.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-BUNDLE3-SMA-1",
-        "Description": "SecurOS Tracking Kit - Bundle of any 3 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 135.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-BUNDLE3-SMA-2",
-        "Description": "SecurOS Tracking Kit - Bundle of any 3 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 225.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-BUNDLE3-SMA-3",
-        "Description": "SecurOS Tracking Kit - Bundle of any 3 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 315.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-BUNDLE3-SMA-5",
-        "Description": "SecurOS Tracking Kit - Bundle of any 3 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 450.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-BUNDLE5-SMA-1",
-        "Description": "SecurOS Tracking Kit - Bundle of any 5 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 198.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-BUNDLE5-SMA-2",
-        "Description": "SecurOS Tracking Kit - Bundle of any 5 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 330.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-BUNDLE5-SMA-3",
-        "Description": "SecurOS Tracking Kit - Bundle of any 5 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 462.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-BUNDLE5-SMA-5",
-        "Description": "SecurOS Tracking Kit - Bundle of any 5 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 660.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-FAILOVER-SMA-1",
-        "Description": "SecurOS Tracking Kit - Failover License (per camera) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " Call "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-FAILOVER-SMA-2",
-        "Description": "SecurOS Tracking Kit - Failover License (per camera) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " Call "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-FAILOVER-SMA-3",
-        "Description": "SecurOS Tracking Kit - Failover License (per camera) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " Call "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-FAILOVER-SMA-5",
-        "Description": "SecurOS Tracking Kit - Failover License (per camera) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " Call "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-HEL-SMA-1",
-        "Description": "SecurOS Helmet Detection (per detector) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 315.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-HEL-SMA-2",
-        "Description": "SecurOS Helmet Detection (per detector) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 525.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-HEL-SMA-3",
-        "Description": "SecurOS Helmet Detection (per detector) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 735.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-TK-HEL-SMA-5",
-        "Description": "SecurOS Helmet Detection (per detector) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 1,050.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-NN-LOIT-SMA-1",
-        "Description": "SecurOS NN Loitering Detection Module (per camera) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 198.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-NN-LOIT-SMA-2",
-        "Description": "SecurOS NN Loitering Detection Module (per camera) - 2 Year of SecurOS Guarantee Prime",
-        "Price": " 330.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-NN-LOIT-SMA-3",
-        "Description": "SecurOS NN Loitering Detection Module (per camera) - 3 Year of SecurOS Guarantee Prime",
-        "Price": " 462.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-NN-LOIT-SMA-5",
-        "Description": "SecurOS NN Loitering Detection Module (per camera) - 5 Year of SecurOS Guarantee Prime",
-        "Price": " 660.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-NN-OCP-SMA-1",
-        "Description": "SecurOS NN Occupancy Counter Module (per camera) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 225.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-NN-OCP-SMA-2",
-        "Description": "SecurOS NN Occupancy Counter Module (per camera) - 2 Year of SecurOS Guarantee Prime",
-        "Price": " 375.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-NN-OCP-SMA-3",
-        "Description": "SecurOS NN Occupancy Counter Module (per camera) - 3 Year of SecurOS Guarantee Prime",
-        "Price": " 525.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-NN-OCP-SMA-5",
-        "Description": "SecurOS NN Occupancy Counter Module (per camera) - 5 Year of SecurOS Guarantee Prime",
-        "Price": " 750.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FARE-EV-SMA-1",
-        "Description": "SecurOS Fare Evasion - Turnstile (per camera) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " Call "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FARE-EV-SMA-2",
-        "Description": "SecurOS Fare Evasion - Turnstile (per camera) - 2 Year of SecurOS Guarantee Prime",
-        "Price": " Call "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FARE-EV-SMA-3",
-        "Description": "SecurOS Fare Evasion - Turnstile (per camera) - 3 Year of SecurOS Guarantee Prime",
-        "Price": " Call "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FARE-EV-SMA-5",
-        "Description": "SecurOS Fare Evasion - Turnstile (per camera) - 5 Year of SecurOS Guarantee Prime",
-        "Price": " Call "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR1-SMA-1",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 1-24 cameras per order per 1 system) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 220.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR1-SMA-2",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 1-24 cameras per order per 1 system) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 367.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR1-SMA-3",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 1-24 cameras per order per 1 system) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 514.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR1-SMA-5",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 1-24 cameras per order per 1 system) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 735.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR2-SMA-1",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 25-99 cameras per order per 1 system) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 175.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR2-SMA-2",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 25-99 cameras per order per 1 system) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 292.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR2-SMA-3",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 25-99 cameras per order per 1 system) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 409.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR2-SMA-5",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 25-99 cameras per order per 1 system) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 585.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR3-SMA-1",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 100-249 cameras per order per 1 system) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 148.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR3-SMA-2",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 100-249 cameras per order per 1 system) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 247.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR3-SMA-3",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 100-249 cameras per order per 1 system) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 346.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR3-SMA-5",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 100-249 cameras per order per 1 system) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 495.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR4-SMA-1",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 250+ cameras per order per 1 system) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 121.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR4-SMA-2",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 250+ cameras per order per 1 system) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 202.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR4-SMA-3",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 250+ cameras per order per 1 system) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 283.50 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-FR4-SMA-5",
-        "Description": "SecurOS FaceX - Face Recognition - (per camera, for 250+ cameras per order per 1 system) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 405.00 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-MSK1-SMA-1",
-        "Description": "SecurOS Face Mask Detection (per camera) - 1 Year of SecurOS Guarantee Prime",
-        "Price": " 89.55 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-MSK1-SMA-2",
-        "Description": "SecurOS Face Mask Detection (per camera) - 2 Years of SecurOS Guarantee Prime",
-        "Price": " 149.25 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-MSK1-SMA-3",
-        "Description": "SecurOS Face Mask Detection (per camera) - 3 Years of SecurOS Guarantee Prime",
-        "Price": " 208.95 "
-    },
-    {
-        "Type of product": "SMA",
-        "Part Number ": "IF-MSK1-SMA-5",
-        "Description": "SecurOS Face Mask Detection (per camera) - 5 Years of SecurOS Guarantee Prime",
-        "Price": " 298.50 "
-    },
-    {
-        "Type of product": "Micro box",
-        "Part Number ": "SOS-RGD-190N-I5",
-        "Description": "ISS VMS NVR 190 - Rugged NUC, Core i5-1135G7, 8GB RAM, 240GB M.2 SSD, Win 10 Pro, (2) 1GbE NIC, 0C ~ 40C Temp Range, 3YR Parts Warranty (to be installed inside cabinets).",
-        "Price": " 1,159.20 "
-    },
-    {
-        "Type of product": "Micro box",
-        "Part Number ": "SOS-RGD-190N-I7",
-        "Description": "ISS VMS NVR 190 - Rugged NUC, Core i7-1165G7, 16GB RAM, 240GB M.2 SSD, Win 10 Pro, (2) 1GbE NIC, 0C ~ 40C Temp Range, 3YR Parts Warranty (to be installed inside cabinets).",
-        "Price": " 1,444.80 "
-    },
-    {
-        "Type of product": "Micro box + 240 GB storage",
-        "Part Number ": "SOS-RGD-190N-M2-240G",
-        "Description": "240GB M.2 NVMe SSD Drive (Secondary - Recording Drive) (for SOS-RGD-190N-I5 or SOS-RGD-190N-I7 only)",
-        "Price": " 49.00 "
-    },
-    {
-        "Type of product": "Micro box + 480 GB storage",
-        "Part Number ": "SOS-RGD-190N-M2-480G",
-        "Description": "480GB M.2 NVMe SSD Drive (Secondary - Recording Drive) (for SOS-RGD-190N-I5 or SOS-RGD-190N-I7 only)",
-        "Price": " 59.50 "
-    },
-    {
-        "Type of product": "Micro box +  1TB storage",
-        "Part Number ": "SOS-RGD-190N-M2-1T",
-        "Description": "1TB M.2 NVMe SSD Drive (Secondary - Recording Drive) (for SOS-RGD-190N-I5 or SOS-RGD-190N-I7 only)",
-        "Price": " 112.00 "
-    },
-    {
-        "Type of product": "Micro box +  2TB storage",
-        "Part Number ": "SOS-RGD-190N-M2-2T",
-        "Description": "2TB M.2 NVMe SSD Drive (Secondary - Recording Drive) (for SOS-RGD-190N-I5 or SOS-RGD-190N-I7 only)",
-        "Price": " 248.50 "
-    },
-    {
-        "Type of product": "Small Box",
-        "Part Number ": "SOS-NVR-505-2T-R",
-        "Description": "ISS Analytics Server 510 - 2U 6-Bay Rackmount, Xeon Silver 4210, 32GB RAM, (2) 256GB SSD RAID1, NO RECORDING DRIVES, (2) 1GbE NIC, (2) 10GbE SFP+, (2) DAC Cables, IDRAC Basic, Win Server 2019, 5YR NBD KYHD Warranty. Server is ideal for recording to a central storage (SAN/NAS).",
-        "Price": " 10,517.50 "
-    },
-    {
-        "Type of product": "Small Box",
-        "Part Number ": "SOS-NVR-505-4T-R",
-        "Description": "ISS Analytics Server 510 - 2U 6-Bay Rackmount, Xeon Silver 4210, 32GB RAM, (2) 256GB SSD RAID1, 12TB SATA (3 x 4TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 9,719.50 "
-    },
-    {
-        "Type of product": "Small Box",
-        "Part Number ": "SOS-NVR-505-8T-R",
-        "Description": "ISS Analytics Server 510 - 2U 6-Bay Rackmount, Xeon Silver 4210, 32GB RAM, (2) 256GB SSD RAID1, 24TB SATA (3 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 10,346.00 "
-    },
-    {
-        "Type of product": "Small Box",
-        "Part Number ": "SOS-NVR-505-12T-R",
-        "Description": "ISS Analytics Server 510 - 2U 6-Bay Rackmount, Xeon Silver 4210, 32GB RAM, (2) 256GB SSD RAID1, 32TB SATA (4 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 10,871.00 "
-    },
-    {
-        "Type of product": "Small Box",
-        "Part Number ": "SOS-NVR-505-20T-R",
-        "Description": "ISS Analytics Server 510 - 2U 6-Bay Rackmount, Xeon Silver 4210, 32GB RAM, (2) 256GB SSD RAID1, 40TB SATA (5 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 11,396.00 "
-    },
-    {
-        "Type of product": "Small Box",
-        "Part Number ": "SOS-NVR-505-32T-R",
-        "Description": "ISS Analytics Server 510 - 2U 6-Bay Rackmount, Xeon Silver 4210, 32GB RAM, (2) 256GB SSD RAID1, 48TB SATA (6 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 11,921.00 "
-    },
-    {
-        "Type of product": "Small Box",
-        "Part Number ": "SOS-NVR-505-40T-R",
-        "Description": "ISS Analytics Server 510 - 2U 6-Bay Rackmount, Xeon Silver 4210, 32GB RAM, (2) 256GB SSD RAID1, 60TB SATA (5 x 12TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 12,687.50 "
-    },
-    {
-        "Type of product": "GPU for Small Box",
-        "Part Number ": "SOS-NVR-505-GPU-RTX4000",
-        "Description": "ISS Analytics Server 510 - 2U 6-Bay Rackmount, Xeon Silver 4210, 32GB RAM, (2) 256GB SSD RAID1, 96TB SATA (6 x 16TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 14,420.00 "
-    },
-    {
-        "Type of product": "Medium Box",
-        "Part Number ": "SOS-NVR-535",
-        "Description": "ISS Analytics Server 535 - 2U 6-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, NO RECORDING DRIVES, (2) 1GbE NIC, (2) 10GbE SFP+, (2) DAC Cables, IDRAC Basic, Win Server 2019, 5YR NBD KYHD Warranty. Server is ideal for recording to a central storage (SAN/NAS).",
-        "Price": " 14,539.00 "
-    },
-    {
-        "Type of product": "Medium Box",
-        "Part Number ": "SOS-NVR-535-12T",
-        "Description": "ISS Analytics Server 535 - 2U 6-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 12TB SATA (3 x 4TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 13,436.50 "
-    },
-    {
-        "Type of product": "Medium Box",
-        "Part Number ": "SOS-NVR-535-24T",
-        "Description": "ISS Analytics Server 535 - 2U 6-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 24TB SATA (3 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 14,059.50 "
-    },
-    {
-        "Type of product": "Medium Box",
-        "Part Number ": "SOS-NVR-535-32T",
-        "Description": "ISS Analytics Server 535 - 2U 6-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 32TB SATA (4 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 14,584.50 "
-    },
-    {
-        "Type of product": "Medium Box",
-        "Part Number ": "SOS-NVR-535-40T",
-        "Description": "ISS Analytics Server 535 - 2U 6-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 40TB SATA (5 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": "15,109.50"
-    },
-    {
-        "Type of product": "Medium Box",
-        "Part Number ": "SOS-NVR-535-48T",
-        "Description": "ISS Analytics Server 535 - 2U 6-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 48TB SATA (6 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 15,634.50 "
-    },
-    {
-        "Type of product": "Medium Box",
-        "Part Number ": "SOS-NVR-535-60T",
-        "Description": "ISS Analytics Server 535 - 2U 6-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 60TB SATA (5 x 12TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 16,401.00 "
-    },
-    {
-        "Type of product": "Medium Box",
-        "Part Number ": "SOS-NVR-535-72T",
-        "Description": "ISS Analytics Server 535 - 2U 6-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 72TB SATA (6 x 12TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 17,185.00 "
-    },
-    {
-        "Type of product": "Medium Box",
-        "Part Number ": "SOS-NVR-535-96T",
-        "Description": "ISS Analytics Server 535 - 2U 6-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 96TB SATA (6 x 16TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 18,133.50 "
-    },
-    {
-        "Type of product": "Medium Box",
-        "Part Number ": "SOS-NVR-535-120T",
-        "Description": "ISS Analytics Server 535 - 2U 6-Bay Rackmount, Xeon Gold 6642R, 48GB RAM, (2) 480GB SSD RAID 1, 120TB SATA (6 x 20TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 19,484.50 "
-    },
-    {
-        "Type of product": "",
-        "Part Number ": "SOS-NVR-535-WIN19",
-        "Description": "Upgrade from Windows 10 Pro to Windows Server 2019 Standard (at time of order)",
-        "Price": " 1,225.00 "
-    },
-    {
-        "Type of product": "GPU for Medium Box",
-        "Part Number ": "SOS-NVR-535-GPU-RTX4000",
-        "Description": "NVIDIA RTX4000 GPU (up to 3 per server)",
-        "Price": " 1,561.00 "
-    },
-    {
-        "Type of product": "Large Box",
-        "Part Number ": "SOS-NVR-575",
-        "Description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, (2) 1GbE NIC, (2) 10GbE SFP+, (2) DAC Cables, IDRAC Express, Win Svr 2019, 5YR NBD KYHD Warranty (up to 8 storage drives). Server is ideal for recording to a central storage (SAN/NAS).",
-        "Price": " 26,929.00 "
-    },
-    {
-        "Type of product": "Large Box",
-        "Part Number ": "SOS-NVR-575-24T",
-        "Description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 24TB SATA (3 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 24,885.00 "
-    },
-    {
-        "Type of product": "Large Box",
-        "Part Number ": "SOS-NVR-575-32T",
-        "Description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 32TB SATA (4 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 25,406.50 "
-    },
-    {
-        "Type of product": "Large Box",
-        "Part Number ": "SOS-NVR-575-40T",
-        "Description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 40TB SATA (5 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 25,935.00 "
-    },
-    {
-        "Type of product": "Large Box",
-        "Part Number ": "SOS-NVR-575-48T",
-        "Description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 48TB SATA (6 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 26,456.50 "
-    },
-    {
-        "Type of product": "Large Box",
-        "Part Number ": "SOS-NVR-575-56T",
-        "Description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 56TB SATA (7 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 26,985.00 "
-    },
-    {
-        "Type of product": "Large Box",
-        "Part Number ": "SOS-NVR-575-64T",
-        "Description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 64TB SATA (8 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 27,506.50 "
-    },
-    {
-        "Type of product": "Large Box",
-        "Part Number ": "SOS-NVR-575-72T",
-        "Description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 72TB SATA (6 x 12TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 28,007.00 "
-    },
-    {
-        "Type of product": "Large Box",
-        "Part Number ": "SOS-NVR-575-84T",
-        "Description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 84TB SATA (7 x 12TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 28,791.00 "
-    },
-    {
-        "Type of product": "Large Box",
-        "Part Number ": "SOS-NVR-575-96T",
-        "Description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 96TB SATA (8 x 12TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 29,575.00 "
-    },
-    {
-        "Type of product": "Large Box",
-        "Part Number ": "SOS-NVR-575-128T",
-        "Description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 128TB SATA (8 x 16TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 30,842.00 "
-    },
-    {
-        "Type of product": "Large Box",
-        "Part Number ": "SOS-NVR-575-160T",
-        "Description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 160TB SATA (8 x 20TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 10 Pro, 5YR NBD KYHD Warranty",
-        "Price": " 32,641.00 "
-    },
-    {
-        "Type of product": "",
-        "Part Number ": "SOS-NVR-575-WIN19",
-        "Description": "Upgrade from Windows 10 Pro to Windows Server 2019 Standard (at time of order)",
-        "Price": " 2,730.00 "
-    },
-    {
-        "Type of product": "GPU for Large Box",
-        "Part Number ": "SOS-NVR-575-GPU-RTX4000",
-        "Description": "NVIDIA RTX4000 GPU (up to 3 per server)",
-        "Price": " 1,561.00 "
-    }
+  {
+   "id": 1,
+   "name":"LPR (Low Speed) - NA",
+   "partId":"IF-LPR-SG",
+   "description":"SecurOS Auto - Vehicle License Plate Number Recognition - Stop & Go (per camera)\nFor applications where vehicles come to a full stop.",
+   "points": 2,
+   "price": 492
+  },
+  {
+   "id": 2,
+   "name":"LPR (Low Speed) - NA",
+   "partId":"IF-LPR-L",
+   "description":"SecurOS Auto - Vehicle License Plate Number Recognition - Low Speed (per camera)\nUp to 25 mph (40 km/h).",
+   "points": 4,
+   "price": 900
+  },
+  {
+   "id": 3,
+   "name":"LPR (High Speed) - NA",
+   "partId":"IF-LPR-H",
+   "description":"SecurOS Auto - Vehicle License Plate Number Recognition - High Speed (per camera)\nUp to 155 mph (250 km/h).",
+   "points": 2,
+   "price": 1500
+  },
+  {
+   "id": 4,
+   "name":"LPR (Low Speed) - NA -  Make/  Model / Color",
+   "partId":"IF-LPR-CMM",
+   "description":"SecurOS Auto - Vehicle License Plate Number Recognition - Class / Color / Make / Model Add-on (per camera)\n** Cannot be purchased without a IF-LPR-SG , IF-LPR-L, or IF-LPR-H license.",
+   "points": 4,
+   "price": 270
+  },
+  {
+   "id": 5,
+   "name":"LPR (High Speed) - NA -  Make/  Model / Color",
+   "partId":"IF-LPR-CMM",
+   "description":"SecurOS Auto - Vehicle License Plate Number Recognition - Class / Color / Make / Model Add-on (per camera)\n** Cannot be purchased without a IF-LPR-SG , IF-LPR-L, or IF-LPR-H license.",
+   "points": 4,
+   "price": 270
+  },
+  {
+   "id": 6,
+   "name":"Cargo - Container Number Recognition",
+   "partId":"IF-CNRT1",
+   "description":"SecurOS Cargo - Container Number Recognition (per Control Point Lane with 1 camera)",
+   "points": 1,
+   "price": 2700
+  },
+  {
+   "id": 7,
+   "name":"Cargo - Container Number Recognition",
+   "partId":"IF-CNRT2",
+   "description":"SecurOS Cargo - Container Number Recognition (per Control Point Lane with 2 cameras - for result consolidation)",
+   "points": 1,
+   "price": 3930
+  },
+  {
+   "id": 8,
+   "name":"Cargo - Container Number Recognition",
+   "partId":"IF-CNRT3",
+   "description":"SecurOS Cargo - Container Number Recognition (per Control Point Lane with 3 cameras - for result consolidation)",
+   "points": 1,
+   "price": 5250
+  },
+  {
+   "id": 9,
+   "name":"Tracking Kit Detector OPEN",
+   "partId":"IF-TK-OPEN",
+   "description":"Intrusion Detection",
+   "points": 1,
+   "price": 330
+  },
+  {
+   "id": 10,
+   "name":"Tracking Kit Detector OPEN",
+   "partId":"IF-TK-OPEN",
+   "description":"Object Counting",
+   "points": 1,
+   "price": 330
+  },
+  {
+   "id": 11,
+   "name":"Tracking Kit Detector OPEN",
+   "partId":"IF-TK-OPEN",
+   "description":"Loitering",
+   "points": 1,
+   "price": 330
+  },
+  {
+   "id": 12,
+   "name":"Tracking Kit Detector OPEN",
+   "partId":"IF-TK-OPEN",
+   "description":"Dwell Time",
+   "points": 1,
+   "price": 330
+  },
+  {
+   "id": 13,
+   "name":"Tracking Kit Detector OPEN",
+   "partId":"IF-TK-OPEN",
+   "description":"Line Crossing",
+   "points": 1,
+   "price": 330
+  },
+  {
+   "id": 14,
+   "name":"Tracking Kit Detector OPEN",
+   "partId":"IF-TK-OPEN",
+   "description":"Wrong Direction",
+   "points": 1,
+   "price": 330
+  },
+  {
+   "id": 15,
+   "name":"Tracking Kit Detector OPEN",
+   "partId":"IF-TK-OPEN",
+   "description":"Crowd Detection",
+   "points": 1,
+   "price": 330
+  },
+  {
+   "id": 16,
+   "name":"Tracking Kit Detector OPEN",
+   "partId":"IF-TK-OPEN",
+   "description":"Object Left Behind",
+   "points": 1,
+   "price": 330
+  },
+  {
+   "id": 17,
+   "name":"Tracking Kit Detector OPEN",
+   "partId":"IF-TK-OPEN",
+   "description":"Person Running",
+   "points": 1,
+   "price": 330
+  },
+  {
+   "id": 18,
+   "name":"Tracking Kit Detector OPEN",
+   "partId":"IF-TK-OPEN",
+   "description":"SecurOS Tracking Kit - Open License. One Detector from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running ",
+   "points": 1,
+   "price": 330
+  },
+  {
+   "id": 19,
+   "name":"Detector BUNDLE3 (Choose 3)",
+   "partId":"IF-TK-BUNDLE3",
+   "description":"SecurOS Tracking Kit - Bundle of any 3 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running ",
+   "points": 2,
+   "price": 900
+  },
+  {
+   "id": 20,
+   "name":"Detector BUNDLE5 (Choose 5)",
+   "partId":"IF-TK-BUNDLE5",
+   "description":"SecurOS Tracking Kit - Bundle of any 5 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running ",
+   "points": 4,
+   "price": 1290
+  },
+  {
+   "id": 21,
+   "name":"FaceX",
+   "partId":"IF-FR1",
+   "description":"SecurOS FaceX - Face Recognition - (per camera, for 1-24 cameras per order per 1 system)",
+   "points": 2,
+   "price": 1470
+  },
+  {
+   "id": 22,
+   "name":"FaceX",
+   "partId":"IF-FR2",
+   "description":"SecurOS FaceX - Face Recognition - (per camera, for 25-99 cameras per order per 1 system)",
+   "points": 2,
+   "price": 1170
+  },
+  {
+   "id": 23,
+   "name":"FaceX",
+   "partId":"IF-FR3",
+   "description":"SecurOS FaceX - Face Recognition - (per camera, for 100-249 cameras per order per 1 system)",
+   "points": 2,
+   "price": 990
+  },
+  {
+   "id": 24,
+   "name":"FaceX",
+   "partId":"IF-FR4",
+   "description":"SecurOS FaceX - Face Recognition - (per camera, for 250+ cameras per order per 1 system)",
+   "points": 2,
+   "price": 810
+  },
+  {
+   "id": 25,
+   "name":"Helmet Detection",
+   "partId":"IF-TK-HEL",
+   "description":"SecurOS Helmet Detection (per detector)",
+   "points": 2,
+   "price": 2100
+  },
+  {
+   "id": 26,
+   "name":"Smoke Detector",
+   "partId":"IF-TK-SD",
+   "description":"SecurOS Tracking Kit - Smoke Detection (per detector)",
+   "points": 2,
+   "price": 450
+  },
+  {
+   "id": 27,
+   "name":"Occupancy Counter Module ",
+   "partId":"IF-NN-OCP",
+   "description":"SecurOS NN Occupancy Counter Module (per camera)\nISS Neural Network based video analytic for Occupancy Counting.",
+   "points": 4,
+   "price": 1470
+  },
+  {
+   "id": 28,
+   "name":"Fare Evasion - Turnstile (per camera)",
+   "partId":"IF-FARE-EV",
+   "description":"SecurOS Fare Evasion - Turnstile (per camera)\nISS Neural Network based video analytic for Fare Evasion - for camera looking at turnstiles.",
+   "points": 2,
+   "price": 1590
+  },
+  {
+   "id": 29,
+   "name":"Person Down Detector ",
+   "partId":"IF-NN-MANDN",
+   "description":"SecurOS NN Man Down Detection Module (per camera)\nISS Neural Network based video analytic for detecting people falling down on the ground.",
+   "points": 2,
+   "price": 1290
+  }
 ]
