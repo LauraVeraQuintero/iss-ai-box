@@ -1,6 +1,6 @@
 import React from "react";
 import {Container, Typography} from "@mui/material";
-import {GridCellModesModel, GridRowSelectionModel} from "@mui/x-data-grid";
+import {GridRowSelectionModel} from "@mui/x-data-grid";
 
 import {TemplateTable} from "common/TemplateTable";
 import {Button} from "common/Button";
@@ -41,7 +41,7 @@ export const FeaturesForm: React.FC = () => {
     return productItems.reduce(
       (acc, item) => {
         const selected = rowSelectionModel.find((selectedId) => selectedId === item.id);
-        const newPrice = selected ? item.price * (item.quantity || 1) : 0;
+        const newPrice = selected ? item.price * (item.quantity ?? 1) : 0;
         const newPoints = selected ? item.points : 0;
         return {price: (acc.price += newPrice), points: (acc.points += newPoints)};
       },
@@ -65,8 +65,7 @@ export const FeaturesForm: React.FC = () => {
   };
 
   React.useEffect(() => {
-    if (!products) return;
-    else {
+    if (products) {
       const p: ProductItem[] = (products as ProductItem[])?.map((p) => ({...p, quantity: 1}));
       setProductItems(p);
     }
@@ -107,7 +106,7 @@ export const FeaturesForm: React.FC = () => {
         tableHeight={700}
         onRowSelectionModelChange={setRowSelectionModel}
         rowSelectionModel={rowSelectionModel}
-        checkboxSelection={handleCellEdit}
+        onCellModesModelChange={handleCellEdit}
         checkboxSelection
       />
       <Container
