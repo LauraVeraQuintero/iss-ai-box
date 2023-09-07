@@ -12,12 +12,15 @@ export const booleanFormat = (params: GridRenderCellParams) => {
 
 export const FEATURE_TABLE_COLUMNS: GridColDef[] = [
   {field: "name", headerName: "Name", width: 600, sortable: true},
+  {field: "quantity", headerName: "Quantity", width: 200, sortable: true},
   {
     field: "price",
     headerName: "Price",
     width: 250,
     sortable: true,
     renderCell: priceFormat,
+    align: "right",
+    headerAlign: "right",
   },
 ];
 

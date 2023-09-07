@@ -1,6 +1,6 @@
 import React from "react";
 import {Container, Typography} from "@mui/material";
-import {GridRowSelectionModel} from "@mui/x-data-grid";
+import {GridCellModesModel, GridRowSelectionModel} from "@mui/x-data-grid";
 
 import {TemplateTable} from "common/TemplateTable";
 import {Button} from "common/Button";
@@ -13,12 +13,7 @@ import {FlexContainer, ValuesWrapper} from "./styles";
 import products from "assets/products.json";
 
 export const FeaturesForm: React.FC = () => {
-  const productItems = React.useMemo(() => {
-    if (!products) return [];
-    else {
-      return (products as ProductItem[])?.map((p) => ({...p, quantity: 1}));
-    }
-  }, []);
+  const [productItems, setProductItems] = React.useState<ProductItem[]>([]);
   const {featuresFormValues, setFeaturesFormValues, setFeaturesCalculation} =
     useFormValuesContext();
   const {setActiveStep} = useStepsContext();
@@ -46,13 +41,36 @@ export const FeaturesForm: React.FC = () => {
     return productItems.reduce(
       (acc, item) => {
         const selected = rowSelectionModel.find((selectedId) => selectedId === item.id);
-        const newPrice = selected ? item.price : 0;
+        const newPrice = selected ? item.price * (item.quantity || 1) : 0;
         const newPoints = selected ? item.points : 0;
         return {price: (acc.price += newPrice), points: (acc.points += newPoints)};
       },
       {price: 0, points: 0},
     );
-  }, [rowSelectionModel]);
+  }, [productItems, rowSelectionModel]);
+
+  const handleCellEdit = (params: any) => {
+    console.log({params});
+    if (!params.id || !params.value || !Number(params.value)) return;
+
+    const updatedRows: ProductItem[] = productItems.map((item) => {
+      if (item.id === Number(params.id)) {
+        // Replace the 'name' property for the object with id 2
+        return {...item, quantity: Number(params.value)};
+      }
+      return item;
+    });
+
+    setProductItems(updatedRows);
+  };
+
+  React.useEffect(() => {
+    if (!products) return;
+    else {
+      const p: ProductItem[] = (products as ProductItem[])?.map((p) => ({...p, quantity: 1}));
+      setProductItems(p);
+    }
+  }, []);
 
   return (
     <Container style={{marginTop: "60px", maxWidth: "1000px"}}>
@@ -89,6 +107,7 @@ export const FeaturesForm: React.FC = () => {
         tableHeight={700}
         onRowSelectionModelChange={setRowSelectionModel}
         rowSelectionModel={rowSelectionModel}
+        checkboxSelection={handleCellEdit}
         checkboxSelection
       />
       <Container

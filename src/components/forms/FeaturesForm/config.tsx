@@ -36,14 +36,30 @@ export const SERVER = {
 
 export const TABLE_COLUMNS: GridColDef[] = [
   {field: "name", headerName: "Name", width: 400, sortable: true},
-  {field: "partId", headerName: "Part #", width: 150, sortable: true},
-  {field: "price", headerName: "Price", width: 170, sortable: true, renderCell: priceFormat},
+  {field: "partId", headerName: "Part #", width: 130, sortable: true},
+  {
+    field: "price",
+    headerName: "Price",
+    width: 160,
+    sortable: true,
+    align: "right",
+    headerAlign: "right",
+    renderCell: priceFormat,
+  },
   {
     field: "description",
     headerName: "Info",
-    width: 80,
+    width: 90,
     sortable: false,
+    align: "center",
+    headerAlign: "center",
     renderCell: renderDescription,
   },
-  {field: "quantity", headerName: "QTY", width: 150, editable: true},
+  {
+    field: "quantity",
+    headerName: "QTY",
+    width: 90,
+    type: "number",
+    editable: true,
+  },
 ];
