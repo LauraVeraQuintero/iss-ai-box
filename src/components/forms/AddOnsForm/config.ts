@@ -4,7 +4,6 @@ import {AddOnsFormValuesKeys} from "./type";
 
 export const ADD_ONS_FORM_LABELS: Record<AddOnsFormValuesKeys, string> = {
   sma: "SMA",
-  warranty: "Warranty",
 };
 
 export const FORM_FIELDS: Array<FormField<AddOnsFormValuesKeys>> = [
@@ -14,17 +13,10 @@ export const FORM_FIELDS: Array<FormField<AddOnsFormValuesKeys>> = [
     required: true,
     type: "select",
     options: [
-      {label: "1 Year of SecurOS Guarantee Prime)", value: "1 year"},
-      {label: "2 Years of SecurOS Guarantee Prime)", value: "2 years"},
-      {label: "3 Years of SecurOS Guarantee Prime)", value: "3 years"},
-      {label: "5 Years of SecurOS Guarantee Prime)", value: "5 years"},
+      {label: "1 Year of SecurOS Guarantee Prime", value: "1 year"},
+      {label: "2 Years of SecurOS Guarantee Prime", value: "2 years"},
+      {label: "3 Years of SecurOS Guarantee Prime", value: "3 years"},
+      {label: "5 Years of SecurOS Guarantee Prime", value: "5 years"},
     ],
-  },
-  {
-    label: ADD_ONS_FORM_LABELS.warranty,
-    name: "warranty",
-    required: false,
-    type: "boolean",
-    description: "5 years except for NUC's (2 yrs)",
   },
 ];

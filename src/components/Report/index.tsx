@@ -6,7 +6,7 @@ import {useFormValuesContext} from "contexts/FormValues";
 import {TemplateTable} from "common/TemplateTable";
 import {useStepsContext} from "contexts";
 
-import {Grid, Item} from "./styles";
+import {Grid, Item, Wrapper} from "./styles";
 import {CAMERA_TABLE_COLUMNS, CURRENCY_FIELD_KEYS, FEATURE_TABLE_COLUMNS} from "./config";
 import {ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
 import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
@@ -69,107 +69,109 @@ export const Report: React.FC = () => {
   if (!projectFormValues || !featuresFormValues || !addOnFormValues || !cameras.length) return;
 
   return (
-    <Container style={{marginTop: "60px", maxWidth: "1400px"}} id={REPORT_SECTION_ID}>
-      <Typography variant="h5" sx={{mb: 3, mt: 5}} justifyContent="center" color="black">
-        Report Summary
-      </Typography>
-      {getDivider("Project")}
-      <Grid heightInPx={400}>
-        {(Object.keys(projectFormValues) as ProjectFormValuesKeys[]).map(
-          (key: ProjectFormValuesKeys, index) => (
-            <Item key={"project-" + index.toString()}>
+    <Wrapper>
+      <Container style={{marginTop: "60px", maxWidth: "1400px"}} id={REPORT_SECTION_ID}>
+        <Typography variant="h5" sx={{mb: 3, mt: 5}} justifyContent="center" color="black">
+          Report Summary
+        </Typography>
+        {getDivider("Project")}
+        <Grid heightInPx={400}>
+          {(Object.keys(projectFormValues) as ProjectFormValuesKeys[]).map(
+            (key: ProjectFormValuesKeys, index) => (
+              <Item key={"project-" + index.toString()}>
+                <Typography
+                  variant="overline"
+                  display="block"
+                  sx={{color: "gray", fontSize: "12px"}}
+                  gutterBottom>
+                  {PROJECT_FORM_LABELS[key]}
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  {formatItemValue(key, projectFormValues[key])}
+                </Typography>
+              </Item>
+            ),
+          )}
+        </Grid>
+        {getDivider("Add Ons")}
+        <Grid heightInPx={100}>
+          {(Object.keys(addOnFormValues) as AddOnsFormValuesKeys[]).map(
+            (key: AddOnsFormValuesKeys, index) => (
+              <Item key={"addOns-" + index.toString()}>
+                <Typography
+                  variant="overline"
+                  display="block"
+                  sx={{color: "gray", fontSize: "12px"}}
+                  gutterBottom>
+                  {ADD_ONS_FORM_LABELS[key]}
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  {formatItemValue(key, addOnFormValues[key])}
+                </Typography>
+              </Item>
+            ),
+          )}
+        </Grid>
+        {getDivider("Cameras")}
+        <TemplateTable
+          columns={CAMERA_TABLE_COLUMNS()}
+          data={cameras}
+          tableHeight={calculateTableHeight(cameras.length)}
+        />
+        {getDivider("Features")}
+        <TemplateTable
+          columns={FEATURE_TABLE_COLUMNS}
+          data={featureTableData}
+          tableHeight={calculateTableHeight(featureTableData.length, 45)}
+        />
+        {featureTableData.length > 0 && (
+          <ValuesWrapper>
+            <FlexContainer>
               <Typography
-                variant="overline"
-                display="block"
-                sx={{color: "gray", fontSize: "12px"}}
-                gutterBottom>
-                {PROJECT_FORM_LABELS[key]}
+                variant="subtitle2"
+                sx={{mr: "10px", color: "black", fontWeight: 500}}
+                justifyContent="center">
+                Total:
               </Typography>
-              <Typography variant="body1" gutterBottom>
-                {formatItemValue(key, projectFormValues[key])}
-              </Typography>
-            </Item>
-          ),
-        )}
-      </Grid>
-      {getDivider("Add Ons")}
-      <Grid heightInPx={100}>
-        {(Object.keys(addOnFormValues) as AddOnsFormValuesKeys[]).map(
-          (key: AddOnsFormValuesKeys, index) => (
-            <Item key={"addOns-" + index.toString()}>
               <Typography
-                variant="overline"
-                display="block"
-                sx={{color: "gray", fontSize: "12px"}}
-                gutterBottom>
-                {ADD_ONS_FORM_LABELS[key]}
+                variant="subtitle1"
+                sx={{color: "black", fontWeight: 600}}
+                justifyContent="center">
+                {formatNumberAsCurrency(featuresCalculation?.totalPrice ?? 0)}
               </Typography>
-              <Typography variant="body1" gutterBottom>
-                {formatItemValue(key, addOnFormValues[key])}
+            </FlexContainer>
+            <FlexContainer>
+              <Typography
+                variant="subtitle2"
+                sx={{mr: "10px", color: "black", fontWeight: 500}}
+                justifyContent="center">
+                Box Recommendation:
               </Typography>
-            </Item>
-          ),
+              <Typography
+                variant="subtitle1"
+                sx={{color: "black", fontWeight: 600}}
+                justifyContent="center">
+                {boxRecommendation(featuresCalculation?.points ?? 0)}
+              </Typography>
+            </FlexContainer>
+          </ValuesWrapper>
         )}
-      </Grid>
-      {getDivider("Cameras")}
-      <TemplateTable
-        columns={CAMERA_TABLE_COLUMNS()}
-        data={cameras}
-        tableHeight={calculateTableHeight(cameras.length)}
-      />
-      {getDivider("Features")}
-      <TemplateTable
-        columns={FEATURE_TABLE_COLUMNS}
-        data={featureTableData}
-        tableHeight={calculateTableHeight(featureTableData.length, 45)}
-      />
-      {featureTableData.length > 0 && (
-        <ValuesWrapper>
-          <FlexContainer>
-            <Typography
-              variant="subtitle2"
-              sx={{mr: "10px", color: "black", fontWeight: 500}}
-              justifyContent="center">
-              Total:
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              sx={{color: "black", fontWeight: 600}}
-              justifyContent="center">
-              {formatNumberAsCurrency(featuresCalculation?.totalPrice ?? 0)}
-            </Typography>
-          </FlexContainer>
-          <FlexContainer>
-            <Typography
-              variant="subtitle2"
-              sx={{mr: "10px", color: "black", fontWeight: 500}}
-              justifyContent="center">
-              Box Recommendation:
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              sx={{color: "black", fontWeight: 600}}
-              justifyContent="center">
-              {boxRecommendation(featuresCalculation?.points ?? 0)}
-            </Typography>
-          </FlexContainer>
-        </ValuesWrapper>
-      )}
-      <Container
-        style={{
-          maxWidth: "100%",
-          display: "flex",
-          justifyContent: "flex-end",
-          gap: 15,
-          marginTop: "35px",
-        }}
-        id={REPORT_ACTIONS_ID}>
-        <Button variant="outlined" color="primary" onClick={handleBack}>
-          Back
-        </Button>
+        <Container
+          style={{
+            maxWidth: "100%",
+            display: "flex",
+            justifyContent: "flex-end",
+            gap: 15,
+            marginTop: "35px",
+          }}
+          id={REPORT_ACTIONS_ID}>
+          <Button variant="outlined" color="primary" onClick={handleBack}>
+            Back
+          </Button>
 
-        <PrintButton />
+          <PrintButton />
+        </Container>
       </Container>
-    </Container>
+    </Wrapper>
   );
 };

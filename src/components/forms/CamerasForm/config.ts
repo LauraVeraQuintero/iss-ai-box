@@ -60,7 +60,7 @@ const FORM_FIELDS_2: Array<FormField<CameraFormValuesKeys>> = [
     type: "select",
     options: [
       {label: "HD (1280 x 720px)", value: "HD (1280 x 720px)"},
-      {label: "FHD (1920 x 10080px)", value: "FHD (1920 x 10080px)"},
+      {label: "FHD (1920 x 1080px)", value: "FHD (1920 x 1080px)"},
       {label: "QHD (2560 x 1440px)", value: "QHD (2560 x 1440px)"},
       {label: "4K (3840 x 2160px)", value: "4K (3840 x 2160px)"},
       {label: "8K (7680x4320px))", value: "8K (7680x4320px)"},

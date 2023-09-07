@@ -35,6 +35,9 @@ export const AddOnsForm = () => {
       <Typography variant="h5" sx={{mb: 5}} justifyContent="center" color="black">
         SMA & Warranty
       </Typography>
+      <Typography variant="subtitle1" sx={{mb: 5}} justifyContent="center" color="black">
+        Warranty: 5 years except for NUC&lsquo;s (2 yrs)
+      </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={5} alignItems="flex-end">
           {FORM_FIELDS.map((fields, index) => (

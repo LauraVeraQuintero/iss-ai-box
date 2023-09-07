@@ -4,7 +4,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Logo from "assets/logo.png";
-
+import SecondaryLogo from "assets/logo2.png";
 export const Header: React.FC = () => {
   return (
     <>
@@ -20,6 +20,7 @@ export const Header: React.FC = () => {
           <Typography variant="h6" color="black" noWrap sx={{flexGrow: 1}}>
             ISS AI Box Tool
           </Typography>
+          <img src={SecondaryLogo} alt="Logo" style={{marginRight: 10, height: 30}} />
         </Toolbar>
       </AppBar>
     </>

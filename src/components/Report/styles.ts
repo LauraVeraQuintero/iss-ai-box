@@ -13,3 +13,15 @@ export const Item = styled.div`
   flex-direction: column;
   margin: 8px;
 `;
+
+export const Wrapper = styled.div`
+  > * {
+    overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    /* Safari, Chrome and others */
+    ::-webkit-scrollbar {
+      display: none;
+      background: transparent;
+    }
+  }
+`;
