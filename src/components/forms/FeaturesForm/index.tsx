@@ -5,15 +5,20 @@ import {GridRowSelectionModel} from "@mui/x-data-grid";
 import {TemplateTable} from "common/TemplateTable";
 import {Button} from "common/Button";
 import {useFormValuesContext, useStepsContext} from "contexts";
+import {ProductItem} from "models/ProductItem";
 
 import {TABLE_COLUMNS} from "./config";
 import {boxRecommendation, formatNumberAsCurrency} from "./helpers";
 import {FlexContainer, ValuesWrapper} from "./styles";
 import products from "assets/products.json";
-import {ProductItem} from "models/ProductItem";
 
 export const FeaturesForm: React.FC = () => {
-  const productItems = (products as ProductItem[]) || [];
+  const productItems = React.useMemo(() => {
+    if (!products) return [];
+    else {
+      return (products as ProductItem[])?.map((p) => ({...p, quantity: 1}));
+    }
+  }, []);
   const {featuresFormValues, setFeaturesFormValues, setFeaturesCalculation} =
     useFormValuesContext();
   const {setActiveStep} = useStepsContext();

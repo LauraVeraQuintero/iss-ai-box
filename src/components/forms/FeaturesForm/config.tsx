@@ -45,5 +45,5 @@ export const TABLE_COLUMNS: GridColDef[] = [
     sortable: false,
     renderCell: renderDescription,
   },
-  {field: "quantity", headerName: "QTY", width: 150, sortable: true, renderCell: priceFormat},
+  {field: "quantity", headerName: "QTY", width: 150, editable: true},
 ];
