@@ -7,10 +7,12 @@ import {Button} from "common/Button";
 import {useFormValuesContext, useStepsContext} from "contexts";
 import {ProductItem} from "models/ProductItem";
 
-import {TABLE_COLUMNS} from "./config";
+import {INFO_VMS, TABLE_COLUMNS} from "./config";
 import {boxRecommendation, formatNumberAsCurrency} from "./helpers";
 import {FlexContainer, ValuesWrapper} from "./styles";
 import products from "assets/products.json";
+import {Tooltip} from "../../../common/Tooltip";
+import InfoIcon from "@mui/icons-material/Info";
 
 export const FeaturesForm: React.FC = () => {
   const [productItems, setProductItems] = React.useState<ProductItem[]>([]);
@@ -77,6 +79,9 @@ export const FeaturesForm: React.FC = () => {
         Features
       </Typography>
       <ValuesWrapper>
+        <Tooltip arrow placement="right-start" title={INFO_VMS}>
+          <InfoIcon fontSize="small" sx={{color: "gray"}} />
+        </Tooltip>
         <FlexContainer>
           <Typography
             variant="subtitle1"

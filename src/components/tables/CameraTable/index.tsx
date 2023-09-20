@@ -13,7 +13,7 @@ import {useFormValuesContext} from "contexts";
 import {Dialog} from "common/Dialog";
 import {Button} from "common/Button";
 import {CamerasForm} from "components/forms/CamerasForm";
-import {CAMERA_FORM_LABELS} from "components/forms/CamerasForm/config";
+import {CAMERA_FORM_LABELS, SCENE_ACTIVITY_LABELS} from "components/forms/CamerasForm/config";
 
 import {StyledTableCell, StyledTableRow} from "./styles";
 
@@ -47,6 +47,12 @@ export const CameraTable: React.FC<Props> = ({hideActions}) => {
     setIndex(undefined);
   };
 
+  const totalBitrate = (qty?: number, bitrate?: number) => {
+    if (!qty || !bitrate) return 0;
+
+    return (qty * bitrate).toFixed(2);
+  };
+
   const handleDeleteCamera = () => {
     if (index === undefined) return;
 
@@ -75,6 +81,7 @@ export const CameraTable: React.FC<Props> = ({hideActions}) => {
               <StyledTableCell align="right">{CAMERA_FORM_LABELS.sceneActivity}</StyledTableCell>
               <StyledTableCell align="right">{CAMERA_FORM_LABELS.recordingStream}</StyledTableCell>
               <StyledTableCell align="right">{CAMERA_FORM_LABELS.bitrate}</StyledTableCell>
+              <StyledTableCell align="right">Total bitrate</StyledTableCell>
             </StyledTableRow>
           </TableHead>
           <TableBody>
@@ -84,7 +91,11 @@ export const CameraTable: React.FC<Props> = ({hideActions}) => {
                   {row.manufacturer}
                 </StyledTableCell>
                 <StyledTableCell align="right">{row.cameraQuantity}</StyledTableCell>
-                <StyledTableCell align="right">{row.storageDays}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {row.storageDays && <>{row.storageDays} d</>}
+                  {row.storageHours && row.storageDays && <> × </>}
+                  {row.storageHours && <>{row.storageHours} h</>}
+                </StyledTableCell>
                 <StyledTableCell align="right">
                   {row.motionDetection ? <GridCheckIcon /> : <GridClearIcon />}
                 </StyledTableCell>
@@ -94,9 +105,14 @@ export const CameraTable: React.FC<Props> = ({hideActions}) => {
                 <StyledTableCell align="right">{row.resolution}</StyledTableCell>
                 <StyledTableCell align="right">{row.codec}</StyledTableCell>
                 <StyledTableCell align="right">{row.fps}</StyledTableCell>
-                <StyledTableCell align="right">{row.sceneActivity}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {row.sceneActivity ? SCENE_ACTIVITY_LABELS[row.sceneActivity] : ""}
+                </StyledTableCell>
                 <StyledTableCell align="right">{row.recordingStream}</StyledTableCell>
                 <StyledTableCell align="right">{row.bitrate}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {totalBitrate(row.cameraQuantity, row.bitrate)}
+                </StyledTableCell>
                 {!hideActions && (
                   <StyledTableCell align="center">
                     <Container style={{display: "flex", padding: 0, gap: 10}}>

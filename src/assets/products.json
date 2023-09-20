@@ -1,7 +1,7 @@
 [
   {
    "id": 1,
-   "name":"LPR (Low Speed) - NA",
+   "name":"LPR (Stop and Go)",
    "partId":"IF-LPR-SG",
    "description":"SecurOS Auto - Vehicle License Plate Number Recognition - Stop & Go (per camera)\nFor applications where vehicles come to a full stop.",
    "points": 2,
@@ -9,7 +9,7 @@
   },
   {
    "id": 2,
-   "name":"LPR (Low Speed) - NA",
+   "name":"LPR (Low Speed)",
    "partId":"IF-LPR-L",
    "description":"SecurOS Auto - Vehicle License Plate Number Recognition - Low Speed (per camera)\nUp to 25 mph (40 km/h).",
    "points": 4,
@@ -17,7 +17,7 @@
   },
   {
    "id": 3,
-   "name":"LPR (High Speed) - NA",
+   "name":"LPR (High Speed)",
    "partId":"IF-LPR-H",
    "description":"SecurOS Auto - Vehicle License Plate Number Recognition - High Speed (per camera)\nUp to 155 mph (250 km/h).",
    "points": 2,
@@ -25,7 +25,7 @@
   },
   {
    "id": 4,
-   "name":"LPR (Low Speed) - NA -  Make/  Model / Color",
+   "name":"LPR (Low Speed) Make/  Model / Color",
    "partId":"IF-LPR-CMM",
    "description":"SecurOS Auto - Vehicle License Plate Number Recognition - Class / Color / Make / Model Add-on (per camera)\n** Cannot be purchased without a IF-LPR-SG , IF-LPR-L, or IF-LPR-H license.",
    "points": 4,
@@ -33,7 +33,7 @@
   },
   {
    "id": 5,
-   "name":"LPR (High Speed) - NA -  Make/  Model / Color",
+   "name":"LPR (High Speed) Make/  Model / Color",
    "partId":"IF-LPR-CMM",
    "description":"SecurOS Auto - Vehicle License Plate Number Recognition - Class / Color / Make / Model Add-on (per camera)\n** Cannot be purchased without a IF-LPR-SG , IF-LPR-L, or IF-LPR-H license.",
    "points": 4,
@@ -65,74 +65,74 @@
   },
   {
    "id": 9,
-   "name":"Tracking Kit Detector OPEN",
+   "name":"Tracking Kit Detector - Intrusion Detection",
    "partId":"IF-TK-OPEN",
    "description":"Intrusion Detection",
-   "points": 1,
+   "points": 0.75,
    "price": 330
   },
   {
    "id": 10,
-   "name":"Tracking Kit Detector OPEN",
+   "name":"Tracking Kit Detector - Object Counting",
    "partId":"IF-TK-OPEN",
    "description":"Object Counting",
-   "points": 1,
+   "points": 0.75,
    "price": 330
   },
   {
    "id": 11,
-   "name":"Tracking Kit Detector OPEN",
+   "name":"Tracking Kit Detector - Loitering",
    "partId":"IF-TK-OPEN",
    "description":"Loitering",
-   "points": 1,
+   "points": 0.75,
    "price": 330
   },
   {
    "id": 12,
-   "name":"Tracking Kit Detector OPEN",
+   "name":"Tracking Kit Detector - Dwell Time",
    "partId":"IF-TK-OPEN",
    "description":"Dwell Time",
-   "points": 1,
+   "points": 0.75,
    "price": 330
   },
   {
    "id": 13,
-   "name":"Tracking Kit Detector OPEN",
+   "name":"Tracking Kit Detector - Line Crossing",
    "partId":"IF-TK-OPEN",
    "description":"Line Crossing",
-   "points": 1,
+   "points": 0.75,
    "price": 330
   },
   {
    "id": 14,
-   "name":"Tracking Kit Detector OPEN",
+   "name":"Tracking Kit Detector - Wrong Direction",
    "partId":"IF-TK-OPEN",
    "description":"Wrong Direction",
-   "points": 1,
+   "points": 0.75,
    "price": 330
   },
   {
    "id": 15,
-   "name":"Tracking Kit Detector OPEN",
+   "name":"Tracking Kit Detector - Crowd Detection",
    "partId":"IF-TK-OPEN",
    "description":"Crowd Detection",
-   "points": 1,
+   "points": 0.75,
    "price": 330
   },
   {
    "id": 16,
-   "name":"Tracking Kit Detector OPEN",
+   "name":"Tracking Kit Detector - Object Left Behind",
    "partId":"IF-TK-OPEN",
    "description":"Object Left Behind",
-   "points": 1,
+   "points": 0.75,
    "price": 330
   },
   {
    "id": 17,
-   "name":"Tracking Kit Detector OPEN",
+   "name":"Tracking Kit Detector - Person Running",
    "partId":"IF-TK-OPEN",
    "description":"Person Running",
-   "points": 1,
+   "points": 0.75,
    "price": 330
   },
   {
@@ -140,7 +140,7 @@
    "name":"Tracking Kit Detector OPEN",
    "partId":"IF-TK-OPEN",
    "description":"SecurOS Tracking Kit - Open License. One Detector from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running ",
-   "points": 1,
+   "points": 0.75,
    "price": 330
   },
   {
@@ -148,7 +148,7 @@
    "name":"Detector BUNDLE3 (Choose 3)",
    "partId":"IF-TK-BUNDLE3",
    "description":"SecurOS Tracking Kit - Bundle of any 3 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running ",
-   "points": 2,
+   "points": 2.25,
    "price": 900
   },
   {
@@ -156,7 +156,7 @@
    "name":"Detector BUNDLE5 (Choose 5)",
    "partId":"IF-TK-BUNDLE5",
    "description":"SecurOS Tracking Kit - Bundle of any 5 Detectors (per 1 camera) from: Intrusion Detection, Object Counting, Loitering, Dwell Time, Line Crossing, Wrong Direction, Crowd Detection, Object Left Behind, Person Running ",
-   "points": 4,
+   "points": 3.75,
    "price": 1290
   },
   {
@@ -209,7 +209,7 @@
   },
   {
    "id": 27,
-   "name":"Occupancy Counter Module ",
+   "name":"Occupancy Counter Module",
    "partId":"IF-NN-OCP",
    "description":"SecurOS NN Occupancy Counter Module (per camera)\nISS Neural Network based video analytic for Occupancy Counting.",
    "points": 4,

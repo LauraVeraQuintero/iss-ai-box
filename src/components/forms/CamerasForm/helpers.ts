@@ -15,3 +15,8 @@ export const getDefaultCameraFormValues = (formValues?: CameraFormValues) => {
     bitrate: formValues?.bitrate ?? 0,
   };
 };
+
+export const hourOptions = Array.from({length: 24}, (_, index) => ({
+  label: `${index + 1} hour${index !== 0 ? "s" : ""}`,
+  value: index + 1,
+}));

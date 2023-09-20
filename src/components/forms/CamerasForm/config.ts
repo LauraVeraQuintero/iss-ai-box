@@ -1,6 +1,14 @@
 import {FormField} from "models/forms";
 
 import {CameraFormValuesKeys} from "./type";
+import {hourOptions} from "./helpers";
+
+export const SCENE_ACTIVITY_LABELS: Record<string, string> = {
+  low: "Low",
+  sMed: "Stairway Med",
+  pMed: "Park Med",
+  unknown: "Unknown",
+};
 
 export const CAMERA_FORM_LABELS: Record<CameraFormValuesKeys, string> = {
   id: "Id",
@@ -9,6 +17,7 @@ export const CAMERA_FORM_LABELS: Record<CameraFormValuesKeys, string> = {
   motionDetection: "Motion Detection",
   continuousRecording: "Continuous Recording",
   storageDays: "Days of Storage",
+  storageHours: "Hours of Storage",
   resolution: "Resolution",
   codec: "Codec",
   fps: "FPS",
@@ -36,6 +45,13 @@ const FORM_FIELDS_1: Array<FormField<CameraFormValuesKeys>> = [
     name: "storageDays",
     required: true,
     type: "number",
+  },
+  {
+    label: CAMERA_FORM_LABELS.storageHours,
+    name: "storageHours",
+    required: true,
+    type: "select",
+    options: hourOptions,
   },
   {
     label: CAMERA_FORM_LABELS.motionDetection,

@@ -22,7 +22,7 @@ export const STEPS = [
     content: <FeaturesForm />,
   },
   {
-    label: "Add ons",
+    label: "SecurOS Guarantee Prime",
     content: <AddOnsForm />,
   },
   {

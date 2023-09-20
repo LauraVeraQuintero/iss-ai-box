@@ -11,8 +11,6 @@ import {CAMERA_TABLE_COLUMNS, CURRENCY_FIELD_KEYS, FEATURE_TABLE_COLUMNS} from "
 import {ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
 import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
 import {boxRecommendation, formatNumberAsCurrency} from "../forms/FeaturesForm/helpers";
-import {AddOnsFormValuesKeys} from "../forms/AddOnsForm/type";
-import {ADD_ONS_FORM_LABELS} from "../forms/AddOnsForm/config";
 import {FlexContainer, ValuesWrapper} from "../forms/FeaturesForm/styles";
 import {PrintButton} from "common/PrintButton";
 import {Button} from "common/Button";
@@ -88,25 +86,6 @@ export const Report: React.FC = () => {
                 </Typography>
                 <Typography variant="body1" gutterBottom>
                   {formatItemValue(key, projectFormValues[key])}
-                </Typography>
-              </Item>
-            ),
-          )}
-        </Grid>
-        {getDivider("Add Ons")}
-        <Grid heightInPx={100}>
-          {(Object.keys(addOnFormValues) as AddOnsFormValuesKeys[]).map(
-            (key: AddOnsFormValuesKeys, index) => (
-              <Item key={"addOns-" + index.toString()}>
-                <Typography
-                  variant="overline"
-                  display="block"
-                  sx={{color: "gray", fontSize: "12px"}}
-                  gutterBottom>
-                  {ADD_ONS_FORM_LABELS[key]}
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  {formatItemValue(key, addOnFormValues[key])}
                 </Typography>
               </Item>
             ),

@@ -5,6 +5,7 @@ export type CameraFormValues = {
   motionDetection?: boolean;
   continuousRecording?: boolean;
   storageDays?: number;
+  storageHours?: number;
   resolution?: string;
   codec?: string;
   fps?: string;

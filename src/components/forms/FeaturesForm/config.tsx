@@ -35,7 +35,7 @@ export const SERVER = {
 };
 
 export const TABLE_COLUMNS: GridColDef[] = [
-  {field: "name", headerName: "Name", width: 400, sortable: true},
+  {field: "name", headerName: "Product", width: 400, sortable: true},
   {field: "partId", headerName: "Part #", width: 130, sortable: true},
   {
     field: "price",
@@ -63,3 +63,6 @@ export const TABLE_COLUMNS: GridColDef[] = [
     editable: true,
   },
 ];
+
+export const INFO_VMS =
+  "PLEASE NOTE: Mandatory VMS licenses and SMA will be included in the final quote";
