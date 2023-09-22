@@ -7,7 +7,12 @@ import {TemplateTable} from "common/TemplateTable";
 import {useStepsContext} from "contexts";
 
 import {Grid, Item, Wrapper} from "./styles";
-import {CAMERA_TABLE_COLUMNS, CURRENCY_FIELD_KEYS, FEATURE_TABLE_COLUMNS} from "./config";
+import {
+  CAMERA_TABLE_COLUMNS,
+  CURRENCY_FIELD_KEYS,
+  FEATURE_TABLE_COLUMNS,
+  SERVER_TABLE_COLUMNS,
+} from "./config";
 import {ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
 import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
 import {formatNumberAsCurrency} from "../forms/FeaturesForm/helpers";
@@ -103,6 +108,13 @@ export const Report: React.FC = () => {
           data={featureTableData}
           tableHeight={calculateTableHeight(featureTableData.length, 45)}
         />
+        {getDivider("Server")}
+        <TemplateTable
+          columns={SERVER_TABLE_COLUMNS}
+          data={[server]}
+          tableHeight={calculateTableHeight(featureTableData.length, 45)}
+          getRowId={(row) => row.partNumber}
+        />
         {featureTableData.length > 0 && (
           <ValuesWrapper>
             <FlexContainer>
@@ -116,21 +128,9 @@ export const Report: React.FC = () => {
                 variant="subtitle1"
                 sx={{color: "black", fontWeight: 600}}
                 justifyContent="center">
-                {formatNumberAsCurrency(featuresCalculation?.totalPrice ?? 0)}
-              </Typography>
-            </FlexContainer>
-            <FlexContainer>
-              <Typography
-                variant="subtitle2"
-                sx={{mr: "10px", color: "black", fontWeight: 500}}
-                justifyContent="center">
-                Box Recommendation:
-              </Typography>
-              <Typography
-                variant="subtitle1"
-                sx={{color: "black", fontWeight: 600}}
-                justifyContent="center">
-                {server.serverType}
+                {formatNumberAsCurrency(
+                  (featuresCalculation?.totalPrice ?? 0) + server.partnerDiscount,
+                )}
               </Typography>
             </FlexContainer>
           </ValuesWrapper>

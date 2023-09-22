@@ -35,3 +35,17 @@ export const CAMERA_TABLE_COLUMNS: () => GridColDef[] = () => {
     };
   });
 };
+
+export const SERVER_TABLE_COLUMNS: GridColDef[] = [
+  {field: "partNumber", headerName: "Part Number", width: 400, sortable: true},
+  {field: "serverType", headerName: "Type", width: 100, sortable: true},
+  {
+    field: "partnerDiscount",
+    headerName: "Price",
+    width: 250,
+    sortable: true,
+    renderCell: priceFormat,
+    align: "right",
+    headerAlign: "right",
+  },
+];
