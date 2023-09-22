@@ -32,7 +32,7 @@ export const FeaturesForm: React.FC = () => {
       (acc, item) => {
         const selected = rowSelectionModel.find((selectedId) => selectedId === item.id);
         const newPrice = selected ? item.price * (item.quantity ?? 1) : 0;
-        const newPoints = selected ? item.points : 0;
+        const newPoints = selected ? item.points * (item.quantity ?? 1) : 0;
         return {price: (acc.price += newPrice), points: (acc.points += newPoints)};
       },
       {price: 0, points: 0},
@@ -132,11 +132,13 @@ export const FeaturesForm: React.FC = () => {
             Box Recommendation:
           </Typography>
           <Typography variant="h6" sx={{color: "black", fontWeight: 600}} justifyContent="center">
-            recommendedServer ?
-            <>
-              {recommendedServer?.serverType}-{recommendedServer?.partNumber}
-            </>
-            : <>None</>
+            {recommendedServer ? (
+              <>
+                {recommendedServer?.serverType}-{recommendedServer?.partNumber}
+              </>
+            ) : (
+              <>None</>
+            )}
           </Typography>
         </FlexContainer>
       </ValuesWrapper>
