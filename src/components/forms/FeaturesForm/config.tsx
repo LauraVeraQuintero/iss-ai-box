@@ -19,21 +19,6 @@ export const renderDescription = (params: GridRenderCellParams) => {
   );
 };
 
-export const SERVER = {
-  server1: {
-    name: "505 Series Server - Small",
-    cores: 12,
-  },
-  server2: {
-    name: "535 Series Server - Medium",
-    cores: 20,
-  },
-  server3: {
-    name: "575 Series Server - Large",
-    cores: 40,
-  },
-};
-
 export const TABLE_COLUMNS: GridColDef[] = [
   {field: "name", headerName: "Product", width: 400, sortable: true},
   {field: "partId", headerName: "Part #", width: 130, sortable: true},

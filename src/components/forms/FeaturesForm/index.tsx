@@ -11,25 +11,21 @@ import {useFormValuesContext, useStepsContext} from "contexts";
 import {ProductItem} from "models/ProductItem";
 
 import {INFO_VMS, TABLE_COLUMNS} from "./config";
-import {boxRecommendation, filterSelectedItems, formatNumberAsCurrency} from "./helpers";
+import {
+  boxRecommendation,
+  filterSelectedItems,
+  formatNumberAsCurrency,
+  getCameraStorageValues,
+  totalStorage,
+} from "./helpers";
 import {FlexContainer, ValuesWrapper} from "./styles";
 
 export const FeaturesForm: React.FC = () => {
   const [productItems, setProductItems] = React.useState<ProductItem[]>([]);
-  const {featuresFormValues, setFeaturesFormValues, setFeaturesCalculation} =
+  const {featuresFormValues, setFeaturesFormValues, setFeaturesCalculation, setServer, cameras} =
     useFormValuesContext();
   const {setActiveStep} = useStepsContext();
   const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>([]);
-
-  const handleNext = () => {
-    setFeaturesFormValues({selectedItems: filterSelectedItems(productItems, rowSelectionModel)});
-    setFeaturesCalculation({totalPrice: calculatedValues.price, points: calculatedValues.points});
-    setActiveStep(3);
-  };
-
-  const handleBack = () => {
-    setActiveStep(1);
-  };
 
   const calculatedValues = React.useMemo(() => {
     return productItems.reduce(
@@ -42,6 +38,32 @@ export const FeaturesForm: React.FC = () => {
       {price: 0, points: 0},
     );
   }, [productItems, rowSelectionModel]);
+
+  const cameraCalculatedStorage = React.useMemo(() => {
+    if (!cameras.length) return 0;
+
+    const {totalBitrate, totalHours, totalDays} = getCameraStorageValues(cameras);
+    return totalStorage(totalBitrate, totalHours, totalDays);
+  }, [cameras]);
+
+  const recommendedServer = React.useMemo(() => {
+    return boxRecommendation(calculatedValues.points, cameraCalculatedStorage);
+  }, [cameraCalculatedStorage, calculatedValues.points]);
+
+  const handleNext = () => {
+    setFeaturesFormValues({selectedItems: filterSelectedItems(productItems, rowSelectionModel)});
+    setFeaturesCalculation({
+      totalPrice: calculatedValues.price,
+      points: calculatedValues.points,
+      storage: cameraCalculatedStorage,
+    });
+    setServer(recommendedServer);
+    setActiveStep(3);
+  };
+
+  const handleBack = () => {
+    setActiveStep(1);
+  };
 
   const handleRowUpdate = (newRow: any, oldRow: any) => {
     if (newRow.quantity === oldRow.quantity) return;
@@ -83,7 +105,7 @@ export const FeaturesForm: React.FC = () => {
             variant="subtitle1"
             sx={{mr: "10px", color: "black", fontWeight: 500}}
             justifyContent="center">
-            Total:
+            Features Total:
           </Typography>
           <Typography variant="h6" sx={{color: "black", fontWeight: 600}} justifyContent="center">
             {formatNumberAsCurrency(calculatedValues.price)}
@@ -94,10 +116,27 @@ export const FeaturesForm: React.FC = () => {
             variant="subtitle1"
             sx={{mr: "10px", color: "black", fontWeight: 500}}
             justifyContent="center">
+            Total with server:
+          </Typography>
+          <Typography variant="h6" sx={{color: "black", fontWeight: 600}} justifyContent="center">
+            {formatNumberAsCurrency(
+              calculatedValues.price + (recommendedServer?.partnerDiscount ?? 0),
+            )}
+          </Typography>
+        </FlexContainer>
+        <FlexContainer>
+          <Typography
+            variant="subtitle1"
+            sx={{mr: "10px", color: "black", fontWeight: 500}}
+            justifyContent="center">
             Box Recommendation:
           </Typography>
           <Typography variant="h6" sx={{color: "black", fontWeight: 600}} justifyContent="center">
-            {boxRecommendation(calculatedValues.points)}
+            recommendedServer ?
+            <>
+              {recommendedServer?.serverType}-{recommendedServer?.partNumber}
+            </>
+            : <>None</>
           </Typography>
         </FlexContainer>
       </ValuesWrapper>

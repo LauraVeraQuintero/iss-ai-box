@@ -10,7 +10,7 @@ import {Grid, Item, Wrapper} from "./styles";
 import {CAMERA_TABLE_COLUMNS, CURRENCY_FIELD_KEYS, FEATURE_TABLE_COLUMNS} from "./config";
 import {ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
 import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
-import {boxRecommendation, formatNumberAsCurrency} from "../forms/FeaturesForm/helpers";
+import {formatNumberAsCurrency} from "../forms/FeaturesForm/helpers";
 import {FlexContainer, ValuesWrapper} from "../forms/FeaturesForm/styles";
 import {PrintButton} from "common/PrintButton";
 import {Button} from "common/Button";
@@ -21,7 +21,7 @@ export const REPORT_SECTION_ID = "report_section_element";
 export const REPORT_ACTIONS_ID = "report_actions_element";
 
 export const Report: React.FC = () => {
-  const {projectFormValues, cameras, featuresFormValues, featuresCalculation, addOnFormValues} =
+  const {projectFormValues, cameras, featuresFormValues, featuresCalculation, server} =
     useFormValuesContext();
   const {setActiveStep} = useStepsContext();
 
@@ -64,7 +64,7 @@ export const Report: React.FC = () => {
     setActiveStep(3);
   };
 
-  if (!projectFormValues || !featuresFormValues || !addOnFormValues || !cameras.length) return;
+  if (!projectFormValues || !featuresFormValues || !cameras.length || !server) return;
 
   return (
     <Wrapper>
@@ -130,7 +130,7 @@ export const Report: React.FC = () => {
                 variant="subtitle1"
                 sx={{color: "black", fontWeight: 600}}
                 justifyContent="center">
-                {boxRecommendation(featuresCalculation?.points ?? 0)}
+                {server.serverType}
               </Typography>
             </FlexContainer>
           </ValuesWrapper>
@@ -147,7 +147,6 @@ export const Report: React.FC = () => {
           <Button variant="outlined" color="primary" onClick={handleBack}>
             Back
           </Button>
-
           <PrintButton />
         </Container>
       </Container>

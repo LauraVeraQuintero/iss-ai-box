@@ -1,0 +1,264 @@
+[
+  {
+    "serverType": "MICRO",
+    "partNumber": "SOS-RGD-194-I7",
+    "description": "ISS VMS NVR 194 - Rugged Server, Fanless, Core i7-1185G7E, 16GB RAM, (1) 1TB M.2 Drive, (1) 2.5 GbE NIC, (1) 1 GbE NIC, Win 11 Pro, Operating Temp: -10°C ~ 50°C, 2YR Parts Warranty",
+    "maxKernels": 4,
+    "msrp": 3050.00,
+    "partnerDiscount": 2440.00,
+    "maxStorage": 1
+  },
+  {
+    "serverType": "Small",
+    "partNumber": "SOS-NVR-505-4T-T",
+    "description": "ISS Analytics NVR 505 - 3-Bay Tower, Core i7-12700K, 16GB RAM, (1) 256GB SSD, 4TB SATA (1 x 4TB), (2) 1GbE NIC, Win 11 Pro, 5YR NBD Warranty",
+    "maxKernels": 12,
+    "msrp": 4860.00,
+    "partnerDiscount": 3888.00,
+    "maxStorage": 4
+  },
+  {
+    "serverType": "Small",
+    "partNumber": "SOS-NVR-505-8T-T",
+    "description": "ISS Analytics NVR 505 - 3-Bay Tower, Core i7-12700K, 16GB RAM, (1) 256GB SSD, 8TB SATA (1 x 8TB), (2) 1GbE NIC, Win 11 Pro, 5YR NBD Warranty",
+    "maxKernels": 12,
+    "msrp": 5130.00,
+    "partnerDiscount": 4104.00,
+    "maxStorage": 8
+  },
+  {
+    "serverType": "Small",
+    "partNumber": "SOS-NVR-505-12T-T",
+    "description": "ISS Analytics NVR 505 - 3-Bay Tower, Core i7-12700K, 16GB RAM, (1) 256GB SSD, 12TB SATA (1 x 12TB), (2) 1GbE NIC, Win 11 Pro, 5YR NBD Warranty",
+    "maxKernels": 12,
+    "msrp": 5305.00,
+    "partnerDiscount": 4244.00,
+    "maxStorage": 12
+  },
+  {
+    "serverType": "Small",
+    "partNumber": "SOS-NVR-505-20T-T",
+    "description": "ISS Analytics NVR 505 - 3-Bay Tower, Core i7-12700K, 16GB RAM, (1) 256GB SSD, 20TB SATA (1 x 20TB), (2) 1GbE NIC, Win 11 Pro, 5YR NBD Warranty",
+    "maxKernels": 12,
+    "msrp": 5785.00,
+    "partnerDiscount": 4628.00,
+    "maxStorage": 20
+  },
+  {
+    "serverType": "Small",
+    "partNumber": "SOS-NVR-505-32T-T",
+    "description": "ISS Analytics NVR 505 - 3-Bay Tower, Core i7-12700K, 16GB RAM, (1) 256GB SSD, 32TB SATA (2 x 16TB), (2) 1GbE NIC, Win 11 Pro, 5YR NBD Warranty",
+    "maxKernels": 12,
+    "msrp": 6640.00,
+    "partnerDiscount": 5312.00,
+    "maxStorage": 32
+  },
+
+  {
+    "serverType": "Small",
+    "partNumber": "SOS-NVR-505-40T-T",
+    "description": "ISS Analytics NVR 505 - 3-Bay Tower, Core i7-12700K, 16GB RAM, (1) 256GB SSD, 40TB SATA (2 x 20TB), (2) 1GbE NIC, Win 11 Pro, 5YR NBD Warranty",
+    "maxKernels": 12,
+    "msrp": 7155,
+    "partnerDiscount": 5724,
+    "maxStorage": 40
+  },
+  {
+    "serverType": "Medium",
+    "partNumber": "SOS-NVR-535",
+    "description": "ISS Analytics Server 535 - 2U 8-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, NO RECORDING DRIVES, (2) 1GbE NIC, (2) 10GbE SFP+, (2) DAC Cables, IDRAC Basic, Win Server 2022, 5YR NBD KYHD Warranty. Server is ideal for recording to a central storage (SAN/NAS).",
+    "maxKernels": 20,
+    "msrp": 20770,
+    "partnerDiscount": 16616,
+    "maxStorage": 0
+  },
+  {
+    "serverType": "Medium",
+    "partNumber": "SOS-NVR-535-12T",
+    "description": "ISS Analytics Server 535 - 2U 8-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 12TB SATA (3 x 4TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 20,
+    "msrp": 19195,
+    "partnerDiscount": 15356,
+    "maxStorage": 12
+  },
+  {
+    "serverType": "Medium",
+    "partNumber": "SOS-NVR-535-24T",
+    "description": "ISS Analytics Server 535 - 2U 8-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 24TB SATA (3 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 20,
+    "msrp": 20085,
+    "partnerDiscount": 16068,
+    "maxStorage": 24
+  },
+  {
+    "serverType": "Medium",
+    "partNumber": "SOS-NVR-535-32T",
+    "description": "ISS Analytics Server 535 - 2U 8-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 32TB SATA (4 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 20,
+    "msrp": 20835,
+    "partnerDiscount": 16668,
+    "maxStorage": 32
+  },
+  {
+    "serverType": "Medium",
+    "partNumber": "SOS-NVR-535-40T",
+    "description": "ISS Analytics Server 535 - 2U 8-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 40TB SATA (5 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 20,
+    "msrp": 21585,
+    "partnerDiscount": 17268,
+    "maxStorage": 40
+  },
+  {
+    "serverType": "Medium",
+    "partNumber": "SOS-NVR-535-48T",
+    "description": "ISS Analytics Server 535 - 2U 8-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 48TB SATA (6 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 20,
+    "msrp": 22335,
+    "partnerDiscount": 17868,
+    "maxStorage": 48
+  },
+  {
+    "serverType": "Medium",
+    "partNumber": "SOS-NVR-535-60T",
+    "description": "ISS Analytics Server 535 - 2U 8-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 60TB SATA (5 x 12TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 20,
+    "msrp": 23075,
+    "partnerDiscount": 18460,
+    "maxStorage": 60
+  },
+  {
+    "serverType": "Medium",
+    "partNumber": "SOS-NVR-535-72T",
+    "description": "ISS Analytics Server 535 - 2U 8-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 72TB SATA (6 x 12TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 20,
+    "msrp": 24120,
+    "partnerDiscount": 19296,
+    "maxStorage": 72
+  },
+  {
+    "serverType": "Medium",
+    "partNumber": "SOS-NVR-535-96T",
+    "description": "ISS Analytics Server 535 - 2U 8-Bay Rackmount, Xeon Gold 6242R, 48GB RAM, (2) 256GB SSD RAID1, 96TB SATA (6 x 16TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 20,
+    "msrp": 25905,
+    "partnerDiscount": 20724,
+    "maxStorage": 96
+  },
+  {
+    "serverType": "Medium",
+    "partNumber": "SOS-NVR-535-120T",
+    "description": "ISS Analytics Server 535 - 2U 8-Bay Rackmount, Xeon Gold 6642R, 48GB RAM, (2) 480GB SSD RAID1, 120TB SATA (6 x 20TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 20,
+    "msrp": 27835,
+    "partnerDiscount": 22268,
+    "maxStorage": 120
+  },
+  {
+    "serverType": "Big",
+    "partNumber": "SOS-NVR-575",
+    "description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, (2) 1GbE NIC, (2) 10GbE SFP+, (2) DAC Cables, IDRAC Express, Win Server 2022, 5YR NBD KYHD Warranty (up to 8 storage drives). Server is ideal for recording to a central storage (SAN/NAS).",
+    "maxKernels": 40,
+    "msrp": 35905,
+    "partnerDiscount": 28724,
+    "maxStorage": 0
+  },
+  {
+    "serverType": "Big",
+    "partNumber": "SOS-NVR-575-24T",
+    "description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 24TB SATA (3 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 40,
+    "msrp": 32395,
+    "partnerDiscount": 25916,
+    "maxStorage": 24
+  },
+  {
+    "serverType": "Big",
+    "partNumber": "SOS-NVR-575-32T",
+    "description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 32TB SATA (4 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 40,
+    "msrp": 33145,
+    "partnerDiscount": 26516,
+    "maxStorage": 32
+  },
+  {
+    "serverType": "Big",
+    "partNumber": "SOS-NVR-575-40T",
+    "description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 40TB SATA (5 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 40,
+    "msrp": 33895,
+    "partnerDiscount": 27116,
+    "maxStorage": 40
+  },
+  {
+    "serverType": "Big",
+    "partNumber": "SOS-NVR-575-48T",
+    "description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 48TB SATA (6 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 40,
+    "msrp": 34645,
+    "partnerDiscount": 27716,
+    "maxStorage": 48
+  },
+  {
+    "serverType": "Big",
+    "partNumber": "SOS-NVR-575-56T",
+    "description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 56TB SATA (7 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 40,
+    "msrp": 35395,
+    "partnerDiscount": 28316,
+    "maxStorage": 56
+  },
+  {
+    "serverType": "Big",
+    "partNumber": "SOS-NVR-575-64T",
+    "description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 64TB SATA (8 x 8TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 40,
+    "msrp": 36145,
+    "partnerDiscount": 28916,
+    "maxStorage": 64
+  },
+  {
+    "serverType": "Big",
+    "partNumber": "SOS-NVR-575-72T",
+    "description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 72TB SATA (6 x 12TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 40,
+    "msrp": 36430,
+    "partnerDiscount": 29144,
+    "maxStorage": 72
+  },
+  {
+    "serverType": "Big",
+    "partNumber": "SOS-NVR-575-84T",
+    "description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 84TB SATA (7 x 12TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 40,
+    "msrp": 37475,
+    "partnerDiscount": 29980,
+    "maxStorage": 84
+  },
+  {
+    "serverType": "Big",
+    "partNumber": "SOS-NVR-575-96T",
+    "description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 96TB SATA (8 x 12TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 40,
+    "msrp": 38525,
+    "partnerDiscount": 30820,
+    "maxStorage": 96
+  },
+  {
+    "serverType": "Big",
+    "partNumber": "SOS-NVR-575-128T",
+    "description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 128TB SATA (8 x 16TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 40,
+    "msrp": 40905,
+    "partnerDiscount": 32724,
+    "maxStorage": 128
+  },
+  {
+    "serverType": "Big",
+    "partNumber": "SOS-NVR-575-160T",
+    "description": "ISS Analytics Server 575 - 2U 8-Bay Rackmount, (2) Xeon Gold 6242R, 96GB RAM, (2) 480GB SSD RAID1, 160TB SATA (8 x 20TB RAID5), (4) 1GbE NIC, IDRAC Express, Win 11 Pro, 5YR NBD KYHD Warranty",
+    "maxKernels": 40,
+    "msrp": 43475,
+    "partnerDiscount": 34780,
+    "maxStorage": 160
+  }
+]

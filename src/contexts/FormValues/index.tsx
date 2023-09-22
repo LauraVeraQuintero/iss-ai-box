@@ -5,10 +5,12 @@ import {CameraFormValues} from "components/forms/CamerasForm/type";
 import {FeaturesFormValues} from "components/forms/FeaturesForm/types";
 import {ProjectFormValues} from "components/forms/ProjectInfoForm/type";
 import {defaultErrorAction} from "contexts/helpers";
+import {Server} from "models/Server";
 
 export type FeaturesCalculation = {
   totalPrice: number;
   points: number;
+  storage: number;
 };
 
 export type FormValuesState = {
@@ -22,6 +24,8 @@ export type FormValuesState = {
   setAddOnFormValues: React.Dispatch<React.SetStateAction<AddOnFormValues | undefined>>;
   featuresCalculation?: FeaturesCalculation;
   setFeaturesCalculation: React.Dispatch<React.SetStateAction<FeaturesCalculation | undefined>>;
+  server?: Server;
+  setServer: React.Dispatch<React.SetStateAction<Server | undefined>>;
 };
 
 export const FormValuesContext = createContext<FormValuesState>({
@@ -35,6 +39,8 @@ export const FormValuesContext = createContext<FormValuesState>({
   setAddOnFormValues: defaultErrorAction,
   featuresCalculation: undefined,
   setFeaturesCalculation: defaultErrorAction,
+  server: undefined,
+  setServer: defaultErrorAction,
 });
 
 export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({children}) => {
@@ -43,6 +49,7 @@ export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({children}
   const [featuresFormValues, setFeaturesFormValues] = useState<FeaturesFormValues>();
   const [addOnFormValues, setAddOnFormValues] = useState<AddOnFormValues>();
   const [featuresCalculation, setFeaturesCalculation] = useState<FeaturesCalculation>();
+  const [server, setServer] = useState<Server>();
 
   return (
     <FormValuesContext.Provider
@@ -57,6 +64,8 @@ export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({children}
         setAddOnFormValues,
         featuresCalculation,
         setFeaturesCalculation,
+        server,
+        setServer,
       }}>
       {children}
     </FormValuesContext.Provider>
