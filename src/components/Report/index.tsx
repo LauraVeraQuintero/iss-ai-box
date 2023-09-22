@@ -42,6 +42,8 @@ export const Report: React.FC = () => {
     return value?.toString();
   };
 
+  console.log({server});
+
   const featureTableData = React.useMemo(() => {
     if (!featuresFormValues || !products) return [];
 
@@ -112,29 +114,27 @@ export const Report: React.FC = () => {
         <TemplateTable
           columns={SERVER_TABLE_COLUMNS}
           data={[server]}
-          tableHeight={calculateTableHeight(featureTableData.length, 45)}
+          tableHeight={calculateTableHeight(1, 45)}
           getRowId={(row) => row.partNumber}
         />
-        {featureTableData.length > 0 && (
-          <ValuesWrapper>
-            <FlexContainer>
-              <Typography
-                variant="subtitle2"
-                sx={{mr: "10px", color: "black", fontWeight: 500}}
-                justifyContent="center">
-                Total:
-              </Typography>
-              <Typography
-                variant="subtitle1"
-                sx={{color: "black", fontWeight: 600}}
-                justifyContent="center">
-                {formatNumberAsCurrency(
-                  (featuresCalculation?.totalPrice ?? 0) + server.partnerDiscount,
-                )}
-              </Typography>
-            </FlexContainer>
-          </ValuesWrapper>
-        )}
+        <ValuesWrapper>
+          <FlexContainer>
+            <Typography
+              variant="subtitle2"
+              sx={{mr: "10px", color: "black", fontWeight: 500}}
+              justifyContent="center">
+              Total:
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{color: "black", fontWeight: 600}}
+              justifyContent="center">
+              {formatNumberAsCurrency(
+                (featuresCalculation?.totalPrice ?? 0) + server.partnerDiscount,
+              )}
+            </Typography>
+          </FlexContainer>
+        </ValuesWrapper>
         <Container
           style={{
             maxWidth: "100%",

@@ -58,6 +58,7 @@ export const FeaturesForm: React.FC = () => {
       storage: cameraCalculatedStorage,
     });
     setServer(recommendedServer);
+    console.log({recommendedServer});
     setActiveStep(3);
   };
 
