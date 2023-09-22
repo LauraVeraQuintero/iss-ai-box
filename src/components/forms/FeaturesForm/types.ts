@@ -1,5 +1,5 @@
-import {GridRowId} from "@mui/x-data-grid";
+import {ProductItem} from "models/ProductItem";
 
 export type FeaturesFormValues = {
-  selectedItemIds: GridRowId[];
+  selectedItems: ProductItem[];
 };

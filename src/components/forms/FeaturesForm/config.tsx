@@ -61,6 +61,10 @@ export const TABLE_COLUMNS: GridColDef[] = [
     width: 90,
     type: "number",
     editable: true,
+    valueFormatter: (params: any) => {
+      if (params.value < 1) return 1;
+      return params.value;
+    },
   },
 ];
 

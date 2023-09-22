@@ -1,36 +1,28 @@
 import React from "react";
 import {Container, Typography} from "@mui/material";
 import {GridRowSelectionModel} from "@mui/x-data-grid";
+import InfoIcon from "@mui/icons-material/Info";
 
+import products from "assets/products.json";
 import {TemplateTable} from "common/TemplateTable";
 import {Button} from "common/Button";
+import {Tooltip} from "common/Tooltip";
 import {useFormValuesContext, useStepsContext} from "contexts";
 import {ProductItem} from "models/ProductItem";
 
 import {INFO_VMS, TABLE_COLUMNS} from "./config";
-import {boxRecommendation, formatNumberAsCurrency} from "./helpers";
+import {boxRecommendation, filterSelectedItems, formatNumberAsCurrency} from "./helpers";
 import {FlexContainer, ValuesWrapper} from "./styles";
-import products from "assets/products.json";
-import {Tooltip} from "../../../common/Tooltip";
-import InfoIcon from "@mui/icons-material/Info";
 
 export const FeaturesForm: React.FC = () => {
   const [productItems, setProductItems] = React.useState<ProductItem[]>([]);
   const {featuresFormValues, setFeaturesFormValues, setFeaturesCalculation} =
     useFormValuesContext();
   const {setActiveStep} = useStepsContext();
-  const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>(() => {
-    if (!featuresFormValues?.selectedItemIds?.length || !products) return [];
-
-    return productItems
-      .filter((item) =>
-        featuresFormValues.selectedItemIds.find((selectedId) => selectedId === item.id),
-      )
-      .map((r) => r.id);
-  });
+  const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>([]);
 
   const handleNext = () => {
-    setFeaturesFormValues({selectedItemIds: rowSelectionModel});
+    setFeaturesFormValues({selectedItems: filterSelectedItems(productItems, rowSelectionModel)});
     setFeaturesCalculation({totalPrice: calculatedValues.price, points: calculatedValues.points});
     setActiveStep(3);
   };
@@ -51,14 +43,12 @@ export const FeaturesForm: React.FC = () => {
     );
   }, [productItems, rowSelectionModel]);
 
-  const handleCellEdit = (params: any) => {
-    console.log({params});
-    if (!params.id || !params.value || !Number(params.value)) return;
+  const handleRowUpdate = (newRow: any, oldRow: any) => {
+    if (newRow.quantity === oldRow.quantity) return;
 
     const updatedRows: ProductItem[] = productItems.map((item) => {
-      if (item.id === Number(params.id)) {
-        // Replace the 'name' property for the object with id 2
-        return {...item, quantity: Number(params.value)};
+      if (item.id === Number(newRow.id)) {
+        return {...item, quantity: newRow.quantity};
       }
       return item;
     });
@@ -68,8 +58,14 @@ export const FeaturesForm: React.FC = () => {
 
   React.useEffect(() => {
     if (products) {
-      const p: ProductItem[] = (products as ProductItem[])?.map((p) => ({...p, quantity: 1}));
-      setProductItems(p);
+      const updatedProducts: ProductItem[] = (products as ProductItem[])?.map((p) => ({
+        ...p,
+        quantity: featuresFormValues?.selectedItems.find((q) => q.id === p.id)?.quantity ?? 1,
+      }));
+      setProductItems(updatedProducts);
+
+      if (featuresFormValues)
+        setRowSelectionModel(featuresFormValues?.selectedItems.map((r) => r.id));
     }
   }, []);
 
@@ -111,7 +107,10 @@ export const FeaturesForm: React.FC = () => {
         tableHeight={700}
         onRowSelectionModelChange={setRowSelectionModel}
         rowSelectionModel={rowSelectionModel}
-        onCellModesModelChange={handleCellEdit}
+        processRowUpdate={handleRowUpdate}
+        onProcessRowUpdateError={(e) => {
+          console.log(e);
+        }}
         checkboxSelection
       />
       <Container

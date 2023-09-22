@@ -11,8 +11,8 @@ export const booleanFormat = (params: GridRenderCellParams) => {
 };
 
 export const FEATURE_TABLE_COLUMNS: GridColDef[] = [
-  {field: "name", headerName: "Name", width: 600, sortable: true},
-  {field: "quantity", headerName: "Quantity", width: 200, sortable: true},
+  {field: "name", headerName: "Name", width: 500, sortable: true},
+  {field: "quantity", headerName: "Quantity", width: 100, sortable: true},
   {
     field: "price",
     headerName: "Price",
