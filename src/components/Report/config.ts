@@ -11,17 +11,19 @@ export const booleanFormat = (params: GridRenderCellParams) => {
 };
 
 export const FEATURE_TABLE_COLUMNS: GridColDef[] = [
-  {field: "name", headerName: "Name", width: 500, sortable: true},
-  {field: "quantity", headerName: "Quantity", width: 100, sortable: true},
+  {field: "name", headerName: "Name", width: 200, sortable: true,align: "center", headerAlign: "center",},
+  {field: "description", headerName: "Description", width: 370, sortable: true,align: "center", headerAlign: "center",},
+  {field: "quantity", headerName: "Quantity", width: 140, sortable: true,align: "center", headerAlign: "center",},
   {
     field: "price",
     headerName: "Price",
-    width: 250,
+    width: 140,
     sortable: true,
     renderCell: priceFormat,
-    align: "right",
-    headerAlign: "right",
+    align: "center",
+    headerAlign: "center",
   },
+  {field: "total amount", headerName: "Total amount", width: 140, renderCell: priceFormat, align: "center", headerAlign: "center", sortable: true},
 ];
 
 export const CAMERA_TABLE_COLUMNS: () => GridColDef[] = () => {

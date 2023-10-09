@@ -215,7 +215,7 @@ export const FormFieldItem = <T extends FieldValues>({
                 }}
               />
               <FormHelperText sx={{ color: "red" }} error={isErrorVisible || Boolean(errors[name])}>
-                {(isErrorVisible || errors[name]) && (customError || "Field is required")}
+                {(isErrorVisible ?? errors[name]) && (customError ?? "Field is required")}
               </FormHelperText>
             </TooltipWrapper>
           )}
@@ -231,8 +231,8 @@ export const FormFieldItem = <T extends FieldValues>({
           rules={{
             required,
             validate: (value) => {
-              // Eliminar el formato de moneda y verificar si es un número positivo
-              const numericValue = parseFloat(value.replace(/[^\d.]/g, ''));
+              const stringValue = value.toString();
+              const numericValue  = parseFloat(stringValue.replace(/[^\d.]/g, ''));
               if (isNaN(numericValue) || numericValue < 0) {
                 return "Budget must be a positive number";
               }
@@ -257,7 +257,7 @@ export const FormFieldItem = <T extends FieldValues>({
                 }}
               />
               <FormHelperText sx={{ color: "red" }} error={isErrorVisible || Boolean(errors[name])}>
-                {(isErrorVisible || errors[name]) && (customError || "Budget must be a positive number")}
+                {(isErrorVisible ?? errors[name]) && (customError ?? "Budget must be a positive number")}
               </FormHelperText>
             </TooltipWrapper>
           )}
@@ -301,7 +301,7 @@ export const FormFieldItem = <T extends FieldValues>({
                 }}
               />
               <FormHelperText sx={{ color: "red" }} error={isErrorVisible || Boolean(errors[name])}>
-                {(isErrorVisible || errors[name]) && (customError || "Budget must be a positive integer greater than or equal to 1")}
+                {(isErrorVisible ?? errors[name]) && (customError ?? "Budget must be a positive integer greater than or equal to 1")}
               </FormHelperText>
             </TooltipWrapper>
           )}

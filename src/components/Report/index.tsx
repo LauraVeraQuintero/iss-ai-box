@@ -8,10 +8,8 @@ import {useStepsContext} from "contexts";
 
 import {Grid, Item, Wrapper} from "./styles";
 import {
-  CAMERA_TABLE_COLUMNS,
   CURRENCY_FIELD_KEYS,
   FEATURE_TABLE_COLUMNS,
-  SERVER_TABLE_COLUMNS,
 } from "./config";
 import {ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
 import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
@@ -25,7 +23,7 @@ const ROW_HEIGHT_IN_PX = 55;
 export const REPORT_SECTION_ID = "report_section_element";
 export const REPORT_ACTIONS_ID = "report_actions_element";
 
-export const Report: React.FC = () => {
+export const Report: any = () => {
   const {projectFormValues, cameras, featuresFormValues, featuresCalculation, server} =
   useFormValuesContext();
   const {setActiveStep} = useStepsContext();
@@ -46,15 +44,17 @@ export const Report: React.FC = () => {
 
   const featureTableData = React.useMemo(() => {
     if (!featuresFormValues || !products) return [];
-
+    console.log("bbbb", featuresFormValues)
     return featuresFormValues.selectedItems.map((r) => ({
       id: r.id,
       name: r.name,
+      description: r.description,
       price: r.price,
       quantity: r.quantity,
+      totalAmount: r.price * (r.quantity ? r.quantity : 1)
     }));
   }, [featuresFormValues]);
-
+  console.log("aaa", featureTableData)
   const calculateTableHeight = (rows: number, height: number = ROW_HEIGHT_IN_PX) => {
     return height + rows * height;
   };
@@ -108,15 +108,15 @@ export const Report: React.FC = () => {
         <TemplateTable
           columns={FEATURE_TABLE_COLUMNS}
           data={featureTableData}
-          tableHeight={calculateTableHeight(featureTableData.length, 45)}
+          tableHeight={calculateTableHeight(featureTableData.length, 60)}
         />
-        {getDivider("Server")}
+        {/* {getDivider("Server")}
         <TemplateTable
           columns={SERVER_TABLE_COLUMNS}
           data={[server]}
           tableHeight={calculateTableHeight(1, 45)}
           getRowId={(row) => row.partNumber}
-        />
+        /> */}
         <ValuesWrapper>
           <FlexContainer>
             <Typography
