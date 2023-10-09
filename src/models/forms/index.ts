@@ -12,6 +12,7 @@ export type FormField<T> = {
   fullWidth?: boolean;
   options?: Option[];
   info?: string;
+  customError?: string;
 };
 
 export type FormFieldValues = ProjectFormValues | CameraFormValues;

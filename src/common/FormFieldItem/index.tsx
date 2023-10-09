@@ -2,7 +2,7 @@ import React from "react";
 import InfoIcon from "@mui/icons-material/Info";
 import { Checkbox, FormControlLabel, TextField, MenuItem, FormHelperText } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import * as moment from "moment/moment";
+import moment from "moment";
 import { Control, Controller, FieldErrors, FieldValues, Path, PathValue } from "react-hook-form";
 
 import { SwitchWrapper, TooltipWrapper } from "./styles";
@@ -12,7 +12,6 @@ import { Tooltip } from "common/Tooltip";
 type Props<T extends FieldValues> = FormField<Path<T>> & {
   control: Control<T>;
   errors: FieldErrors<T>;
-  customError?: string; // Nuevo prop para el mensaje de error específico
 };
 
 export const FormFieldItem = <T extends FieldValues>({
@@ -80,11 +79,15 @@ export const FormFieldItem = <T extends FieldValues>({
       />
     );
   } else if (type === "date") {
+    const currentDate = moment();
+  
     return (
       <Controller
         control={control}
         name={name}
-        rules={{ required }}
+        rules={{
+          required,
+        }}
         render={({ field }) => (
           <TooltipWrapper column>
             {getTooltip()}
@@ -98,6 +101,7 @@ export const FormFieldItem = <T extends FieldValues>({
               slotProps={{
                 textField: { fullWidth: true, variant: "filled" },
               }}
+              minDate={currentDate}
             />
             <FormHelperText sx={{ color: "red" }} error={isErrorVisible}>
               {isErrorVisible ? customError ?? "Field is required" : ""}
@@ -182,7 +186,82 @@ export const FormFieldItem = <T extends FieldValues>({
         )}
       />
     );
-  } else {
+    } else if (type === "tel") {
+      return (
+        <Controller
+          control={control}
+          name={name}
+          rules={{
+            required,
+            validate: (value) => {
+              const phoneDigits = value.replace(/\D/g, '');
+              return phoneDigits.length === 10 || "Phone number must be 10 digits";
+            },
+          }}
+          render={({ field }) => (
+            <TooltipWrapper column>
+              {getTooltip()}
+              <TextField
+                {...field}
+                label={label}
+                type="tel"
+                variant="filled"
+                fullWidth
+                error={isErrorVisible || Boolean(errors[name])}
+                onChange={(event) => {
+                  const inputVal: any = event.target.value.replace(/\D/g, '');
+                  field.onChange(inputVal); 
+                  setIsErrorVisible(false);
+                }}
+              />
+              <FormHelperText sx={{ color: "red" }} error={isErrorVisible || Boolean(errors[name])}>
+                {(isErrorVisible || errors[name]) && (customError || "Field is required")}
+              </FormHelperText>
+            </TooltipWrapper>
+          )}
+        />
+      );
+    } else if (type === "budget") {
+      return (
+        <Controller
+          control={control}
+          name={name}
+          rules={{
+            required,
+            validate: (value) => {
+              // Eliminar el formato de moneda y verificar si es un número positivo
+              const numericValue = parseFloat(value.replace(/[^\d.]/g, ''));
+              if (isNaN(numericValue) || numericValue < 0) {
+                return "Budget must be a positive number";
+              }
+              return true;
+            },
+          }}
+          render={({ field }) => (
+            <TooltipWrapper column>
+              {getTooltip()}
+              <TextField
+                {...field}
+                label={label}
+                type="text"
+                variant="filled"
+                fullWidth
+                placeholder="$"
+                error={isErrorVisible || Boolean(errors[name])}
+                onChange={(event) => {
+                  const inputVal: any = event.target.value.replace(/[^\d.]/g, '');
+                  field.onChange(inputVal);
+                  setIsErrorVisible(false);
+                }}
+              />
+              <FormHelperText sx={{ color: "red" }} error={isErrorVisible || Boolean(errors[name])}>
+                {(isErrorVisible || errors[name]) && (customError || "Budget must be a positive number")}
+              </FormHelperText>
+            </TooltipWrapper>
+          )}
+        />
+      );
+    } else {
     return (
       <Controller
         control={control}
