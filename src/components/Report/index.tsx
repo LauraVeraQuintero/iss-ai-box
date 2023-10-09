@@ -27,7 +27,7 @@ export const REPORT_ACTIONS_ID = "report_actions_element";
 
 export const Report: React.FC = () => {
   const {projectFormValues, cameras, featuresFormValues, featuresCalculation, server} =
-    useFormValuesContext();
+  useFormValuesContext();
   const {setActiveStep} = useStepsContext();
 
   const formatItemValue = (key: string, value?: any) => {
@@ -98,12 +98,12 @@ export const Report: React.FC = () => {
             ),
           )}
         </Grid>
-        {getDivider("Cameras")}
+        {/* {getDivider("Cameras")}
         <TemplateTable
           columns={CAMERA_TABLE_COLUMNS()}
           data={cameras}
           tableHeight={calculateTableHeight(cameras.length)}
-        />
+        /> */}
         {getDivider("Features")}
         <TemplateTable
           columns={FEATURE_TABLE_COLUMNS}

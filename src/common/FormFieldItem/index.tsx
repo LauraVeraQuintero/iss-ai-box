@@ -93,7 +93,7 @@ export const FormFieldItem = <T extends FieldValues>({
             {getTooltip()}
             <DatePicker
               label={label}
-              value={field.value}
+              value={currentDate}
               onChange={(value: moment.Moment | null) => {
                 field.onChange(value as PathValue<T, Path<T>>);
                 setIsErrorVisible(false);
@@ -222,10 +222,12 @@ export const FormFieldItem = <T extends FieldValues>({
         />
       );
     } else if (type === "budget") {
+      const defaultValue: any = 0;
       return (
         <Controller
           control={control}
           name={name}
+          defaultValue={defaultValue}
           rules={{
             required,
             validate: (value) => {
@@ -246,7 +248,7 @@ export const FormFieldItem = <T extends FieldValues>({
                 type="text"
                 variant="filled"
                 fullWidth
-                placeholder="$"
+                placeholder={name === "budget" ? '$' : ''}
                 error={isErrorVisible || Boolean(errors[name])}
                 onChange={(event) => {
                   const inputVal: any = event.target.value.replace(/[^\d.]/g, '');
@@ -256,6 +258,50 @@ export const FormFieldItem = <T extends FieldValues>({
               />
               <FormHelperText sx={{ color: "red" }} error={isErrorVisible || Boolean(errors[name])}>
                 {(isErrorVisible || errors[name]) && (customError || "Budget must be a positive number")}
+              </FormHelperText>
+            </TooltipWrapper>
+          )}
+        />
+      );
+    } else if (type === "quantity") {
+      const defaultValue: any = 1;
+      return (
+        <Controller
+          control={control}
+          name={name}
+          defaultValue={defaultValue}
+          rules={{
+            required,
+            validate: (value) => {
+              const stringValue = String(value);
+              const numericValue = parseFloat(stringValue.replace(/[^\d.]/g, ''));
+              if (isNaN(numericValue) || numericValue < 1 || !Number.isInteger(numericValue)) {
+                return "Quantity must be a positive integer greater than or equal to 1";
+              }
+              return true;
+            },
+          }}
+          render={({ field }) => (
+            <TooltipWrapper column>
+              {getTooltip()}
+              <TextField
+                {...field}
+                label={label}
+                type="text"
+                variant="filled"
+                fullWidth
+                error={isErrorVisible || Boolean(errors[name])}
+                onChange={(event) => {
+                  const inputVal: any = event.target.value.replace(/[^\d]/g, '');
+                  field.onChange(inputVal);
+                  setIsErrorVisible(false);
+                }}
+                inputProps={{
+                  inputMode: "none",
+                }}
+              />
+              <FormHelperText sx={{ color: "red" }} error={isErrorVisible || Boolean(errors[name])}>
+                {(isErrorVisible || errors[name]) && (customError || "Budget must be a positive integer greater than or equal to 1")}
               </FormHelperText>
             </TooltipWrapper>
           )}

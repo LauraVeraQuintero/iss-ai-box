@@ -1,7 +1,7 @@
 import {FormField} from "models/forms";
 
 import {CameraFormValuesKeys} from "./type";
-import {hourOptions} from "./helpers";
+import {hourOptions, daysOptions} from "./helpers";
 
 export const SCENE_ACTIVITY_LABELS: Record<string, string> = {
   low: "Low",
@@ -33,18 +33,22 @@ const FORM_FIELDS_1: Array<FormField<CameraFormValuesKeys>> = [
     required: true,
     type: "string",
     fullWidth: true,
+    customError: "Please enter Camera’s Manufacturer or Model.",
   },
   {
     label: CAMERA_FORM_LABELS.cameraQuantity,
     name: "cameraQuantity",
     required: true,
-    type: "number",
+    type: "quantity",
+    customError: "Please enter the number of cameras.",
   },
   {
     label: CAMERA_FORM_LABELS.storageDays,
     name: "storageDays",
     required: true,
-    type: "number",
+    type: "select",
+    options: daysOptions,
+    customError: "Please enter the days of storage.",
   },
   {
     label: CAMERA_FORM_LABELS.storageHours,
@@ -52,6 +56,7 @@ const FORM_FIELDS_1: Array<FormField<CameraFormValuesKeys>> = [
     required: true,
     type: "select",
     options: hourOptions,
+    customError: "Please enter the number of hours of storage.",
   },
   {
     label: CAMERA_FORM_LABELS.motionDetection,
@@ -81,6 +86,7 @@ const FORM_FIELDS_2: Array<FormField<CameraFormValuesKeys>> = [
       {label: "4K (3840 x 2160px)", value: "4K (3840 x 2160px)"},
       {label: "8K (7680x4320px)", value: "8K (7680x4320px)"},
     ],
+    customError: "Please select resolution.",
   },
   {
     label: CAMERA_FORM_LABELS.codec,
@@ -91,6 +97,7 @@ const FORM_FIELDS_2: Array<FormField<CameraFormValuesKeys>> = [
       {label: "H.264", value: "H.264"},
       {label: "H.265", value: "H.265"},
     ],
+    customError: "Please select codec.",
   },
   {
     label: CAMERA_FORM_LABELS.fps,
@@ -109,6 +116,7 @@ const FORM_FIELDS_2: Array<FormField<CameraFormValuesKeys>> = [
       {label: "25", value: 25},
       {label: "30", value: 30},
     ],
+    customError: "Please Select FPS.",
   },
   {
     label: CAMERA_FORM_LABELS.sceneActivity,
@@ -122,6 +130,7 @@ const FORM_FIELDS_2: Array<FormField<CameraFormValuesKeys>> = [
       {label: "Metro (High movement)", value: "high"},
       {label: "Unknown", value: "unknown"},
     ],
+    customError: "Please Select Scene activity.",
   },
   {
     label: CAMERA_FORM_LABELS.recordingStream,
@@ -142,6 +151,7 @@ const FORM_FIELDS_2: Array<FormField<CameraFormValuesKeys>> = [
       {label: "CIF (320x240)", value: "CIF (320x240)"},
       {label: "Unknown", value: "unknown"},
     ],
+    customError: "Please select recording stream.",
   },
   {
     label: CAMERA_FORM_LABELS.bitrate,
@@ -149,6 +159,7 @@ const FORM_FIELDS_2: Array<FormField<CameraFormValuesKeys>> = [
     required: true,
     type: "number",
     info: "This field is automatically calculated based on the selected values for Scene Activity, Recording Stream and FPS",
+    customError: "Please enter the Bitrate.",
   },
 ];
 

@@ -98,7 +98,7 @@ export const FeaturesForm: React.FC = () => {
         Features
       </Typography>
       <ValuesWrapper>
-        <Tooltip arrow placement="right-start" title={INFO_VMS}>
+        <Tooltip arrow placement="right-start" title={INFO_VMS} open={true}>
           <InfoIcon fontSize="small" sx={{color: "gray"}} />
         </Tooltip>
         <FlexContainer>

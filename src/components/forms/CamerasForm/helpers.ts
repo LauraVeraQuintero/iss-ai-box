@@ -20,3 +20,8 @@ export const hourOptions = Array.from({length: 24}, (_, index) => ({
   label: `${index + 1} hour${index !== 0 ? "s" : ""}`,
   value: index + 1,
 }));
+
+export const daysOptions = Array.from({length: 30}, (_, index) => ({
+  label: `${index + 1} day${index !== 0 ? "s" : ""}`,
+  value: index + 1,
+}));
