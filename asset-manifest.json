@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/iss-aibox-ui/static/js/main.da68f6c7.js",
+    "static/media/logo2.png": "/iss-aibox-ui/static/media/logo2.8022bda42ab8c18dd95f.png",
+    "index.html": "/iss-aibox-ui/index.html",
+    "main.da68f6c7.js.map": "/iss-aibox-ui/static/js/main.da68f6c7.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.da68f6c7.js"
+  ]
+}
