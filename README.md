@@ -1,4 +1,4 @@
-# iss-aibox-ui
+# iss-ai-box
 
 ## Available Scripts
 

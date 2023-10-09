@@ -7,7 +7,7 @@ export const routes = [
     component: <Home />,
   },
   {
-    path: "/iss-aibox-ui",
+    path: "/iss-ai-box",
     exact: true,
     component: <Home />,
   },
