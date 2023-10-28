@@ -26,6 +26,8 @@ export type FormValuesState = {
   setFeaturesCalculation: React.Dispatch<React.SetStateAction<FeaturesCalculation | undefined>>;
   server?: Server;
   setServer: React.Dispatch<React.SetStateAction<Server | undefined>>;
+  serverCount: number;
+  setServerCount: React.Dispatch<React.SetStateAction<number>>; // Función para actualizar serverCount
 };
 
 export const FormValuesContext = createContext<FormValuesState>({
@@ -41,15 +43,18 @@ export const FormValuesContext = createContext<FormValuesState>({
   setFeaturesCalculation: defaultErrorAction,
   server: undefined,
   setServer: defaultErrorAction,
+  serverCount: 0,
+  setServerCount: defaultErrorAction,
 });
 
-export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({children}) => {
+export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [projectFormValues, setProjectFormValues] = useState<ProjectFormValues>();
   const [cameras, setCameras] = useState<CameraFormValues[]>([]);
   const [featuresFormValues, setFeaturesFormValues] = useState<FeaturesFormValues>();
   const [addOnFormValues, setAddOnFormValues] = useState<AddOnFormValues>();
   const [featuresCalculation, setFeaturesCalculation] = useState<FeaturesCalculation>();
   const [server, setServer] = useState<Server>();
+  const [serverCount, setServerCount] = useState<number>(0); // Inicializar serverCount
 
   return (
     <FormValuesContext.Provider
@@ -66,10 +71,13 @@ export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({children}
         setFeaturesCalculation,
         server,
         setServer,
+        serverCount, // Agregar serverCount al contexto
+        setServerCount, // Agregar setServerCount al contexto
       }}>
       {children}
     </FormValuesContext.Provider>
   );
 };
+
 
 export const useFormValuesContext = () => useContext(FormValuesContext);

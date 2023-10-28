@@ -4,9 +4,10 @@ import {CameraFormValuesKeys} from "./type";
 import {hourOptions, daysOptions} from "./helpers";
 
 export const SCENE_ACTIVITY_LABELS: Record<string, string> = {
-  low: "Low",
-  sMed: "Stairway Med",
-  pMed: "Park Med",
+  low: "Lobby (Low movement)",
+  sMed: "Stairway (Medium movement)",
+  pMed: "Park (Medium movement)",
+  high: "Metro (High movement)",
   unknown: "Unknown",
 };
 

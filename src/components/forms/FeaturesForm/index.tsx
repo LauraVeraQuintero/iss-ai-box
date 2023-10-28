@@ -22,7 +22,7 @@ import {FlexContainer, ValuesWrapper} from "./styles";
 
 export const FeaturesForm: React.FC = () => {
   const [productItems, setProductItems] = React.useState<ProductItem[]>([]);
-  const {featuresFormValues, setFeaturesFormValues, setFeaturesCalculation, setServer, cameras} =
+  const {featuresFormValues, setFeaturesFormValues, setFeaturesCalculation, setServer, setServerCount, cameras} =
     useFormValuesContext();
   const {setActiveStep} = useStepsContext();
   const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>([]);
@@ -57,7 +57,8 @@ export const FeaturesForm: React.FC = () => {
       points: calculatedValues.points,
       storage: cameraCalculatedStorage,
     });
-    setServer(recommendedServer);
+    setServer(recommendedServer.recommendedServer);
+    setServerCount(recommendedServer.serverCount);
     console.log({recommendedServer});
     setActiveStep(3);
   };
@@ -79,21 +80,59 @@ export const FeaturesForm: React.FC = () => {
     setProductItems(updatedRows);
   };
 
+  const handleRowSelectionModelChange = (newSelection: GridRowSelectionModel) => {
+    const selectedIds = new Set(newSelection);
+    const isValidSelection4 = (selectedIds.has(1) || selectedIds.has(2)) && selectedIds.has(4);
+    const isValidSelection5 = selectedIds.has(3) && selectedIds.has(5);
+
+    if (isValidSelection4 || isValidSelection5) {
+      setRowSelectionModel(newSelection);
+    } else {
+      // Deselecciona el id: 4 o el id: 5 si no cumple con las condiciones
+      setRowSelectionModel(newSelection.filter((id) => id !== 4 && id !== 5));
+    }
+  };
+
+  
   React.useEffect(() => {
     if (products) {
-      const updatedProducts: ProductItem[] = (products as ProductItem[])?.map((p) => ({
-        ...p,
-        quantity: featuresFormValues?.selectedItems.find((q) => q.id === p.id)?.quantity ?? 1,
-      }));
-      setProductItems(updatedProducts);
-
-      if (featuresFormValues)
-        setRowSelectionModel(featuresFormValues?.selectedItems.map((r) => r.id));
+      // Verifica que 'products' sea un array de objetos
+      if (Array.isArray(products)) {
+        const updatedProducts: ProductItem[] = products.map((p) => {
+          // Verifica que cada objeto 'p' tenga una propiedad 'id'
+          if (p.id !== undefined) {
+            return {
+              ...p,
+              quantity: featuresFormValues?.selectedItems.find((q) => q.id === p.id)?.quantity ?? 0, // Inicialmente 0
+            };
+          } else {
+            console.warn("Producto sin propiedad 'id':", p);
+            return {
+              ...p,
+              quantity: featuresFormValues?.selectedItems.find((q) => q.id === p.id)?.quantity ?? 0, // Inicialmente 0
+            }; // O maneja el caso de objetos sin 'id' según tus necesidades
+          }
+        });
+  
+        setProductItems(updatedProducts);
+  
+        if (featuresFormValues) {
+          // Si el usuario marcó la casilla de verificación, establece el valor inicial en 1
+          updatedProducts.forEach((p) => {
+            if (rowSelectionModel.includes(p.id)) {
+              p.quantity = 1;
+            }
+          });
+          setRowSelectionModel(featuresFormValues?.selectedItems.map((r) => r.id));
+        }
+      } else {
+        console.error("'products' no es un array válido:", products);
+      }
     }
-  }, []);
+  }, []);  
 
   return (
-    <Container style={{marginTop: "60px", maxWidth: "1000px"}}>
+    <Container style={{marginTop: "60px", maxWidth: "1100px"}}>
       <Typography variant="h5" sx={{mb: 5}} justifyContent="center" color="black">
         Features
       </Typography>
@@ -121,7 +160,7 @@ export const FeaturesForm: React.FC = () => {
           </Typography>
           <Typography variant="h6" sx={{color: "black", fontWeight: 600}} justifyContent="center">
             {formatNumberAsCurrency(
-              calculatedValues.price + (recommendedServer?.partnerDiscount ?? 0),
+              calculatedValues.price + (recommendedServer.recommendedServer?.partnerDiscount ?? 0),
             )}
           </Typography>
         </FlexContainer>
@@ -132,10 +171,13 @@ export const FeaturesForm: React.FC = () => {
             justifyContent="center">
             Box Recommendation:
           </Typography>
-          <Typography variant="h6" sx={{color: "black", fontWeight: 600}} justifyContent="center">
-            {recommendedServer ? (
+          <Typography variant="h6" sx={{ color: "black", fontWeight: 600 }} justifyContent="center">
+            {recommendedServer.recommendedServer ? (
               <>
-                {recommendedServer?.serverType}-{recommendedServer?.partNumber}
+                <span style={{ fontWeight: "bold", color: "#1976d2", fontStyle: "italic" }}>
+                  {recommendedServer.recommendedServer?.serverType}:
+                </span>{" "}
+                {recommendedServer.recommendedServer?.partNumber}
               </>
             ) : (
               <>None</>
@@ -146,14 +188,15 @@ export const FeaturesForm: React.FC = () => {
       <TemplateTable
         data={productItems}
         columns={TABLE_COLUMNS}
-        tableHeight={700}
-        onRowSelectionModelChange={setRowSelectionModel}
+        tableHeight={800}
+        onRowSelectionModelChange={handleRowSelectionModelChange}
         rowSelectionModel={rowSelectionModel}
         processRowUpdate={handleRowUpdate}
         onProcessRowUpdateError={(e) => {
           console.log(e);
         }}
         checkboxSelection
+        isCellEditable={(params) => params.field === "quantity"}
       />
       <Container
         style={{

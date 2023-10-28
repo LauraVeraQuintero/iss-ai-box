@@ -11,8 +11,13 @@ export const formatNumberAsCurrency = (num: number) => {
   return numeral(num).format(CURRENCY_FORMAT);
 };
 
-export const boxRecommendation = (points: number, storage: number): Server | undefined => {
-  if (!servers) return;
+export type RecommendationResult = {
+  recommendedServer: Server | undefined;
+  serverCount: number;
+};
+
+export const boxRecommendation = (points: number, storage: number): RecommendationResult => {
+  if (!servers) return { recommendedServer: undefined, serverCount: 0 };
 
   let sType: ServerType;
   if (points === 0) sType = "MICRO";
@@ -31,8 +36,7 @@ export const boxRecommendation = (points: number, storage: number): Server | und
     return prevServer;
   }, serversByType[0]);
 
-  // The storage value is higher than all server options, then return the server with higher max
-  // storage
+  // The storage value is higher than all server options, then return the server with higher max storage
   if (chosenServer.maxStorage < storage) {
     chosenServer = serversByType.reduce((prevServer, currentServer) => {
       return currentServer.maxStorage > (prevServer ? prevServer.maxStorage : -1)
@@ -41,8 +45,12 @@ export const boxRecommendation = (points: number, storage: number): Server | und
     }, serversByType[0]);
   }
 
-  return chosenServer;
+  // Calculate the number of servers needed based on the total storage required
+  const serverCount = Math.ceil(storage / chosenServer.maxStorage);
+
+  return { recommendedServer: chosenServer, serverCount };
 };
+
 
 export const filterSelectedItems = (productItems: ProductItem[], selectedIds: GridRowId[]) => {
   return productItems.filter((item) => selectedIds.find((selectedId) => selectedId === item.id));

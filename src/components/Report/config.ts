@@ -11,19 +11,19 @@ export const booleanFormat = (params: GridRenderCellParams) => {
 };
 
 export const FEATURE_TABLE_COLUMNS: GridColDef[] = [
-  {field: "name", headerName: "Name", width: 200, sortable: true,align: "center", headerAlign: "center",},
-  {field: "description", headerName: "Description", width: 370, sortable: true,align: "center", headerAlign: "center",},
-  {field: "quantity", headerName: "Quantity", width: 140, sortable: true,align: "center", headerAlign: "center",},
+  {field: "name", headerName: "Name", width: 200, sortable: false,align: "left", headerAlign: "left",},
+  {field: "description", headerName: "Description", width: 370, sortable: false,align: "left", headerAlign: "left",},
+  {field: "quantity", headerName: "Quantity", width: 140, sortable: false,align: "center", headerAlign: "center",},
   {
     field: "price",
     headerName: "Price",
     width: 140,
-    sortable: true,
+    sortable: false,
     renderCell: priceFormat,
     align: "center",
     headerAlign: "center",
   },
-  {field: "total amount", headerName: "Total amount", width: 140, renderCell: priceFormat, align: "center", headerAlign: "center", sortable: true},
+  {field: "totalAmount", headerName: "Total amount", width: 140, renderCell: priceFormat, align: "center", headerAlign: "center", sortable: false},
 ];
 
 export const CAMERA_TABLE_COLUMNS: () => GridColDef[] = () => {
@@ -39,15 +39,17 @@ export const CAMERA_TABLE_COLUMNS: () => GridColDef[] = () => {
 };
 
 export const SERVER_TABLE_COLUMNS: GridColDef[] = [
-  {field: "partNumber", headerName: "Part Number", width: 400, sortable: true},
-  {field: "serverType", headerName: "Type", width: 100, sortable: true},
+  {field: "partNumber", headerName: "Name", width: 200, sortable: false,align: "center", headerAlign: "center",},
+  {field: "serverType", headerName: "Description", width: 370, sortable: false,align: "center", headerAlign: "center",},
+  {field: "quantity", headerName: "Quantity", width: 140, sortable: false,align: "center", headerAlign: "center",},
   {
     field: "partnerDiscount",
     headerName: "Price",
-    width: 250,
-    sortable: true,
+    width: 140,
+    sortable: false,
     renderCell: priceFormat,
-    align: "right",
-    headerAlign: "right",
+    align: "center",
+    headerAlign: "center",
   },
+  {field: "totalAmount", headerName: "Total amount", width: 140, renderCell: priceFormat, align: "center", headerAlign: "center", sortable: false},
 ];

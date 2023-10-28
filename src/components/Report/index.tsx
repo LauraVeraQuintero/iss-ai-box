@@ -9,7 +9,7 @@ import {useStepsContext} from "contexts";
 import {Grid, Item, Wrapper} from "./styles";
 import {
   CURRENCY_FIELD_KEYS,
-  FEATURE_TABLE_COLUMNS,
+  FEATURE_TABLE_COLUMNS
 } from "./config";
 import {ProjectFormValuesKeys} from "../forms/ProjectInfoForm/type";
 import {PROJECT_FORM_LABELS} from "../forms/ProjectInfoForm/config";
@@ -24,7 +24,7 @@ export const REPORT_SECTION_ID = "report_section_element";
 export const REPORT_ACTIONS_ID = "report_actions_element";
 
 export const Report: any = () => {
-  const {projectFormValues, cameras, featuresFormValues, featuresCalculation, server} =
+  const {projectFormValues, cameras, featuresFormValues, featuresCalculation, server, serverCount} =
   useFormValuesContext();
   const {setActiveStep} = useStepsContext();
 
@@ -40,21 +40,35 @@ export const Report: any = () => {
     return value?.toString();
   };
 
-  console.log({server});
-
   const featureTableData = React.useMemo(() => {
-    if (!featuresFormValues || !products) return [];
-    console.log("bbbb", featuresFormValues)
-    return featuresFormValues.selectedItems.map((r) => ({
+    if (!featuresFormValues || !products || !server || serverCount === undefined) return [];
+  
+    // Crear un nuevo objeto para el servidor con los valores requeridos
+    const serverItem = {
+      id: "new-server-id", // Asigna un nuevo ID si es necesario
+      name: server.partNumber,
+      description: server.description,
+      price: server.partnerDiscount,
+      quantity: serverCount,
+      totalAmount: server.partnerDiscount * (serverCount || 1),
+    };
+  
+    // Obtener los elementos seleccionados de las características
+    const selectedFeatureItems = featuresFormValues.selectedItems.map((r) => ({
       id: r.id,
       name: r.name,
       description: r.description,
       price: r.price,
       quantity: r.quantity,
-      totalAmount: r.price * (r.quantity ? r.quantity : 1)
+      totalAmount: r.price * (r.quantity ? r.quantity : 1),
     }));
-  }, [featuresFormValues]);
-  console.log("aaa", featureTableData)
+  
+    // Concatenar el objeto del servidor con los elementos de características seleccionados
+    const combinedData = [serverItem, ...selectedFeatureItems];
+  
+    return combinedData;
+  }, [featuresFormValues, server, serverCount]);
+  
   const calculateTableHeight = (rows: number, height: number = ROW_HEIGHT_IN_PX) => {
     return height + rows * height;
   };
@@ -80,7 +94,7 @@ export const Report: any = () => {
           Report Summary
         </Typography>
         {getDivider("Project")}
-        <Grid heightInPx={400}>
+        <Grid heightInPx={600}>
           {(Object.keys(projectFormValues) as ProjectFormValuesKeys[]).map(
             (key: ProjectFormValuesKeys, index) => (
               <Item key={"project-" + index.toString()}>
@@ -108,7 +122,7 @@ export const Report: any = () => {
         <TemplateTable
           columns={FEATURE_TABLE_COLUMNS}
           data={featureTableData}
-          tableHeight={calculateTableHeight(featureTableData.length, 60)}
+          tableHeight={calculateTableHeight(featureTableData.length, 80)}
         />
         {/* {getDivider("Server")}
         <TemplateTable

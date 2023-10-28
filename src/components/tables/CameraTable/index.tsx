@@ -6,7 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import Delete from "@mui/icons-material/Delete";
 import Edit from "@mui/icons-material/Edit";
-import {GridCheckIcon, GridClearIcon} from "@mui/x-data-grid";
+import {GridCheckIcon, GridRemoveIcon} from "@mui/x-data-grid";
 import {Container} from "@mui/material";
 
 import {useFormValuesContext} from "contexts";
@@ -92,15 +92,15 @@ export const CameraTable: React.FC<Props> = ({hideActions}) => {
                 </StyledTableCell>
                 <StyledTableCell align="right">{row.cameraQuantity}</StyledTableCell>
                 <StyledTableCell align="right">
-                  {row.storageDays && <>{row.storageDays} d</>}
+                  {row.storageDays && <>{row.storageDays}d</>}
                   {row.storageHours && row.storageDays && <> × </>}
-                  {row.storageHours && <>{row.storageHours} h</>}
+                  {row.storageHours && <>{row.storageHours}h</>}
                 </StyledTableCell>
                 <StyledTableCell align="right">
-                  {row.motionDetection ? <GridCheckIcon /> : <GridClearIcon />}
+                  {row.motionDetection ? <GridCheckIcon /> : <GridRemoveIcon />}
                 </StyledTableCell>
                 <StyledTableCell align="right">
-                  {row.continuousRecording ? <GridCheckIcon /> : <GridClearIcon />}
+                  {row.continuousRecording ? <GridCheckIcon /> : <GridRemoveIcon />}
                 </StyledTableCell>
                 <StyledTableCell align="right">{row.resolution}</StyledTableCell>
                 <StyledTableCell align="right">{row.codec}</StyledTableCell>
