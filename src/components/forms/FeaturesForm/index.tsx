@@ -22,7 +22,7 @@ import { FlexContainer, ValuesWrapper } from "./styles";
 
 export const FeaturesForm: React.FC = () => {
   const [productItems, setProductItems] = React.useState<ProductItem[]>([]);
-  const { featuresFormValues, setFeaturesFormValues, setFeaturesCalculation, setServer, setServerCount, cameras, camerasCount, setCamerasCount } =
+  const { featuresFormValues, setFeaturesFormValues, setFeaturesCalculation, setServer, setServerCount, cameras, camerasCount, setCamerasCount, stepped, setStepped } =
     useFormValuesContext();
   const { setActiveStep } = useStepsContext();
   const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>([]);
@@ -70,15 +70,14 @@ export const FeaturesForm: React.FC = () => {
   };
 
   const handleRowUpdate = (newRow: any, oldRow: any) => {
-    if (newRow.quantity === oldRow.quantity) return;
-  
     const updatedRows: ProductItem[] = productItems.map((item) => {
       if (item.id === Number(newRow.id)) {
         const newQuantity = Number(newRow.quantity);
         if (!isNaN(newQuantity) && newQuantity >= 0) {
-          // Resta la cantidad anterior (oldRow.quantity) y suma la nueva cantidad (newQuantity) al estado camerasCount
-          const quantityChange = newQuantity - oldRow.quantity;
-          setCamerasCount((prevCount) => prevCount - quantityChange);
+          // Verifica si item.quantity está definido antes de calcular la diferencia
+          const oldQuantity = item.quantity ?? 0;
+          const quantityChange = newQuantity - oldQuantity; // Calcula la diferencia
+          setCamerasCount((prevCount) => prevCount - quantityChange); // Actualiza la cantidad de cámaras
           return { ...item, quantity: newQuantity };
         }
       }
@@ -86,7 +85,9 @@ export const FeaturesForm: React.FC = () => {
     });
   
     setProductItems(updatedRows);
-  };  
+  };
+  
+
 
   const handleRowSelectionModelChange = (newSelection: GridRowSelectionModel) => {
     const selectedIds = new Set(newSelection);
@@ -140,18 +141,26 @@ export const FeaturesForm: React.FC = () => {
 
   React.useEffect(() => {
     // Calcular la suma de "cameraQuantity" en las cámaras
-    const camerasNumber = cameras.reduce((total, camera) => {
-      const quantity = Number(camera?.cameraQuantity) || 0; // Parsea a número y usa 0 si no es válido
-      return total + quantity;
-    }, 0);
-    // Asignar el resultado a camerasCount usando setCamerasCount
-    setCamerasCount(camerasNumber);
-  }, []);
+    if(!stepped){
+      const camerasNumber = cameras.reduce((total, camera) => {
+        const quantity = Number(camera?.cameraQuantity) || 0; // Parsea a número y usa 0 si no es válido
+        return total + quantity;
+      }, 0);
+      // Asignar el resultado a camerasCount usando setCamerasCount
+      setCamerasCount(camerasNumber);
+    }
+  }, [cameras, stepped]);
 
   React.useEffect(() => {
-    setCamerasCount(camerasCount);
     // Actualizar el estado del botón "Next" según el valor de camerasCount
-    setIsNextButtonEnabled(camerasCount === 0);
+    if(camerasCount === 0){
+      setIsNextButtonEnabled(true)
+      setStepped(true);
+    } else{
+      setIsNextButtonEnabled(false)
+      setStepped(false);
+    }
+    ;
   }, [camerasCount]);
 
   return (

@@ -1,8 +1,7 @@
 import React from "react";
-
-import {STEPPER_ID} from "components/StepperBox";
-import {REPORT_ACTIONS_ID, REPORT_SECTION_ID} from "components/Report";
-import {Button} from "../Button";
+import { STEPPER_ID } from "components/StepperBox";
+import { REPORT_ACTIONS_ID, REPORT_SECTION_ID } from "components/Report";
+import { Button } from "../Button";
 
 export const PrintButton = () => {
   const handlePrint = () => {
@@ -12,11 +11,14 @@ export const PrintButton = () => {
     const stepper = document.getElementById(STEPPER_ID);
 
     if (reportSection && reportActions && stepper && reportSectionParent) {
-      const originalSectionMaxWidth = reportSection.style.maxWidth;
-      const originalSectionMargin = reportSection.style.margin;
-      const originalSectionParentBoxShadow = reportSectionParent.style.boxShadow;
-      const originalStepperOpacity = stepper.style.opacity;
-      const originalReportActionsOpacity = reportActions.style.opacity;
+      const originalStyles = {
+        sectionMaxWidth: reportSection.style.maxWidth,
+        sectionMargin: reportSection.style.margin,
+        sectionParentBoxShadow: reportSectionParent.style.boxShadow,
+        stepperOpacity: stepper.style.opacity,
+        reportActionsOpacity: reportActions.style.opacity,
+      };
+
       reportSection.style.maxWidth = "100%";
       reportSection.style.margin = "0";
       reportSectionParent.style.boxShadow = "none";
@@ -24,11 +26,12 @@ export const PrintButton = () => {
       reportActions.style.opacity = "0";
 
       window.print();
-      reportSection.style.maxWidth = originalSectionMaxWidth;
-      reportSection.style.margin = originalSectionMargin;
-      reportSectionParent.style.boxShadow = originalSectionParentBoxShadow;
-      stepper.style.opacity = originalStepperOpacity;
-      reportActions.style.opacity = originalReportActionsOpacity;
+
+      reportSection.style.maxWidth = originalStyles.sectionMaxWidth;
+      reportSection.style.margin = originalStyles.sectionMargin;
+      reportSectionParent.style.boxShadow = originalStyles.sectionParentBoxShadow;
+      stepper.style.opacity = originalStyles.stepperOpacity;
+      reportActions.style.opacity = originalStyles.reportActionsOpacity;
     }
   };
 
