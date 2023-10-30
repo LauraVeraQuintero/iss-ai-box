@@ -27,7 +27,8 @@ export const Report: any = () => {
   const {projectFormValues, cameras, featuresFormValues, featuresCalculation, server, serverCount} =
   useFormValuesContext();
   const {setActiveStep} = useStepsContext();
-
+  const {addOnFormValues} = useFormValuesContext();
+  console.log("garantia",addOnFormValues?.sma)
   const formatItemValue = (key: string, value?: any) => {
     if (typeof value === "boolean") {
       return value ? "YES" : "NO";
@@ -54,14 +55,43 @@ export const Report: any = () => {
     };
   
     // Obtener los elementos seleccionados de las características
-    const selectedFeatureItems = featuresFormValues.selectedItems.map((r) => ({
-      id: r.id,
-      name: r.name,
-      description: r.description,
-      price: r.price,
-      quantity: r.quantity,
-      totalAmount: r.price * (r.quantity ? r.quantity : 1),
-    }));
+    const selectedFeatureItems = featuresFormValues.selectedItems.map((r) => {
+      let percentage = 0; // Porcentaje inicial
+      let smaDescription = ""; // Descripción predeterminada
+    
+      if (addOnFormValues?.sma) {
+        switch (addOnFormValues.sma) {
+          case "1 year":
+            percentage = 15;
+            break;
+          case "2 years":
+            percentage = 25;
+            break;
+          case "3 years":
+            percentage = 35;
+            break;
+          case "5 years":
+            percentage = 50;
+            break;
+        }
+        smaDescription = ` + ${addOnFormValues.sma} SMA`;
+      }
+    
+      const adjustedTotalAmount = r.price * (r.quantity ? r.quantity : 1) + (r.price * (r.quantity ? r.quantity : 1) * (percentage / 100));
+    
+      return {
+        id: r.id,
+        name: r.name,
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+        description: `${r.description}${smaDescription}`,
+        price: r.price,
+        quantity: r.quantity,
+        totalAmount: adjustedTotalAmount,
+      };
+    });
+    
+    
+    
   
     // Concatenar el objeto del servidor con los elementos de características seleccionados
     const combinedData = [serverItem, ...selectedFeatureItems];

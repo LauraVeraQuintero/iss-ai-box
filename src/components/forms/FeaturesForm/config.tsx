@@ -20,8 +20,8 @@ export const renderDescription = (params: GridRenderCellParams) => {
 };
 
 export const TABLE_COLUMNS: GridColDef[] = [
-  {field: "name", headerName: "Product", width: 400, sortable: true},
-  {field: "partId", headerName: "Part #", width: 130, sortable: true},
+  { field: "name", headerName: "Product", width: 400, sortable: true },
+  { field: "partId", headerName: "Part #", width: 130, sortable: true },
   {
     field: "price",
     headerName: "Price",
@@ -45,12 +45,28 @@ export const TABLE_COLUMNS: GridColDef[] = [
     headerName: "QTY",
     width: 90,
     type: "number",
-    editable: true,
-    valueFormatter: (params: any) => {
-      if (params.value < 1) return 1;
-      return params.value;
+    editable: true, // Mantén esta propiedad para habilitar la edición
+    renderCell: (params) => {
+      return (
+        <input
+          type="number"
+          value={params.value}
+          min="0"
+          step="1"
+          onChange={(e) => {
+            const newValue = parseInt(e.target.value, 10);
+  
+            // Validación para asegurarte de que el valor no sea menor que 0
+            if (!isNaN(newValue) && newValue >= 0) {
+              // Actualiza el valor directamente en la matriz de datos
+              params.api.updateRows([{ ...params.row, quantity: newValue }]);
+            }
+          }}
+        />
+      );
     },
-  },
+  }
+  
 ];
 
 export const INFO_VMS =

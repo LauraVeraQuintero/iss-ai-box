@@ -18,6 +18,8 @@ export type FormValuesState = {
   setProjectFormValues: React.Dispatch<React.SetStateAction<ProjectFormValues | undefined>>;
   cameras: CameraFormValues[];
   setCameras: React.Dispatch<React.SetStateAction<CameraFormValues[]>>;
+  camerasCount: number;
+  setCamerasCount: React.Dispatch<React.SetStateAction<number>>; // Función para actualizar serverCount
   featuresFormValues?: FeaturesFormValues;
   setFeaturesFormValues: React.Dispatch<React.SetStateAction<FeaturesFormValues | undefined>>;
   addOnFormValues?: AddOnFormValues;
@@ -35,6 +37,8 @@ export const FormValuesContext = createContext<FormValuesState>({
   setProjectFormValues: defaultErrorAction,
   cameras: [],
   setCameras: defaultErrorAction,
+  camerasCount: 0,
+  setCamerasCount: defaultErrorAction,
   featuresFormValues: undefined,
   setFeaturesFormValues: defaultErrorAction,
   addOnFormValues: undefined,
@@ -50,6 +54,7 @@ export const FormValuesContext = createContext<FormValuesState>({
 export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [projectFormValues, setProjectFormValues] = useState<ProjectFormValues>();
   const [cameras, setCameras] = useState<CameraFormValues[]>([]);
+  const [camerasCount, setCamerasCount] = useState<number>(0); // Inicializar serverCount
   const [featuresFormValues, setFeaturesFormValues] = useState<FeaturesFormValues>();
   const [addOnFormValues, setAddOnFormValues] = useState<AddOnFormValues>();
   const [featuresCalculation, setFeaturesCalculation] = useState<FeaturesCalculation>();
@@ -63,6 +68,8 @@ export const FormValuesProvider: React.FC<React.PropsWithChildren> = ({ children
         setProjectFormValues,
         cameras,
         setCameras,
+        camerasCount, // Agregar camerasCount al contexto
+        setCamerasCount, // Agregar setCamerasCount al contexto
         featuresFormValues,
         setFeaturesFormValues,
         addOnFormValues,
