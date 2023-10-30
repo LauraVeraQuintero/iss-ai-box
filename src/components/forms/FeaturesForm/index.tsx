@@ -22,10 +22,12 @@ import { FlexContainer, ValuesWrapper } from "./styles";
 
 export const FeaturesForm: React.FC = () => {
   const [productItems, setProductItems] = React.useState<ProductItem[]>([]);
-  const { featuresFormValues, setFeaturesFormValues, setFeaturesCalculation, setServer, setServerCount, cameras, setCamerasCount } =
+  const { featuresFormValues, setFeaturesFormValues, setFeaturesCalculation, setServer, setServerCount, cameras, camerasCount, setCamerasCount } =
     useFormValuesContext();
   const { setActiveStep } = useStepsContext();
   const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>([]);
+
+  const [isNextButtonEnabled, setIsNextButtonEnabled] = React.useState(false); // Estado para habilitar/deshabilitar el botón "Next"
 
   const calculatedValues = React.useMemo(() => {
     return productItems.reduce(
@@ -74,6 +76,9 @@ export const FeaturesForm: React.FC = () => {
       if (item.id === Number(newRow.id)) {
         const newQuantity = Number(newRow.quantity);
         if (!isNaN(newQuantity) && newQuantity >= 0) {
+          // Resta la cantidad anterior (oldRow.quantity) y suma la nueva cantidad (newQuantity) al estado camerasCount
+          const quantityChange = newQuantity - oldRow.quantity;
+          setCamerasCount((prevCount) => prevCount - quantityChange);
           return { ...item, quantity: newQuantity };
         }
       }
@@ -81,9 +86,7 @@ export const FeaturesForm: React.FC = () => {
     });
   
     setProductItems(updatedRows);
-  };
-  
-  
+  };  
 
   const handleRowSelectionModelChange = (newSelection: GridRowSelectionModel) => {
     const selectedIds = new Set(newSelection);
@@ -115,8 +118,8 @@ export const FeaturesForm: React.FC = () => {
               ...p,
               quantity: featuresFormValues?.selectedItems.find((q) => q.id === p.id)?.quantity ?? 0, // Inicialmente 0
             };
-            
-        }});
+          }
+        });
 
         setProductItems(updatedProducts);
         console.log("items: ", productItems);
@@ -143,9 +146,13 @@ export const FeaturesForm: React.FC = () => {
     }, 0);
     // Asignar el resultado a camerasCount usando setCamerasCount
     setCamerasCount(camerasNumber);
-  }, [cameras, featuresFormValues]);
-  
-  
+  }, []);
+
+  React.useEffect(() => {
+    setCamerasCount(camerasCount);
+    // Actualizar el estado del botón "Next" según el valor de camerasCount
+    setIsNextButtonEnabled(camerasCount === 0);
+  }, [camerasCount]);
 
   return (
     <Container style={{ marginTop: "60px", maxWidth: "1100px" }}>
@@ -203,6 +210,15 @@ export const FeaturesForm: React.FC = () => {
             )}
           </Typography>
         </FlexContainer>
+        <FlexContainer>
+          <Typography
+            variant="subtitle1"
+            sx={{ mr: "10px", color: "black", fontWeight: 500 }}
+            justifyContent="center"
+          >
+            Cameras Available: {camerasCount}
+          </Typography>
+        </FlexContainer>
       </ValuesWrapper>
       <TemplateTable
         data={productItems}
@@ -226,7 +242,13 @@ export const FeaturesForm: React.FC = () => {
         <Button variant="outlined" color="primary" sx={{ mt: 5 }} onClick={handleBack}>
           Back
         </Button>
-        <Button variant="contained" color="primary" sx={{ mt: 5 }} onClick={handleNext}>
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{ mt: 5 }}
+          onClick={handleNext}
+          disabled={!isNextButtonEnabled}
+        >
           Next
         </Button>
       </Container>
