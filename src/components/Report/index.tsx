@@ -24,11 +24,12 @@ export const REPORT_SECTION_ID = "report_section_element";
 export const REPORT_ACTIONS_ID = "report_actions_element";
 
 export const Report: any = () => {
-  const {projectFormValues, cameras, featuresFormValues, featuresCalculation, server, serverCount} =
+  const {projectFormValues, cameras, featuresFormValues, server, serverCount} =
   useFormValuesContext();
   const {setActiveStep} = useStepsContext();
   const {addOnFormValues} = useFormValuesContext();
-  console.log("garantia",addOnFormValues?.sma)
+  const [soePrice, setSoePrice] = React.useState<number>(0);
+  const [featurePrice, setFeaturePrice] = React.useState<number>(0);
   const formatItemValue = (key: string, value?: any) => {
     if (typeof value === "boolean") {
       return value ? "YES" : "NO";
@@ -78,7 +79,7 @@ export const Report: any = () => {
       }
     
       const adjustedTotalAmount = r.price * (r.quantity ? r.quantity : 1) + (r.price * (r.quantity ? r.quantity : 1) * (percentage / 100));
-    
+      setFeaturePrice(adjustedTotalAmount);
       return {
         id: r.id,
         name: r.name,
@@ -89,12 +90,25 @@ export const Report: any = () => {
         totalAmount: adjustedTotalAmount,
       };
     });
+
+    const camerasNumber = cameras.reduce((total, camera) => {
+      const quantity = Number(camera?.cameraQuantity) || 0; // Parsea a número y usa 0 si no es válido
+      setSoePrice((total + quantity)*248);
+      return total + quantity;
+    }, 0);
+
+    const soeCam = {
+      id: "soecam",
+      name: "SOE-CAM",
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      description: "SecurOS Enterprise -  Camera license (per channel)",
+      price: 248,
+      quantity: camerasNumber,
+      totalAmount: 248 * camerasNumber
+    }
     
-    
-    
-  
     // Concatenar el objeto del servidor con los elementos de características seleccionados
-    const combinedData = [serverItem, ...selectedFeatureItems];
+    const combinedData = [serverItem, ...selectedFeatureItems, soeCam];
   
     return combinedData;
   }, [featuresFormValues, server, serverCount]);
@@ -174,7 +188,7 @@ export const Report: any = () => {
               sx={{color: "black", fontWeight: 600}}
               justifyContent="center">
               {formatNumberAsCurrency(
-                (featuresCalculation?.totalPrice ?? 0) + server.partnerDiscount,
+                featurePrice + server.partnerDiscount + soePrice,
               )}
             </Typography>
           </FlexContainer>
